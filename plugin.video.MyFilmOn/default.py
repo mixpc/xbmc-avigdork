@@ -1,14 +1,10 @@
-import xbmc, xbmcgui, xbmcplugin, xbmcaddon
+import xbmc, xbmcgui, xbmcplugin, xbmcaddon, json
 import os, sys, datetime, re
 import urllib, urllib2
 import xml.etree.ElementTree as ET
 
 isOldPy = False if sys.version_info >=  (2, 7) else True
-if isOldPy:
-    import simplejson as _json
-else:
-	import json as _json
-	
+
 UA = 'Mozilla/5.0 (Windows NT 6.1; rv:11.0) Gecko/20100101 Firefox/11.0'
 iconPattern = 'http://static.filmon.com/couch/channels/<channelNum>/extra_big_logo.png'
 
@@ -39,6 +35,8 @@ def GetChannelsList(background=None):
 			lines = f.readlines()
 		else:
 			txt = OpenURL(remoteTxtListFile).replace('\n','')
+			print remoteTxtListFile
+			print txt
 			p = re.compile(r'\r')
 			lines = p.split(txt)
 		for w in lines[:]:
@@ -50,7 +48,58 @@ def GetChannelsList(background=None):
 				if len(tok) > 2:
 					chRef = tok[2].strip()
 			addChannel(chNum, chName, chRef)
-	  			
+
+def GetStreamUrl ( stream , playpath ) :
+	if re . search ( 'mp4' , playpath , re . IGNORECASE ) :
+		try:
+			pattern = re . compile ( 'rtmp://(.+?)/(.+?)/(.+?)/<' )
+			tocks = pattern . search ( stream+'<' )
+			app = '%s/%s/' % ( tocks . group ( 2 ) , tocks . group ( 3 ) )
+			swfUrl = 'http://www.filmon.com/tv/modules/FilmOnTV/files/flashapp/filmon/FilmonPlayer.swf'
+			URL = stream + playpath
+		except :
+			pass
+		try:
+			pattern = re . compile ( 'rtmp://(.+?)/(.+?)<' )
+			tocks = pattern . search ( stream+'<' )
+			app = '%s' % ( tocks . group ( 1 ) , tocks . group ( 2 ) )
+			swfUrl = 'http://www.filmon.com/tv/modules/FilmOnTV/files/flashapp/filmon/FilmonPlayer.swf'
+			URL = stream + '/' + playpath
+		except :
+			pass
+	if re . search ( 'm4v' , playpath , re . IGNORECASE ) :
+		app = 'vodlast'
+		swfUrl = 'http://www.filmon.com/tv/modules/FilmOnTV/files/flashapp/filmon/FilmonPlayer.swf'
+		URL = stream + '/' + playpath
+	else :
+		try :
+			pattern = re . compile ( 'rtmp://(.+?)/live/(.+?)id=(.+?)<' )
+			tocks = pattern . search ( stream+'<' )
+			app = 'live/%sid=%s' % ( tocks . group ( 2 ) , tocks . group ( 3 ) )
+			URL = stream
+			swfUrl = 'http://www.filmon.com/tv/modules/FilmOnTV/files/flashapp/filmon/FilmonPlayer.swf'
+		except :
+			pass
+		try :
+			pattern = re . compile ( 'rtmp://(.+?)/(.+?)id=(.+?)"' )
+			tocks = pattern . search ( stream+'<' )
+			app = '%sid=%s' % ( tocks . group ( 2 ) , tocks . group ( 3 ) )
+			swfUrl = 'http://www.filmon.com/tv/modules/FilmOnTV/files/flashapp/filmon/FilmonPlayer.swf?v=28'
+		except :
+			pass
+		try :
+			pattern = re . compile ( 'rtmp://(.+?)/(.+?)/<' )
+			tocks = pattern . search ( stream+'<' )
+			app = '%s/' % ( tocks . group ( 2 ) )
+			URL = stream + '/' + playpath
+			swfUrl = 'http://www.filmon.com/tv/modules/FilmOnTV/files/flashapp/filmon/FilmonPlayer.swf'
+		except :
+			pass
+	tcUrl = stream
+	pageurl = 'http://www.filmon.com/'
+	URL = str ( URL ) + ' playpath=' + str ( playpath ) + ' app=' + str ( app ) + ' swfUrl=' + str ( swfUrl ) + ' tcUrl=' + str ( tcUrl ) + ' pageurl=' + str ( pageurl ) + ' live=true'
+	return URL
+ 
 def PlayChannel(chNum, referrerCh=None, ChName=None):
 	if referrerCh == None:
 		prms = GetChannelJson(chNum)
@@ -62,6 +111,10 @@ def PlayChannel(chNum, referrerCh=None, ChName=None):
 		xbmc.executebuiltin('Notification({0}, {1}, {2}, {3})'.format(AddonID, localizedString(55012).encode('utf-8'), 5000, os.path.join(imagesFolder, 'fail.png')))
 		return
 		
+	#print "serverURL: {0}\nstreamName: {1}".format(prms["serverURL"], prms["streamName"])
+	#srteam = GetStreamUrl(prms["serverURL"], prms["streamName"].replace('low','high'))
+	#print "srteam: {0}".format(srteam)
+	#return
 	channelName, channelDescription, iconimage, streamUrl, tvGuide = GetChannelDetails(prms, chNum, referrerCh, ChName)
 
 	channelName = "[B]{0}[/B]".format(channelName)
@@ -205,10 +258,10 @@ def GetChannelHtml(chNum):
 	
 def GetChannelJson(chNum):
 	html = GetChannelHtml(chNum)
-	resultJSON = _json.loads(html)
-	if len(resultJSON) < 1 or not resultJSON[0].has_key("title"):
+	resultJSON = json.loads(html)
+	if len(resultJSON) < 1 or not resultJSON.has_key("title"):
 		return None
-	return resultJSON[0]
+	return resultJSON
 		
 def GetChannelsInCategoriesList(categoryID, background=None):
 	background1 = None 
