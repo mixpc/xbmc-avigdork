@@ -40,16 +40,8 @@ if remoteSettings == []:
 	xbmc.executebuiltin('Notification({0}, Cannot load settings, {1}, {2})'.format(AddonName, 5000, icon))
 	sys.exit()
 
-plxType = int(Addon.getSetting("PlxPlaylist"))
-if plxType == 0:
-	package = remoteSettings["packages"]["zip"]
-	filmonGuideFile = os.path.join(user_dataDir, 'filmonZipGuide.txt')
-elif plxType == 1:
-	package = remoteSettings["packages"]["light"]
-	filmonGuideFile = os.path.join(user_dataDir, 'filmonLightGuide.txt')
-else:
-	package = remoteSettings["packages"]["full"]
-	filmonGuideFile = os.path.join(user_dataDir, 'filmonFullGuide.txt')
+package = remoteSettings["packages"]["full"]
+filmonGuideFile = os.path.join(user_dataDir, 'filmonFullGuide.txt')
 
 useFilmonEPG = Addon.getSetting("saveFilmonEPG") == "true"
 if useFilmonEPG:
@@ -65,23 +57,14 @@ epgGlobal = None
 	
 def CATEGORIES():
 	SaveGuide(showNotification=False)
-	addDir("[COLOR green][B][{0}][/B][/COLOR]".format(localizedString(30000).encode('utf-8')),'favorits',15,'http://cdn3.tnwcdn.com/files/2010/07/bright_yellow_star.png','')
-	
-	if plxType == 0 or plxType == 1:
-		ListLive(package["url"])
-	else:
-		for sub in package["sub"]:
-			addDir("[COLOR blue][B][{0}][/B][/COLOR]".format(sub[xbmcLang].encode('utf-8')), sub["url"], 2, sub["icon"], '', background=sub["icon"])
-		'''
-		if os.path.exists(os.path.join(xbmc.translatePath("special://home/addons/").decode("utf-8"), 'plugin.video.movie25')):
-			addDir('[COLOR blue][B][iLive.to][/B][/COLOR]','plugin://plugin.video.movie25/?iconimage=https%3a%2f%2fraw.github.com%2fmash2k3%2fMashupArtwork%2fmaster%2fart%2filive.png&mode=119&name=iLive%20Streams&url=ilive',7,'https://raw.github.com/mash2k3/MashupArtwork/master/art/ilive.png','')
-			addDir('[COLOR blue][B][Mash Sports][/B][/COLOR]','plugin://plugin.video.movie25/?fanart&genre&iconimage=https%3a%2f%2fraw.github.com%2fmash2k3%2fMashupArtwork%2fmaster%2fskins%2fvector%2fk1m05.png&mode=182&name=K1m05%20Sports&plot&url=https%3a%2f%2fraw.github.com%2fmash2k3%2fMashUpK1m05%2fmaster%2fPlaylists%2fSports%2fSports.xml',7,'http://3.bp.blogspot.com/-gJtkhvtY1EY/UVWwH2iCGfI/AAAAAAAAA-o/b-_qJk5UMiU/s1600/Live-Sports+-+Copie.jpg','')
-		else:
-			addDir('[COLOR green][B]{0} (MashUp)[/B][/COLOR]'.format(localizedString(30200).encode('utf-8')), 'http://install.mashupxbmc.com/Addon/MashUpv1.4.0(8-24-14).zip;http://install.mashupxbmc.com/Repository/MashUp_RepoB-1.9.zip', 8,'http://blog.missionmode.com/storage/post-images/critical-factor-missing.jpg', 'MashUp')
-		'''
 	if not os.path.exists(os.path.join(xbmc.translatePath("special://home/addons/").decode("utf-8"), 'plugin.video.teledunet')):
 		common.downloader_is("https://github.com/hadynz/repository.arabic.xbmc-addons/blob/master/repo/plugin.video.teledunet/plugin.video.teledunet-2.3.7.zip?raw=true", "", showProgress=False)
 		common.downloader_is("http://srp.nu/gotham/regional/arabic/repository.superrepo.org.gotham.regional.arabic-0.5.205.zip", "", showProgress=False)
+		
+	addDir("[COLOR green][B][{0}][/B][/COLOR]".format(localizedString(30000).encode('utf-8')),'favorits',15,'http://cdn3.tnwcdn.com/files/2010/07/bright_yellow_star.png','')
+	
+	for sub in package["sub"]:
+		addDir("[COLOR blue][B][{0}][/B][/COLOR]".format(sub[xbmcLang].encode('utf-8')), sub["url"], 2, sub["icon"], '', background=sub["icon"])
 	
 	SetViewMode()
 		
@@ -215,10 +198,14 @@ def GetPlayingDetails(channelName, channelNum=None, filmon=False, ignoreFilmonGu
 	
 	if len(programmes) > 0:
 		programme = programmes[0]
-		programmeName = '[B]{0}[/B] [{1}-{2}]'.format(programme["name"].encode("utf-8"), datetime.datetime.fromtimestamp(programme["start"]).strftime('%H:%M'), datetime.datetime.fromtimestamp(programme["end"]).strftime('%H:%M'))
+		if not filmon:
+			programme["name"] = programme["name"].encode('utf-8')
+		programmeName = '[B]{0}[/B] [{1}-{2}]'.format(programme["name"], datetime.datetime.fromtimestamp(programme["start"]).strftime('%H:%M'), datetime.datetime.fromtimestamp(programme["end"]).strftime('%H:%M'))
 		if len(programmes) > 1:
 			nextProgramme = programmes[1]
-			channelName = "{0} - [COLOR white]Next: [B]{1}[/B] [{2}-{3}][/COLOR]".format(channelName, nextProgramme["name"].encode("utf-8"), datetime.datetime.fromtimestamp(nextProgramme["start"]).strftime('%H:%M'), datetime.datetime.fromtimestamp(nextProgramme["end"]).strftime('%H:%M'))
+			if not filmon:
+				nextProgramme["name"] = nextProgramme["name"].encode("utf-8")
+			channelName = "{0} - [COLOR white]Next: [B]{1}[/B] [{2}-{3}][/COLOR]".format(channelName, nextProgramme["name"], datetime.datetime.fromtimestamp(nextProgramme["start"]).strftime('%H:%M'), datetime.datetime.fromtimestamp(nextProgramme["end"]).strftime('%H:%M'))
 	else:
 		programmeName = channelName
 
