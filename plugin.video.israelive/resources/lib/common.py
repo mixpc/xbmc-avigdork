@@ -161,15 +161,6 @@ def UpdatePlx(url, file, refreshInterval=0, forceUpdate=False):
 		categories_list.sort(key=operator.itemgetter('id'))
 		WriteList(os.path.join(listsDir, "categories.list"), categories_list)
 		
-		selectedCatList = ReadList(os.path.join(listsDir, "selectedCategories.list"))
-		for index, cat in enumerate(selectedCatList):
-			if any(f["id"] == cat.get("id", "") for f in categories_list):
-				categoty = [f for f in categories_list if f["id"] == cat.get("id", "")]
-				selectedCatList[index] = categoty[0]
-			else:
-				selectedCatList[index]["type"] = "ignore"
-		WriteList(os.path.join(listsDir, "selectedCategories.list"), selectedCatList)
-		
 		favsList = ReadList(os.path.join(user_dataDir, 'favorites.txt'))
 		for index, favourite in enumerate(favsList):
 			if any(f["id"] == favourite.get("id", "") for f in fullList):
@@ -178,6 +169,7 @@ def UpdatePlx(url, file, refreshInterval=0, forceUpdate=False):
 			else:
 				if favsList[index].has_key("id"):
 					favsList[index]["type"] = "ignore"
+					
 		WriteList(os.path.join(user_dataDir, 'favorites.txt'), favsList)
 		
 	return isListUpdated
@@ -224,22 +216,25 @@ def Decode(string, key=None):
 def GetKey():
 	return AddonName
 	
-def GetAddonDefaultRemoteSettingsUrl():
-	remoteSettingsUrl = ""
+def GetAddonDefaults(addon):
 	try:
-		f = open(os.path.join(Addon.getAddonInfo("path").decode("utf-8"), 'resources', 'settings.xml') ,'r')
+		f = open(os.path.join(addon.getAddonInfo("path").decode("utf-8"), 'resources', 'settings.xml') ,'r')
 		data = f.read()
 		f.close()
-		matches = re.compile('setting id="remoteSettingsUrl".+?default="(.+?)"',re.I+re.M+re.U+re.S).findall(data)
-		remoteSettingsUrl = matches[0]
+		matches = re.compile('^.*?<setting id="(.*?)".*?default="(.*?)".*?$',re.I+re.M+re.U+re.S).findall(data)
+		dict = {}
+		for match in matches:
+			dict[match[0]] = match[1]
+		return dict
+
 	except Exception as ex:
 		print ex
-	return remoteSettingsUrl
+	return dict
 	
 def GetRemoteSettingsUrl():
 	remoteSettingsUrl = Addon.getSetting("remoteSettingsUrl")
 	if Addon.getSetting("forceRemoteDefaults") == "true":
-		defaultRemoteSettingsUrl = GetAddonDefaultRemoteSettingsUrl()
+		defaultRemoteSettingsUrl = GetAddonDefaults(Addon)["remoteSettingsUrl"]
 		if defaultRemoteSettingsUrl != remoteSettingsUrl:
 			remoteSettingsUrl = defaultRemoteSettingsUrl
 			Addon.setSetting("remoteSettingsUrl", remoteSettingsUrl)
