@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import sys, os, io, re, time, base64, hashlib
+import sys, os, io, re, time, base64
 import urllib, urllib2, json
 import xbmc, xbmcgui, xbmcaddon
 import multiChoiceDialog
@@ -146,19 +146,39 @@ def UpdatePlx(url, file, refreshInterval=0, forceUpdate=False):
 		isListUpdated = True
 			
 	if isListUpdated:
-		dic_list = GetListFromPlx(fullScan=True)
-		dic_list.sort(key=operator.itemgetter('group'))
+		fullList = GetListFromPlx(fullScan=True)
+		fullList.sort(key=operator.itemgetter('group'))
 		categories_list = []
-		for key, group in itertools.groupby(dic_list, lambda item: item["group"]):
-			list1 = [{"url": item["url"], "image": item["image"], "name": item["name"].decode("utf-8"), "type": item["type"], "group": item["group"].decode("utf-8")} for item in group]
-			filename = os.path.join(listsDir, "{0}.list".format(hashlib.md5(key.strip()).hexdigest()))
+		for key, group in itertools.groupby(fullList, lambda item: item["group"]):
+			list1 = [{"url": item["url"], "image": item["image"], "name": item["name"].decode("utf-8"), "type": item["type"], "group": item["group"].decode("utf-8"), "id": item["id"]} for item in group]
+			filename = os.path.join(listsDir, "{0}.list".format(key.strip()))
 			WriteList(filename, list1)
-			categories = [{"name": item["name"], "image": item["image"], "group": item["group"]} for item in list1 if item['type'] == "playlist"]
+			categories = [{"name": item["name"], "image": item["image"], "group": item["group"], "id": item["id"]} for item in list1 if item['type'] == "playlist"]
 			if len(categories) > 0:
 				for category in categories:
 					categories_list.append(category)
 
+		categories_list.sort(key=operator.itemgetter('id'))
 		WriteList(os.path.join(listsDir, "categories.list"), categories_list)
+		
+		selectedCatList = ReadList(os.path.join(listsDir, "selectedCategories.list"))
+		for index, cat in enumerate(selectedCatList):
+			if any(f["id"] == cat.get("id", "") for f in categories_list):
+				categoty = [f for f in categories_list if f["id"] == cat.get("id", "")]
+				selectedCatList[index] = categoty[0]
+			else:
+				selectedCatList[index]["type"] = "ignore"
+		WriteList(os.path.join(listsDir, "selectedCategories.list"), selectedCatList)
+		
+		favsList = ReadList(os.path.join(user_dataDir, 'favorites.txt'))
+		for index, favourite in enumerate(favsList):
+			if any(f["id"] == favourite.get("id", "") for f in fullList):
+				channel = [f for f in fullList if f["id"] == favourite.get("id", "")]
+				favsList[index] = {"url": channel[0]["url"], "image": channel[0]["image"], "name": channel[0]["name"].decode("utf-8"), "type": channel[0]["type"], "group": channel[0]["group"].decode("utf-8"), "id": channel[0]["id"]}
+			else:
+				if favsList[index].has_key("id"):
+					favsList[index]["type"] = "ignore"
+		WriteList(os.path.join(user_dataDir, 'favorites.txt'), favsList)
 		
 	return isListUpdated
 		
@@ -204,38 +224,35 @@ def Decode(string, key=None):
 def GetKey():
 	return AddonName
 	
-def GetAddonDefaults(addon):
+def GetAddonDefaultRemoteSettingsUrl():
+	remoteSettingsUrl = ""
 	try:
-		f = open(os.path.join(addon.getAddonInfo("path").decode("utf-8"), 'resources', 'settings.xml') ,'r')
+		f = open(os.path.join(Addon.getAddonInfo("path").decode("utf-8"), 'resources', 'settings.xml') ,'r')
 		data = f.read()
 		f.close()
-		matches = re.compile('^.*?<setting id="(.*?)".*?default="(.*?)".*?$',re.I+re.M+re.U+re.S).findall(data)
-		dict = {}
-		for match in matches:
-			dict[match[0]] = match[1]
-		return dict
-
+		matches = re.compile('setting id="remoteSettingsUrl".+?default="(.+?)"',re.I+re.M+re.U+re.S).findall(data)
+		remoteSettingsUrl = matches[0]
 	except Exception as ex:
 		print ex
-	return dict
+	return remoteSettingsUrl
 	
 def GetRemoteSettingsUrl():
 	remoteSettingsUrl = Addon.getSetting("remoteSettingsUrl")
 	if Addon.getSetting("forceRemoteDefaults") == "true":
-		defaultRemoteSettingsUrl = GetAddonDefaults(Addon)["remoteSettingsUrl"]
+		defaultRemoteSettingsUrl = GetAddonDefaultRemoteSettingsUrl()
 		if defaultRemoteSettingsUrl != remoteSettingsUrl:
 			remoteSettingsUrl = defaultRemoteSettingsUrl
 			Addon.setSetting("remoteSettingsUrl", remoteSettingsUrl)
 	return remoteSettingsUrl
 	
-def GetListFromPlx(filterCat="israelive", includeChannels=True, includeCatNames=True, fullScan=False):
+def GetListFromPlx(filterCat="9999", includeChannels=True, includeCatNames=True, fullScan=False):
 	plxFile = os.path.join(user_dataDir, "israelive.plx")
 	f = open(plxFile,'r')
 	data = f.read()
 	f.close()
 	
 	matches = re.compile('^type(.+?)#$',re.I+re.M+re.U+re.S).findall(data)
-	categories = ["israelive"]
+	categories = ["9999"]
 	list = []
 	for match in matches:
 		item=re.compile('^(.*?)=(.*?)$',re.I+re.M+re.U+re.S).findall("type{0}".format(match))
@@ -251,7 +268,7 @@ def GetListFromPlx(filterCat="israelive", includeChannels=True, includeCatNames=
 		
 		if item_data["type"] == 'audio' and item_data["url"] == '':
 			if channelName.find("-") != 0:
-				categories.append(channelName)
+				categories.append(item_data["id"])
 				item_data["type"] = "playlist"
 				if not includeCatNames:
 					continue
@@ -265,12 +282,12 @@ def GetListFromPlx(filterCat="israelive", includeChannels=True, includeCatNames=
 		subCat = categories[lenCat-1] if item_data["type"] != "playlist" else categories[lenCat-2]
 
 		if subCat == filterCat or fullScan:
-			list.append({"url": url, "image": thumb, "name": channelName, "type": item_data["type"], "group": subCat})
+			list.append({"url": url, "image": thumb, "name": channelName, "type": item_data["type"], "group": subCat, "id": item_data["id"]})
 		
 	return list
 	
-def GetChannels(categoryName):
-	fileName = os.path.join(listsDir, "{0}.list".format(hashlib.md5(categoryName.strip()).hexdigest()))
+def GetChannels(categoryID):
+	fileName = os.path.join(listsDir, "{0}.list".format(categoryID))
 	return ReadList(fileName)
 	
 def MergeGuides(globalGuideFile, filmonGuideFile, fullGuideFile):
@@ -286,17 +303,17 @@ def MakeCatGuides(fullGuideFile, categoriesFile):
 	epg = ReadList(fullGuideFile)
 	
 	categories = ReadList(categoriesFile)
-	categories.append({"name": "Favourites"})
+	categories.append({"id": "Favourites"})
 
 	for category in categories:
-		MakeCatGuide(fullGuideFile, category["name"], epg)
+		MakeCatGuide(fullGuideFile, category["id"], epg)
 	
-def MakeCatGuide(fullGuideFile, categoryName, epg=None):
+def MakeCatGuide(fullGuideFile, categoryID, epg=None):
 	if epg is None:
 		epg = ReadList(fullGuideFile)
 		
-	filename = os.path.join(listsDir, "{0}.guide".format(hashlib.md5(categoryName.encode("utf-8").strip()).hexdigest()))
-	channels = GetChannels(categoryName.encode("utf-8")) if categoryName != "Favourites" else ReadList(os.path.join(user_dataDir, 'favorites.txt'))
+	filename = os.path.join(listsDir, "{0}.guide".format(categoryID))
+	channels = GetChannels(categoryID) if categoryID != "Favourites" else ReadList(os.path.join(user_dataDir, 'favorites.txt'))
 	categoryEpg = []
 	for channel in channels:
 		if channel["type"] == 'video' or channel["type"] == 'audio':
@@ -309,8 +326,8 @@ def MakeCatGuide(fullGuideFile, categoryName, epg=None):
 				pass
 	WriteList(filename, categoryEpg)
 		
-def GetGuide(categoryName):
-	fileName = os.path.join(listsDir, "{0}.guide".format(hashlib.md5(categoryName.strip()).hexdigest()))
+def GetGuide(categoryID):
+	fileName = os.path.join(listsDir, "{0}.guide".format(categoryID))
 	return ReadList(fileName)
 	
 def CheckNewVersion():

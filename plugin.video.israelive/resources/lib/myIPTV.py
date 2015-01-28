@@ -41,12 +41,12 @@ def makeIPTVlist(iptvFile, portNum):
 		#		satElitKey = myResolver.GetSatElitKeyOnly()
 		#	url = myResolver.GetSatElitFullLink(url[:url.find('?mode')], satElitKey)
 		elif url.find('?mode=7') > 0:
-			url = myResolver.aatw(url[:url.find('?mode')])
+			url = myResolver.GetAatwFullLink(url[:url.find('?mode')])
 			
 		tvg_name = item['name'].replace(' ','_')
 		tvg_logo = GetLogoFileName(item)
 		radio = ' radio="true"' if item['type'].lower() == "audio" else ''
-		group = ' group-title="{0}"'.format(item['group'].encode("utf-8")) if item.has_key('group') else ''
+		group = ' group-title="{0}"'.format(item['group']) if item.has_key('group') else ''
 		iptvList += '\n#EXTINF:-1 tvg-id="{0}" tvg-name="{1}"{2} tvg-logo="{3}"{4},{5}\n{6}\n'.format(tvg_id, tvg_name, group, tvg_logo, radio, view_name, url)
 
 	f = open(iptvFile, 'w')
@@ -135,23 +135,21 @@ def SaveChannelsLogos(logosDir):
 def GetIptvAddon():
 	iptvAddon = None
 	
-	if os.path.exists(xbmc.translatePath("special://home/addons/").decode("utf-8") + 'pvr.iptvsimple') or os.path.exists(xbmc.translatePath("special://xbmc/addons/").decode("utf-8") + 'pvr.iptvsimple'):
+	if xbmc.getCondVisibility("System.HasAddon(pvr.iptvsimple)"):
 		try:
 			iptvAddon = xbmcaddon.Addon("pvr.iptvsimple")
 		except:
-			print "---- {0} ----\nIPTVSimple addon is disable.".format(AddonName)
-			msg1 = "PVR IPTVSimple is Disable."
-			msg2 = "Please enable IPTVSimple addon."
-	else:	
+			pass
+
+	if iptvAddon is None:
 		import platform
 		osType = platform.system()
 		osVer = platform.release()
 		xbmcVer = xbmc.getInfoLabel( "System.BuildVersion" )[:2]
+		print "---- {0} ----\nIPTVSimple addon is disable.".format(AddonName)
 		print "---- {0} ----\nosType: {1}\nosVer: {2}\nxbmcVer: {3}".format(AddonName, osType, osVer, xbmcVer)
-		msg1 = "PVR IPTVSimple is NOT installed on your machine."
-		msg2 = "Please install XBMC version that include IPTVSimple in it."
-	
-	if iptvAddon is None:
+		msg1 = "PVR IPTV Simple Client is Disable."
+		msg2 = "Please enable PVR IPTV Simple Client addon."
 		common.OKmsg(AddonName, msg1, msg2)
 		
 	return iptvAddon
@@ -161,7 +159,7 @@ def UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath):
 	if not os.path.isfile(iptvSettingsFile):
 		iptvAddon = GetIptvAddon()
 		if iptvAddon is None:
-			return
+			return False
 		iptvAddon.setSetting("epgPathType", "0") # make 'settings.xml' in 'userdata/addon_data/pvr.iptvsimple' folder
 	
 	# get settings.xml into dictionary
@@ -189,7 +187,7 @@ def UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath):
 		isSettingsChanged = True
 		
 	if not isSettingsChanged:
-		return
+		return True
 		
 	#make new settings.xml (string)
 	xml = "<settings>\n"
@@ -201,6 +199,7 @@ def UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath):
 	f = open(iptvSettingsFile, 'w') 
 	f.write(xml)
 	f.close()
+	return True
 	
 def ReadSettings(source, fromFile=False):
 	try:
@@ -233,29 +232,36 @@ def RefreshPVR(m3uPath, epgPath, logoPath, autoIPTV=2):
 		xbmc.executebuiltin('StartPVRManager')
 		
 def GetCategories():
-	useCategories = Addon.getSetting("useCategories") == "true"
 	iptvList = int(Addon.getSetting("iptvList"))
-
-	if not useCategories or iptvList == 2:
-		categories = common.ReadList(os.path.join(user_dataDir, 'lists', 'categories.list'))
-	elif iptvList == 0:
-		categories = [{"name": "Favourites"}]
+	if iptvList == 0:
+		categories = [{"id": "Favourites"}]
 	elif iptvList == 1:
-		categories = common.ReadList(os.path.join(user_dataDir, 'lists', 'selectedCategories.list'))
-	
+		categories = common.GetChannels('categories')
+	elif iptvList == 2:
+		categories = common.GetChannels('selectedCategories')
 	return categories
 		
 def GetIptvChannels():
+	allCategories = common.GetChannels('categories')
 	categories = GetCategories()
 	channelsList = []
 	for category in categories:
-		channels = common.GetChannels(category["name"].encode("utf-8")) if category["name"] != "Favourites" else common.ReadList(os.path.join(user_dataDir, 'favorites.txt'))
+		if category.has_key("type") and category["type"] == "ignore":
+			continue
+		channels = common.GetChannels(category["id"]) if category["id"] != "Favourites" else common.ReadList(os.path.join(user_dataDir, 'favorites.txt'))
 		for channel in channels:
 			if channel["type"] == 'video' or channel["type"] == 'audio':
-				channel['name'] = channel['name'].encode("utf-8").replace("[COLOR yellow][B]", "").replace("[/B][/COLOR]", "")
-				#channel['name'] = channel['name'].replace("[COLOR yellow][B]", "").replace("[/B][/COLOR]", "")
 				try:
-					channelsList.append(channel)
+					channelName = channel['name'].encode("utf-8").replace("[COLOR yellow][B]", "").replace("[/B][/COLOR]", "")
+					
+					if category["id"] == "Favourites":
+						gp = [x["name"] for x in allCategories if x["id"] == channel.get("group", "")]
+						groupName = gp[0] if len(gp) > 0 else 'Favourites'
+					else:
+						groupName = category['name']
+							
+					data = {'name': channelName, 'url': channel['url'], 'image': channel['image'], 'type': channel['type'], 'group': groupName.encode("utf-8")}
+					channelsList.append(data)
 				except Exception, e:
 					pass
 					
@@ -265,9 +271,7 @@ def GetIptvGuide():
 	categories = GetCategories()
 	epg = []
 	for category in categories:
-		fileName = os.path.join(user_dataDir, 'lists', "{0}.guide".format(hashlib.md5(category["name"].encode("utf-8").strip()).hexdigest()))
-		channels = common.ReadList(fileName)
-		
+		channels = common.GetGuide(category["id"])		
 		for channel in channels:
 			try:
 				if not any(d.get('channel', '').encode('utf-8') == channel["channel"].encode("utf-8") for d in epg):
