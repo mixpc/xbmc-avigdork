@@ -1,0 +1,44 @@
+{
+  "fullGuide": {
+    "lastModified": "1434333486", 
+    "refresh": 0, 
+    "urls": [
+      "sefm0Z97eLiuvaHe2pR9rY98u6W1", 
+      "sefm0Z97eLiuvaHe2pR9j8K4ksGj", 
+      "sefm0Z97eLiuvaHe2pR9rqKvqrnr", 
+      "sefm0Z97eLiuvaHe2pR9k8C1v6na"
+    ]
+  }, 
+  "globalGuide": {
+    "lastModified": "1434333486", 
+    "refresh": 0, 
+    "urls": [
+      "sefm0Z97eLiuvaHe2pR9kMucwbTC", 
+      "sefm0Z97eLiuvaHe2pR9ga-PfuTd"
+    ]
+  }, 
+  "remoteSettings": {
+    "lastModified": "1434333911", 
+    "refresh": 12, 
+    "urls": [
+      "sefm0Z97eLiuvaHe2pR9jaqKocjh", 
+      "sefm0Z97eLiuvaHe2pR9j7mfktng"
+    ]
+  }, 
+  "filmonGuide": {
+    "lastModified": "1434333315", 
+    "refresh": 0, 
+    "urls": [
+      "sefm0Z97eLiuvaHe2pR9q8l6tb7c", 
+      "sefm0Z97eLiuvaHe2pR9gam9lMzM"
+    ]
+  }, 
+  "plx": {
+    "lastModified": "1433709812", 
+    "refresh": 0, 
+    "urls": [
+      "sefm0Z97eLiuvaHe2pR9gLi-r9nT", 
+      "sefm0Z97eLiuvaHe2pR9v8yylKvn"
+    ]
+  }
+}
