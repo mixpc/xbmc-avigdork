@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<settings>
-	<setting id="MakoUsername" type="text" label="30003" default="" />
-	<setting id="MakoPassword" type="text" option="hidden" label="30004" default="" />
-	<setting id="MakoDeviceID" type="text" label="30005" default="" />
-</settings>

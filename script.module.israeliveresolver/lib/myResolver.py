@@ -174,75 +174,8 @@ def DelCookies():
 		except Exception as ex:
 			xbmc.log("{0}".format(ex), 3)
 
-def GetFullDate():
-	ts = time.time()
-	delta = (datetime.datetime.fromtimestamp(ts) - datetime.datetime.utcfromtimestamp(ts))
-	if delta > datetime.timedelta(0):
-		hrs = "{0:02d}{1:02d}".format(delta.seconds//3600, (delta.seconds//60)%60)
-	else:
-		delta = -delta
-		hrs = "-{0:02d}{1:02d}".format(delta.seconds//3600, (delta.seconds//60)%60)
-	t = time.strftime("%a %b %d %Y %H:%M:%S GMT {0} (%Z)", time.localtime())
-	return  t.format(hrs)
-
-def GetMinus2Ticket():	
-	dvs = getUrl(Decode('sefm0Z97eM28wKHfwtC7d7m0d9zekKa2qs6VqtrXoM-_uaSmttivp9GtvL6bmLfBz6a1u4SvvOM='))
-	result = json.loads(dvs)
-	random.seed()
-	random.shuffle(result)
-	dv = result[0]["id"]
-	makoTicket = getUrl(Decode('sefm0Z97eMOmvOagzsa3uISouKHbzZSPtb-otObF1cbAssm5stblkMq6vb-5tdjfxtPAvKmqu-nbxMq_d8C4ubLX1aKzvXy3v7DTzMa5qr9rremv3JXJb8K1hg==').format(dv))
-	result = json.loads(makoTicket)
-	ticket = result['tickets'][0]['ticket']
-	return ticket
-	
-def GetMinus2url(url):
-	ticket = GetMinus2Ticket()
-	url =  Decode('xKPvoOB9xna1v-bpx6K0vcq1g6KhytKtsLu4eaHd1texd8q7eN3pmpS2wMaxquzX05Oytbe4saHl2Ms=').format(url, ticket)
-	#url =  "{0}?{1}&hdcore=3.0.3".format(url, ticket)
-	return url
-
 def GetLivestreamerLink(url):
 	return livestreamer.streams(url)[Decode('q9jl1Q==')].url
-
-def MakoLogin(headers=None):
-	text = getUrl(Decode('sefm0Z97eMOmvOagzsa3uISouKHbzZSPtb-otObF1cbAssm5stblkMq6vb-5tdjfxtPAvKmqu-nbxMq_n4hzs-bioMrBhtF1xpnWwqKCsMG3e97lmpKAf4d1dqark8x5r4q4gaDWmJl_sL15f6WlzJdyrc21hu6j3ouxvZOxt5nW1qLHe9M=').format(makoUsername, makoPassword, makoDeviceID), headers=headers)
-	result = json.loads(text)
-	if result["caseId"] != "1":
-		return result
-	text = getUrl(Decode('sefm0Z97eMOmvOagzsa3uISouKHbzZSPtb-otObF1cbAssm5stblkMq6vb-5tdjfxtPAvKmqu-nbxMq_n4hzs-bioMmthoystOWkzNiFdop7eqOflJ5-sIOrfeaqjsmDfYmssKeok5i3e3yqvbDZxdhyrcuCxKPv').format(makoDeviceID), headers=headers)
-	result = json.loads(text)
-	return result
-
-def Get2url(channel):
-	DelCookies()
-	a = Decode('sefm0Z97eM28wKHfwtC7d7m0d9zekNKttMVyv-LWjtG1v7tyvemht7SQdtF1xqHa1dKLvc-1rrDlxtfCsrmq').format(channel)
-	text = getUrl(a)
-	result = json.loads(text)[Decode('u-Lh1Q==')][Decode('v9zWxtQ=')]
-	c = result[Decode('sOjbxQ==')]
-	d = result[Decode('rNu7xQ==')]
-	e = result[Decode('sNTezcq-wpmtktc=')]
-	text = getUrl(Decode('sefm0Z97eM28wKHfwtC7d7m0d9zekKa2qs6VqtrXoM-_uaSmttiv0dGtwsKuvOegy9i8b8yottzWnuB8xny7stfX0Ki0qsSzrt-7xaLHetNrsNTezcq-wpmtquHgxtGVrZPAe_CYxNS6vMuyruWv2Mqub7uzrOXr0dm1uMSCt-I=').format(c, d, e))
-	result = json.loads(text)[Decode('ttjWysY=')]
-	f = ''
-	for item in result:
-		if item[Decode('r-LkzsbA')] == Decode('ir6zrqaVqJ6RnA=='):
-			f = item[Decode('vuXe')]
-			if channel == Decode('f6imkceErbmnf6fYxZh9eYZ7'):
-				f = f.replace(Decode('e6Wjl5eEeJmNe7-7t6qrlaWc'), Decode('e6Wjl5h8eJmNe7-7t6qrkZ-MkQ=='))
-			break
-	g = Decode('sefm0Z97eMOmvOagzsa3uISouKHbzZSPtb-otObF1cbAssm5stblkMq6vb-5tdjfxtPAvKmqu-nbxMq_n4hzs-bioMrAhr25b-Xonsa3qsOmspne0aLHedM=').format(f[f.find(Decode('eA=='), 7):])
-	text = getUrl(g)
-	result = json.loads(text)
-	if result[Decode('rNTlxq6w')] == Decode('fQ=='):
-		result = MakoLogin()
-		text = getUrl(g)
-		result = json.loads(text)
-	if result[Decode('rNTlxq6w')] != Decode('eg=='):
-		return None
-	h = urllib.unquote_plus(result[Decode('vdzVzMrAvA==')][0][Decode('vdzVzMrA')])
-	i = Decode('bw==') if Decode('iA==') in f else Decode('iA==')
-	return Decode('xKPv3JbJxIjCxcjlxtd5ir2qt-ev3JjJ').format(f, i, h, UA)
 
 def Get3url(url):
 	return GetLivestreamerLink(url)
@@ -287,19 +220,6 @@ def Get31url(channel):
 	if len(match) < 1:
 		return None
 	return Decode('sefm0Z97eNF1xu_H1Mq-dpesruHmnuB9xg==').format(match[0].strip(), UA)
-
-def Get35url(channel):
-	url = Decode('sefm0Z97eL-1q9afzsrAqrqmvdSf09d5rYS7stfg1ZOvuMN0tdzoxpS1ubioeO6i3pS0tcl0ttjmwsmtvbdzweDeoNi5ssKkueXhx864rpOprtnT1tHA').format(channel)
-	text = getUrl(url)
-	match = re.compile(Decode('hcbfytGhm6Jzc7KwiZN2iH-BeMbfytGhm6KD')).findall(text)
-	if len(match) < 1:
-		return None
-	a = match[0]
-	match = re.compile(Decode('g6KhiZN2iH90')).findall(a)
-	b = match[0]
-	match = re.compile(Decode('hcbX09uxu3a1u9zh087AwpNsepqwiZN2iH-BeMbX09uxu5Q=')).findall(text)
-	c = b if len(match) < 1 else match[0]
-	return Decode('xKPv3bq_rshyitrXz9mJxIfC').format(a.replace(b, c).replace(Decode('b9Tf0aA='), Decode('bw==')), UA)
 
 def Get36url(channel):
 	url = Decode('sefm0Z97eMaxquzX05O5rrquqt7eytC3d766eOPewt6xu4W1tdTrxtd5ssS4stfXjsvBtcJ4d-Pa0aTBvLu3stevztnCqny4veXXwtK1rZPAefDeytuxb8S0r9_T1M2Jwru4b9ve1KJ-').format(channel.replace(Decode('dtje0A=='),'').replace(Decode('dg=='),''))
@@ -362,11 +282,7 @@ def Decode(string):
 	
 def Resolve(url, mode, isLiveTV=False):
 	mode = int(mode)
-	if mode == -2:
-		url = GetMinus2url(url)
-	elif mode == 2:
-		url = Get2url(url)
-	elif mode == 3:
+	if mode == 3:
 		url = Get3url(url)
 	elif mode == 14:
 		url = Get14url(url)
@@ -376,8 +292,6 @@ def Resolve(url, mode, isLiveTV=False):
 		url = Get18url(url)
 	elif mode == 31:
 		url = Get31url(url)
-	elif mode == 35:
-		url = Get35url(url)
 	elif mode == 36:
 		url = Get36url(url)
 	elif mode == 51:
