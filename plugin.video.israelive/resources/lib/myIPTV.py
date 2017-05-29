@@ -1,194 +1,273 @@
 # -*- coding: utf-8 -*-
-import urllib, re, os, time, datetime, hashlib
-import xbmc, xbmcaddon
+import urllib, re, os, shutil, threading, urllib2, gzip, json, time, datetime
+from StringIO import StringIO
 import xml.etree.ElementTree as ET
-import common, myResolver
+import xbmc, xbmcaddon
+import common, UA
+try:
+	from dateutil import tz
+	isDateutil = True
+except:
+	isDateutil = False
 
 AddonID = "plugin.video.israelive"
 Addon = xbmcaddon.Addon(AddonID)
 AddonName = Addon.getAddonInfo("name")
 localizedString = Addon.getLocalizedString
-
+KodiPlayer = Addon.getSetting("dynamicPlayer") == "1"
+if not KodiPlayer:
+	try:
+		import myResolver
+	except:
+		myResolver = None
 user_dataDir = xbmc.translatePath(Addon.getAddonInfo("profile")).decode("utf-8")
 
-def makeIPTVlist(iptvFile, portNum):
-	#satElitKey = None
+def makeIPTVlist(iptvFile):
+	iptvType = GetIptvType()
 	iptvList = '#EXTM3U\n'
 	
 	channelsList = GetIptvChannels()
+	portNum = common.GetLivestreamerPort()
+	hostName = '127.0.0.1'
+		
 	for item in channelsList:
 		try:
-			url = item['url']
 			tvg_id = item['name']
 			view_name = item['name']
-			
-			if url.find('plugin.video.israelive') > 0:
-				urlParams = url[url.find('?'):]
-				url = "http://localhost:{0}/{1}".format(portNum, urlParams)
-			elif url.find('plugin.video.f4mTester') > 0:
-				url = "http://localhost:{0}/{1}".format(portNum, url[url.find('?'):])
-			elif url.find('www.youtube.com') > 0:
-				url = "http://localhost:{0}/?url={1}".format(portNum, url)
-			elif url.find('?mode=2') > 0 or url.find('?mode=5') > 0 or url.find('?mode=6') > 0:
-				url = "http://localhost:{0}/?url={1}".format(portNum, url.replace('?', '&'))
-			elif url.find('?mode=3') > 0:
-				url = "http://localhost:{0}/?url={1}".format(portNum, url[:url.find('?mode')])
-			elif url.find('?mode=4') > 0:
-				url = myResolver.GetLivestreamTvFullLink(url[:url.find('?mode')])
-				if url == "down":
-					view_name += " (down)"
-			#elif url.find('?mode=5') > 0:
-			#	if satElitKey is None:
-			#		satElitKey = myResolver.GetSatElitKeyOnly()
-			#	url = myResolver.GetSatElitFullLink(url[:url.find('?mode')], satElitKey)
-			elif url.find('?mode=7') > 0:
-				url = myResolver.GetAatwFullLink(url[:url.find('?mode')])
-				
 			tvg_name = item['name'].replace(' ','_')
-			tvg_logo = GetLogoFileName(item)
+			tvg_logo = item['image'] if iptvType > 1 else common.GetLogoFileName(item)
+			if iptvType == 0:
+				tvg_logo = tvg_logo[:tvg_logo.rfind('.')]
 			radio = ' radio="true"' if item['type'].lower() == "audio" else ''
 			group = ' group-title="{0}"'.format(item['group']) if item.has_key('group') else ''
+
+			url = item['url']
+			if "mode=" in url:
+				if KodiPlayer:
+					url = "http://{0}:{1}/?url=plugin://plugin.video.israelive/&channelid={2}".format(hostName, portNum, item['id'])
+					if item.get('catid') == 'Favourites':
+						url += '&mode=11'
+					else:
+						url += '&mode=10'
+				else:
+					regex = re.compile('[\?|&]mode=(\-?[0-9]+)', re.I+re.M+re.U+re.S)
+					matches = regex.findall(url)
+					if len(matches) > 0:
+						url = regex.sub('', url).strip()
+						mode = matches[0]
+						if myResolver is not None and (mode == '-3' or mode == '0' or mode == '16' or mode == '34'):
+							url = myResolver.Resolve(url, mode)
+							if url is None:
+								continue
+						elif mode == '13':
+							continue
+						else:
+							url = "http://{0}:{1}/?url={2}&mode={3}".format(hostName, portNum, urllib.quote(url.replace('?', '&')), mode)
 			iptvList += '\n#EXTINF:-1 tvg-id="{0}" tvg-name="{1}"{2} tvg-logo="{3}"{4},{5}\n{6}\n'.format(tvg_id, tvg_name, group, tvg_logo, radio, view_name, url)
-		except Exception as e:
-			print e
+		except Exception as ex:
+			xbmc.log("{0}".format(ex), 3)
 
-	f = open(iptvFile, 'w')
-	f.write(iptvList)
-	f.close()
+	with open(iptvFile, 'w') as f:
+		f.write(iptvList)
 	
-def GetLogoFileName(item):
-	if item.has_key('image') and item['image'] is not None and item['image'] != "":
-		ext = item['image'][item['image'].rfind('.')+1:]
-		i = ext.rfind('?')
-		if i > 0: 
-			ext = ext[:ext.rfind('?')]
-		if len(ext) > 4:
-			ext = "png"
-		tvg_logo = hashlib.md5(item['image'].strip()).hexdigest()
-		logoFile = "{0}.{1}".format(tvg_logo, ext)
-	else:
-		logoFile = ""
-		
-	return logoFile
-
 def EscapeXML(str):
-	return str.replace("<", "&lt;").replace(">", "&gt;")
+	return str.replace('&', '&amp;').replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;").replace("'", "&#39;")
 	
-def GetTZ():
-	ts = time.time()
-	delta = (datetime.datetime.fromtimestamp(ts) - datetime.datetime.utcfromtimestamp(ts))
-	if delta > datetime.timedelta(0):
-		return "+{0:02d}{1:02d}".format(delta.seconds//3600, (delta.seconds//60)%60)
+def UnEscapeXML(str):
+	return str.replace('&amp;', '&').replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", '"').replace("&#39;", "'")
+	
+def GetTZtime(timestamp):
+	timeStr = ""
+	if isDateutil:
+		from_zone = tz.tzutc()
+		to_zone = tz.tzlocal()
+		utc = datetime.datetime.utcfromtimestamp(timestamp)
+		utc = utc.replace(tzinfo=from_zone)
+		local_time = utc.astimezone(to_zone)
+		timeStr = local_time.strftime('%Y%m%d%H%M%S %z')
 	else:
-		delta = -delta
-		return "-{0:02d}{1:02d}".format(delta.seconds//3600, (delta.seconds//60)%60)
+		ts = time.time()
+		delta = (datetime.datetime.fromtimestamp(ts) - datetime.datetime.utcfromtimestamp(ts))
+		hrs = "+0000"
+		if delta > datetime.timedelta(0):
+			hrs = "+{0:02d}{1:02d}".format(delta.seconds//3600, (delta.seconds//60)%60)
+		else:
+			delta = -delta
+			hrs = "-{0:02d}{1:02d}".format(delta.seconds//3600, (delta.seconds//60)%60)
+		timeStr = "{0} {1}".format(time.strftime('%Y%m%d%H%M%S', time.localtime(timestamp)), hrs)
+	return timeStr
 	
 def MakeChannelsGuide(fullGuideFile, iptvGuideFile):
 	FullGuideList = GetIptvGuide()
 	if len(FullGuideList) == 0:
 		return
-		
-	tz = GetTZ()
-	
+
 	channelsList = ""
 	programmeList = ""
 	for channel in FullGuideList:
 		chName = channel["channel"].encode("utf-8")
-		channelsList += "\t<channel id=\"{0}\">\n\t\t<display-name>{0}</display-name>\n\t</channel>\n".format(chName)
-
+		channelsList += "\t<channel id=\"{0}\">\n\t\t<display-name>{1}</display-name>\n\t</channel>\n".format(EscapeXML(chName), chName)
 		for programme in channel["tvGuide"]:
-			start = time.localtime(programme["start"])
-			end = time.localtime(programme["end"])
+			start = GetTZtime(programme["start"])
+			end = GetTZtime(programme["end"])
 			name = EscapeXML(programme["name"].encode("utf-8")) if programme["name"] != None else ""
 			description = EscapeXML(programme["description"].encode("utf-8")) if programme["description"] != None else ""
-			programmeList += "\t<programme start=\"{0} {5}\" stop=\"{1} {5}\" channel=\"{2}\">\n\t\t<title>{3}</title>\n\t\t<desc>{4}</desc>\n\t</programme>\n".format(time.strftime("%Y%m%d%H%M%S", start), time.strftime("%Y%m%d%H%M%S", end), chName, name, description, tz)
-
+			programmeList += "\t<programme start=\"{0}\" stop=\"{1}\" channel=\"{2}\">\n\t\t<title>{3}</title>\n\t\t<desc>{4}</desc>\n\t</programme>\n".format(start, end, EscapeXML(chName), name, description)
 	xmlList = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<tv>\n{0}{1}</tv>".format(channelsList, programmeList)
-	f = open(iptvGuideFile, 'w')
-	f.write(xmlList)
-	f.close()
+	with open(iptvGuideFile, 'w') as f:
+		f.write(xmlList)
 	
 def SaveChannelsLogos(logosDir):
 	if not os.path.exists(logosDir):
 		os.makedirs(logosDir)
-		
+	
+	forcePng = GetIptvType() == 0
+	ua = UA.GetUA()
 	newFilesList = []
 	channelsList = GetIptvChannels()
 	
 	for channel in channelsList:
 		try:
-			logoFile = GetLogoFileName(channel)
+			logoFile = common.GetLogoFileName(channel)
 			if logoFile != "":
+				if forcePng:
+					logoFile = '{0}.png'.format(logoFile[:logoFile.rfind('.')])
 				newFilesList.append(logoFile)
-				logoFile = format(os.path.join(logosDir, logoFile))
+				logoFile = os.path.join(logosDir, logoFile)
 				if not os.path.isfile(logoFile):
-					#print "---------\n{0}\n{1}".format(channel['name'], channel['image'])
-					urllib.urlretrieve(channel['image'], logoFile)
-		except Exception as e:
-			print e
+					logo = channel['image']
+					if logo.startswith('http'):
+						threading.Thread(target=SaveChannelBackground, args=(logo, logoFile, ua, )).start()
+					else:
+						shutil.copyfile(logo, logoFile)
+		except Exception as ex:
+			xbmc.log("{0}".format(ex), 3)
 	
 	for the_file in os.listdir(logosDir):
 		file_path = os.path.join(logosDir, the_file)
 		try:
 			if os.path.isfile(file_path) and the_file not in newFilesList:
 				os.unlink(file_path)
-		except Exception as e:
-			print e
+		except Exception as ex:
+			xbmc.log("{0}".format(ex), 3)
+
+def SaveChannelBackground(logoUrl, logoFile, ua):
+	try:
+		req = urllib2.Request(logoUrl)
+		req.add_header('User-Agent', ua)
+		req.add_header('Accept-encoding', 'gzip')
+		response = urllib2.urlopen(req,timeout=100)
+		if response.info().get('Content-Encoding') == 'gzip':
+			buf = StringIO(response.read())
+			f = gzip.GzipFile(fileobj=buf)
+			data = f.read()
+		else:
+			data = response.read()
+		response.close()
+	except:
+		return
+	with open(logoFile, 'wb') as f:
+		f.write(data)
+
+def EnableIptvClient():
+	try:
+		if not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.GetAddonDetails","params":{"addonid":"pvr.iptvsimple", "properties": ["enabled"]},"id":1}'))['result']['addon']['enabled']:
+			xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":true},"id":1}')
+			return True
+	except:
+		pass
+	return False
+
+def EnablePVR():
+	try:
+		if not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0", "method":"Settings.GetSettingValue", "params":{"setting":"pvrmanager.enabled"},"id":1}'))['result']['value']:
+			xbmc.executeJSONRPC('{"jsonrpc":"2.0", "method":"Settings.SetSettingValue", "params":{"setting":"pvrmanager.enabled", "value":true},"id":1}')
+			return True
+	except:
+		pass
+	return False
 
 def GetIptvAddon():
 	iptvAddon = None
-	
 	if xbmc.getCondVisibility("System.HasAddon(pvr.iptvsimple)"):
 		try:
 			iptvAddon = xbmcaddon.Addon("pvr.iptvsimple")
 		except:
 			pass
+	else:
+		if EnableIptvClient():
+			iptvAddon = xbmcaddon.Addon("pvr.iptvsimple")
 
 	if iptvAddon is None:
 		import platform
 		osType = platform.system()
 		osVer = platform.release()
 		xbmcVer = xbmc.getInfoLabel( "System.BuildVersion" )[:2]
-		print "---- {0} ----\nIPTVSimple addon is disable.".format(AddonName)
-		print "---- {0} ----\nosType: {1}\nosVer: {2}\nxbmcVer: {3}".format(AddonName, osType, osVer, xbmcVer)
-		msg1 = "PVR IPTV Simple Client is Disable."
-		msg2 = "Please enable PVR IPTV Simple Client addon."
-		common.OKmsg(AddonName, msg1, msg2)
-		
+		xbmc.log("---- {0} ----\nIPTVSimple addon is disable.".format(AddonName), 2)
+		xbmc.log("---- {0} ----\nosType: {1}\nosVer: {2}\nxbmcVer: {3}".format(AddonName, osType, osVer, xbmcVer), 2)
 	return iptvAddon
-	
+
+def GetIptvType():
+	try:
+		ver = xbmcaddon.Addon("pvr.iptvsimple").getAddonInfo('version').split('.')
+		ver1 = int(ver[0])
+		ver2 = int(ver[1])
+		ver3 = int(ver[2])
+		if ver1 < 1 or (ver1 == 1 and (ver2 < 9 or (ver2 == 9 and ver3 < 3))):
+			v = 0
+		elif ver1 == 1 and ver2 < 11:
+			v = 1
+		else:
+			v = 2
+		return v
+	except:
+		return 2
+
 def UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath):
-	iptvSettingsFile = os.path.join(xbmc.translatePath( "special://userdata/addon_data" ).decode("utf-8"), "pvr.iptvsimple", "settings.xml")
+	iptvSettingsFile = os.path.join(xbmc.translatePath("special://profile").decode("utf-8"), "addon_data", "pvr.iptvsimple", "settings.xml")
 	if not os.path.isfile(iptvSettingsFile):
 		iptvAddon = GetIptvAddon()
 		if iptvAddon is None:
 			return False
 		iptvAddon.setSetting("epgPathType", "0") # make 'settings.xml' in 'userdata/addon_data/pvr.iptvsimple' folder
 	
+	oldIptv = GetIptvType() < 2
 	# get settings.xml into dictionary
 	dict = ReadSettings(iptvSettingsFile, fromFile=True)
+	if dict is None:
+		msg1 = "Oops."
+		msg2 = "Can't update IPTVSimple settings."
+		common.OKmsg(AddonName, msg1, msg2)
+		return False
 		
 	isSettingsChanged = False
 	# make changes
-	if dict.has_key("epgPathType") and dict["epgPathType"] != "0":
-		dict["epgPathType"] = "0"
-		isSettingsChanged = True
-	if dict.has_key("epgPath") and dict["epgPath"] != epgPath:
-		dict["epgPath"] = epgPath
-		isSettingsChanged = True
-	if dict.has_key("logoPathType") and dict["logoPathType"] != "0":
-		dict["logoPathType"] = "0"
-		isSettingsChanged = True
-	if dict.has_key("logoPath") and dict["logoPath"] != logoPath:
-		dict["logoPath"] = logoPath
-		isSettingsChanged = True
 	if dict.has_key("m3uPathType") and dict["m3uPathType"] != "0":
 		dict["m3uPathType"] = "0"
 		isSettingsChanged = True
 	if dict.has_key("m3uPath") and dict["m3uPath"] != m3uPath:
 		dict["m3uPath"] = m3uPath
 		isSettingsChanged = True
-		
+	if dict.has_key("epgPathType") and dict["epgPathType"] != "0":
+		dict["epgPathType"] = "0"
+		isSettingsChanged = True
+	if dict.has_key("epgPath") and dict["epgPath"] != epgPath:
+		dict["epgPath"] = epgPath
+		isSettingsChanged = True
+	if oldIptv:
+		if dict.has_key("logoPathType") and dict["logoPathType"] != "0":
+			dict["logoPathType"] = "0"
+			isSettingsChanged = True
+		if dict.has_key("logoPath") and dict["logoPath"] != logoPath:
+			dict["logoPath"] = logoPath
+			isSettingsChanged = True
+	else:
+		if dict.has_key("logoPathType") and dict["logoPathType"] != "1":
+			dict["logoPathType"] = "1"
+			isSettingsChanged = True
+		if dict.has_key("logoBaseUrl") and dict["logoBaseUrl"] != "":
+			dict["logoBaseUrl"] = ""
+			isSettingsChanged = True
 	if not isSettingsChanged:
 		return True
 		
@@ -199,9 +278,8 @@ def UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath):
 	xml += "</settings>\n"
 	
 	# write updates back to settings.xml
-	f = open(iptvSettingsFile, 'w') 
-	f.write(xml)
-	f.close()
+	with open(iptvSettingsFile, 'w') as f:
+		f.write(xml)
 	return True
 	
 def ReadSettings(source, fromFile=False):
@@ -212,27 +290,35 @@ def ReadSettings(source, fromFile=False):
 		dict = {}
 		for elem in elements:
 			dict[elem.get('id')] = elem.get('value')
-	except:
+	except Exception as ex:
+		xbmc.log("{0}".format(ex), 3)
 		dict = None
 
 	return dict
 		
-def RefreshPVR(m3uPath, epgPath, logoPath, autoIPTV=2):
-	if autoIPTV == 0:
-		Addon.setSetting("autoIPTV", "0")
-	else:
-		autoIPTV = int(Addon.getSetting("autoIPTV"))
-		
-	if autoIPTV == 2 or autoIPTV == 3:
-		autoIPTV = common.GetMenuSelected(localizedString(30306).encode('utf-8'), [localizedString(30001).encode('utf-8'), localizedString(30002).encode('utf-8'), localizedString(30003).encode('utf-8'), localizedString(30004).encode('utf-8')])
-		if autoIPTV == -1:
-			autoIPTV = 3
-		else:
-			Addon.setSetting("autoIPTV", str(autoIPTV))
-	
-	if autoIPTV == 0 or autoIPTV == 2:
+def RefreshPVR(m3uPath, epgPath, logoPath, forceUpdate=False):
+	if forceUpdate or common.getAutoIPTV():
 		UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath)
-		xbmc.executebuiltin('StartPVRManager')
+		ver = xbmc.__version__.split('.')
+		kodi17 = True if int(ver[0]) > 2 or int(ver[0]) == 2 and int(ver[1]) > 24 else False
+		if Addon.getSetting("autoPVR") == "true":
+			if (not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.GetAddonDetails","params":{"addonid":"pvr.iptvsimple", "properties": ["enabled"]},"id":1}'))['result']['addon']['enabled'] or (not kodi17 and not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0", "method":"Settings.GetSettingValue", "params":{"setting":"pvrmanager.enabled"},"id":1}'))['result']['value'])):
+				tvOption = common.GetMenuSelected(localizedString(30317).encode('utf-8'), [localizedString(30318).encode('utf-8'), localizedString(30319).encode('utf-8')])
+				if tvOption != 0:
+					if tvOption == 1:
+						Addon.setSetting("useIPTV", "False")
+					return False
+			isIPTVnotRestarted = not EnableIptvClient() and kodi17
+			isPVRnotRestarted = not kodi17 and not EnablePVR()
+			if isIPTVnotRestarted and forceUpdate:
+				xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":false},"id":1}')
+				xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":true},"id":1}')
+			if isPVRnotRestarted:
+				xbmc.executebuiltin('StopPVRManager')
+				xbmc.executebuiltin('StartPVRManager')
+		return True
+	else:
+		return False
 		
 def GetCategories():
 	iptvList = int(Addon.getSetting("iptvList"))
@@ -249,21 +335,25 @@ def GetIptvChannels():
 	categories = GetCategories()
 	channelsList = []
 	for category in categories:
-		if category.has_key("type") and category["type"] == "ignore":
+		if category.get('type', '') == "ignore":
 			continue
 		channels = common.GetChannels(category["id"]) if category["id"] != "Favourites" else common.ReadList(os.path.join(user_dataDir, 'favorites.txt'))
+		ind = -1
 		for channel in channels:
+			ind += 1
 			if channel["type"] == 'video' or channel["type"] == 'audio':
 				try:
-					channelName = channel['name'].encode("utf-8").replace("[COLOR yellow][B]", "").replace("[/B][/COLOR]", "")
+					channelName = common.GetUnColor(channel['name'].encode("utf-8"))
 					
 					if category["id"] == "Favourites":
 						gp = [x["name"] for x in allCategories if x["id"] == channel.get("group", "")]
 						groupName = gp[0] if len(gp) > 0 else 'Favourites'
+						channelID = ind
 					else:
 						groupName = category['name']
+						channelID = channel['id']
 							
-					data = {'name': channelName, 'url': channel['url'], 'image': channel['image'], 'type': channel['type'], 'group': groupName.encode("utf-8")}
+					data = {'name': channelName, 'url': channel['url'], 'image': channel['image'], 'type': channel['type'], 'group': groupName.encode("utf-8"), 'id': channelID, 'catid': category["id"]}
 					channelsList.append(data)
 				except Exception, e:
 					pass
@@ -277,7 +367,7 @@ def GetIptvGuide():
 		channels = common.GetGuide(category["id"])		
 		for channel in channels:
 			try:
-				if not any(d.get('channel', '').encode('utf-8') == channel["channel"].encode("utf-8") for d in epg):
+				if not any(channel["channel"] == d.get('channel', '') for d in epg):
 					epg.append(channel)
 			except Exception, e:
 				pass
