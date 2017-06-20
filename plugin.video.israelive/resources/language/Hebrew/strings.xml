@@ -37,16 +37,16 @@
 	<string id="30203">הוסף ערוץ על ידי קליק ימני על הערוץ</string>
 	<string id="30204">אין מדריך שידורים לערוץ</string>
 	<string id="30205">מדריך שידורים</string>
-	<string id="30206">הוספה למועדפי IsraeLIVE</string>
-	<string id="30207">הסרה ממועדפי IsraeLIVE</string>
+	<string id="30206">הוספה למועדפי GlobeTV</string>
+	<string id="30207">הסרה ממועדפי GlobeTV</string>
 	<string id="30208">ערוצים להוספה למועדפים</string>
 	<string id="30209">ערוצים להסרה ממועדפים</string>
-	<string id="30210">הוספת ערוצים למועדפי IsraeLIVE</string>
-	<string id="30211">הסרת ערוצים ממועדפי IsraeLIVE</string>
-	<string id="30212">הוספת כל הערוצים בקבוצה למועדפי IsraeLIVE</string>
-	<string id="30213">מחיקת כל מועדפי IsraeLIVE</string>
-	<string id="30214">יצוא מועדפי IsraeLIVE</string>
-	<string id="30215">יבוא מועדפי IsraeLIVE</string>
+	<string id="30210">הוספת ערוצים למועדפי GlobeTV</string>
+	<string id="30211">הסרת ערוצים ממועדפי GlobeTV</string>
+	<string id="30212">הוספת כל הערוצים בקבוצה למועדפי GlobeTV</string>
+	<string id="30213">מחיקת כל מועדפי GlobeTV</string>
+	<string id="30214">יצוא מועדפי GlobeTV</string>
+	<string id="30215">יבוא מועדפי GlobeTV</string>
 	<string id="30216">רשימת המועדפים הנוכחית תוחלף ברשימה החדשה.</string>
 	<string id="30217">ברשימה החדשה {0} ערוצים.</string>
 	<string id="30218">להחליף את רשימת המועדפים?</string>
@@ -54,8 +54,8 @@
 	<string id="30220">האם את/ה בטוח/ה?</string>
 	<string id="30221">האם את/ה בטוח/ה שאת/ה רוצה להוסיף את כל הערוצים בקבוצה:</string>
 	<string id="30222">{0} ({1} ערוצים)</string>
-	<string id="30223">למועדפי IsraeLIVE?</string>
-	<string id="30224">הוספת ערוץ אישי למועדפי IsraeLIVE</string>
+	<string id="30223">למועדפי GlobeTV?</string>
+	<string id="30224">הוספת ערוץ אישי למועדפי GlobeTV</string>
 	<string id="30225">שם הערוץ</string>
 	<string id="30226">כתובת הערוץ</string>
 	<string id="30227">שיוך הערוץ לקטגוריה</string>
@@ -66,12 +66,12 @@
 	<string id="30232">סוג הערוץ</string>
 	<string id="30233">טלויזיה</string>
 	<string id="30234">רדיו</string>
-	<string id="30235">IsraeLiveResolver עודכן</string>
-	<string id="30237">IsraeLiveResolver לא מותקן במערכת</string>
-	<string id="30238">נא להתקין את IsraeLiveResolver מחדש</string>
+	<string id="30235">GlobeTVresolver עודכן</string>
+	<string id="30237">GlobeTVresolver לא מותקן במערכת</string>
+	<string id="30238">נא להתקין את GlobeTVresolver מחדש</string>
 	<string id="30239">הגדרות</string>
-	<string id="30240">הגדרות IsraeLIVE</string>
-	<string id="30241">הגדרות IsraeLiveResolver</string>
+	<string id="30240">הגדרות GlobeTV</string>
+	<string id="30241">הגדרות GlobeTVresolver</string>
 	<string id="30242">עדכון רשימות ערוצים ומדריכי שידורים</string>
 	<string id="30243">ניקוי תיקיית המשתמש ועדכון רשימות</string>
 	
@@ -86,15 +86,15 @@
 	<string id="30308">רענון כל המשאבים הנדרשים עבור טלויזיה חיה</string>
 	<string id="30309">עדכון אוטומטי של טלויזיה חיה?</string>
 	<string id="30310">עצירת טלויזיה חיה בזמן העדכון?</string>
-	<string id="30311">האם ברצונך להשתמש ברשימות IsraeLIVE בטלויזיה החיה?</string>
+	<string id="30311">האם ברצונך להשתמש ברשימות GlobeTV בטלויזיה החיה?</string>
 	<string id="30312">בחר כן לעדכון הגדרות PVR IPTV Simple client,</string>
 	<string id="30313">והפעלת הטלויזיה החיה בהגדרות קודי</string>
 	<string id="30314">נגן הוידאו עבור ערוצים דינאמים (מצריך אתחול)</string>
 	<string id="30315">Livestreamer</string>
 	<string id="30316">Kodi-player</string>
 	<string id="30317">הטלויזיה החיה לא מאופשרת בהגדרות של קודי</string>
-	<string id="30318">הפעלת טלויזיה חיה ושימוש ברשימות IsraeLIVE</string>
-	<string id="30319">הפסקת שימוש ברשימות IsraeLIVE עבור טלויזיה חיה</string>
+	<string id="30318">הפעלת טלויזיה חיה ושימוש ברשימות GlobeTV</string>
+	<string id="30319">הפסקת שימוש ברשימות GlobeTV עבור טלויזיה חיה</string>
 	
 	<string id="30400">מראה</string>
 	
@@ -108,7 +108,7 @@
 	<string id="30507">קטגוריות נבחרות</string>
 	<string id="30508">הסרת קטגוריות</string>
 	<string id="30509">סינון ערוצים (בהרחבה ובטלויזיה חיה)</string>
-	<string id="30510">יבוא / יצוא של מועדפי IsraeLIVE</string>
+	<string id="30510">יבוא / יצוא של מועדפי GlobeTV</string>
 	<string id="30511">רשימת מועדפים מרוחקת</string>
 	<string id="30512">ללא</string>
 	<string id="30513">מכתובת</string>

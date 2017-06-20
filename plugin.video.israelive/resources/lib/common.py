@@ -375,10 +375,10 @@ def MakeCatGuide(categoryID, epg):
 	categoryEpg = []
 	for channel in channels:
 		if channel["type"] == 'video' or channel["type"] == 'audio':
-			channelName = channel['name'].encode("utf-8").replace("[COLOR yellow][B]", "").replace("[/B][/COLOR]", "")
+			tvg_id = channel.get('tvg', channel['name'].replace("[COLOR yellow][B]", "").replace("[/B][/COLOR]", "")).encode("utf-8")
 			try:
-				ch = [x for x in epg if x["channel"].encode('utf-8') == channelName]
-				if not any(d.get('channel', '').encode('utf-8') == channelName for d in categoryEpg):
+				ch = [x for x in epg if x["channel"].encode('utf-8') == tvg_id]
+				if not any(d.get('channel', '').encode('utf-8') == tvg_id for d in categoryEpg):
 					categoryEpg.append(ch[0])
 			except Exception, e:
 				pass

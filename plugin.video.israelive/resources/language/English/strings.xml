@@ -37,16 +37,16 @@
 	<string id="30203">Add one by right clicking on any channel</string>
 	<string id="30204">No TV-Guide for</string>
 	<string id="30205">TV-Guide</string>
-	<string id="30206">Add to IsraeLIVE favourites</string>
-	<string id="30207">Remove from IsraeLIVE favourites</string>
+	<string id="30206">Add to GlobeTV favourites</string>
+	<string id="30207">Remove from GlobeTV favourites</string>
 	<string id="30208">Channels to add to favourites</string>
 	<string id="30209">Channels to remove from favourites</string>
-	<string id="30210">Add channels to IsraeLIVE favourites</string>
-	<string id="30211">Remove channels from IsraeLIVE favourites</string>
-	<string id="30212">Add all channels in group to IsraeLIVE favourites</string>
-	<string id="30213">Empty IsraeLIVE favourites</string>
-	<string id="30214">Export IsraeLIVE favourites</string>
-	<string id="30215">Import IsraeLIVE favourites</string>
+	<string id="30210">Add channels to GlobeTV favourites</string>
+	<string id="30211">Remove channels from GlobeTV favourites</string>
+	<string id="30212">Add all channels in group to GlobeTV favourites</string>
+	<string id="30213">Empty GlobeTV favourites</string>
+	<string id="30214">Export GlobeTV favourites</string>
+	<string id="30215">Import GlobeTV favourites</string>
 	<string id="30216">The current favourites list will be replace by the new list.</string>
 	<string id="30217">The new list contains {0} channels.</string>
 	<string id="30218">Replace favourites?</string>
@@ -54,8 +54,8 @@
 	<string id="30220">Are you sure?</string>
 	<string id="30221">Are yoe sure you want to add all channels in group:</string>
 	<string id="30222">{0} ({1} channels)</string>
-	<string id="30223">to IsraeLIVE favourites?</string>
-	<string id="30224">Add a personal channel to IsraeLIVE favourites</string>
+	<string id="30223">to GlobeTV favourites?</string>
+	<string id="30224">Add a personal channel to GlobeTV favourites</string>
 	<string id="30225">Channel's name</string>
 	<string id="30226">Channel's URL</string>
 	<string id="30227">Channel's category</string>
@@ -66,12 +66,12 @@
 	<string id="30232">Channel's type</string>
 	<string id="30233">TV</string>
 	<string id="30234">Radio</string>
-	<string id="30235">IsraeLiveResolver updated</string>
-	<string id="30237">IsraeLiveResolver didn't installed</string>
-	<string id="30238">Please install IsraeLiveResolver manually</string>
+	<string id="30235">GlobeTVresolver updated</string>
+	<string id="30237">GlobeTVresolver didn't installed</string>
+	<string id="30238">Please install GlobeTVresolver manually</string>
 	<string id="30239">Settings</string>
-	<string id="30240">IsraeLIVE settings</string>
-	<string id="30241">IsraeLiveResolver settings</string>
+	<string id="30240">GlobeTV settings</string>
+	<string id="30241">GlobeTVresolver settings</string>
 	<string id="30242">Update channels lists and TV-Guide now</string>
 	<string id="30243">Clean addon profile folder and refresh lists</string>
 	
@@ -86,15 +86,15 @@
 	<string id="30308">Refresh ALL Live TV required resources</string>
 	<string id="30309">Auto-update PVR?</string>
 	<string id="30310">Stop PVR while updating?</string>
-	<string id="30311">Do you want to use IsraeLIVE lists for LiveTV?</string>
+	<string id="30311">Do you want to use GlobeTV lists for LiveTV?</string>
 	<string id="30312">Choose Yes to update PVR IPTV Simple client settings,</string>
 	<string id="30313">and to enabe LiveTV in Kodi settings.</string>
 	<string id="30314">LiveTV video-player for dynamic channels (require restart)</string>
 	<string id="30315">Livestreamer</string>
 	<string id="30316">Kodi-player</string>
 	<string id="30317">Your LiveTV is disabled in Kodi settings</string>
-	<string id="30318">Enable LiveTV and use IsraeLIVE lists</string>
-	<string id="30319">Stop using IsraeLIVE lists for LiveTV</string>
+	<string id="30318">Enable LiveTV and use GlobeTV lists</string>
+	<string id="30319">Stop using GlobeTV lists for LiveTV</string>
 	
 	<string id="30400">Appearance</string>
 	
@@ -108,7 +108,7 @@
 	<string id="30507">Selected catregories</string>
 	<string id="30508">Remove catregories from "Selected catregories"</string>
 	<string id="30509">Filter Channels (Addon and LiveTV)</string>
-	<string id="30510">Import / Export IsraeLIVE favourites</string>
+	<string id="30510">Import / Export GlobeTV favourites</string>
 	<string id="30511">Remote favourites list</string>
 	<string id="30512">No</string>
 	<string id="30513">From URL</string>

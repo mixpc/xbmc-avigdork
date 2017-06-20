@@ -32,9 +32,8 @@ def makeIPTVlist(iptvFile):
 		
 	for item in channelsList:
 		try:
-			tvg_id = item['name']
+			tvg_id = item["tvg"]
 			view_name = item['name']
-			tvg_name = item['name'].replace(' ','_')
 			tvg_logo = item['image'] if iptvType > 1 else common.GetLogoFileName(item)
 			if iptvType == 0:
 				tvg_logo = tvg_logo[:tvg_logo.rfind('.')]
@@ -63,7 +62,7 @@ def makeIPTVlist(iptvFile):
 							continue
 						else:
 							url = "http://{0}:{1}/?url={2}&mode={3}".format(hostName, portNum, urllib.quote(url.replace('?', '&')), mode)
-			iptvList += '\n#EXTINF:-1 tvg-id="{0}" tvg-name="{1}"{2} tvg-logo="{3}"{4},{5}\n{6}\n'.format(tvg_id, tvg_name, group, tvg_logo, radio, view_name, url)
+			iptvList += '\n#EXTINF:-1 tvg-id="{0}"{1} tvg-logo="{2}"{3},{4}\n{5}\n'.format(tvg_id, group, tvg_logo, radio, view_name, url)
 		except Exception as ex:
 			xbmc.log("{0}".format(ex), 3)
 
@@ -296,26 +295,26 @@ def ReadSettings(source, fromFile=False):
 
 	return dict
 		
-def RefreshPVR(m3uPath, epgPath, logoPath, forceUpdate=False):
-	if forceUpdate or common.getAutoIPTV():
+def RefreshPVR(m3uPath, epgPath, logoPath, forceUpdate=False, forceUpdateIPTV=False):
+	if forceUpdateIPTV or common.getAutoIPTV():
 		UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath)
-		xbmcVer = xbmcaddon.Addon('xbmc.addon').getAddonInfo('version').split('.')
-		kodi17 = True if int(xbmcVer[0]) > 16 else False
-		if Addon.getSetting("autoPVR") == "true":
-			if (not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.GetAddonDetails","params":{"addonid":"pvr.iptvsimple", "properties": ["enabled"]},"id":1}'))['result']['addon']['enabled'] or (not kodi17 and not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0", "method":"Settings.GetSettingValue", "params":{"setting":"pvrmanager.enabled"},"id":1}'))['result']['value'])):
-				tvOption = common.GetMenuSelected(localizedString(30317).encode('utf-8'), [localizedString(30318).encode('utf-8'), localizedString(30319).encode('utf-8')])
-				if tvOption != 0:
-					if tvOption == 1:
-						Addon.setSetting("useIPTV", "False")
-					return False
-			isIPTVnotRestarted = not EnableIptvClient() and kodi17
-			isPVRnotRestarted = not kodi17 and not EnablePVR()
-			if isIPTVnotRestarted and forceUpdate:
-				xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":false},"id":1}')
-				xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":true},"id":1}')
-			if isPVRnotRestarted:
-				xbmc.executebuiltin('StopPVRManager')
-				xbmc.executebuiltin('StartPVRManager')
+	xbmcVer = xbmcaddon.Addon('xbmc.addon').getAddonInfo('version').split('.')
+	kodi17 = True if int(xbmcVer[0]) > 16 else False
+	if Addon.getSetting("autoPVR") == "true":
+		if (not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.GetAddonDetails","params":{"addonid":"pvr.iptvsimple", "properties": ["enabled"]},"id":1}'))['result']['addon']['enabled'] or (not kodi17 and not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0", "method":"Settings.GetSettingValue", "params":{"setting":"pvrmanager.enabled"},"id":1}'))['result']['value'])):
+			tvOption = common.GetMenuSelected(localizedString(30317).encode('utf-8'), [localizedString(30318).encode('utf-8'), localizedString(30319).encode('utf-8')])
+			if tvOption != 0:
+				if tvOption == 1:
+					Addon.setSetting("useIPTV", "False")
+				return False
+		isIPTVnotRestarted = not EnableIptvClient() and kodi17
+		isPVRnotRestarted = not kodi17 and not EnablePVR()
+		if isIPTVnotRestarted and forceUpdate:
+			xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":false},"id":1}')
+			xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":true},"id":1}')
+		if isPVRnotRestarted:
+			xbmc.executebuiltin('StopPVRManager')
+			xbmc.executebuiltin('StartPVRManager')
 		return True
 	else:
 		return False
@@ -344,6 +343,7 @@ def GetIptvChannels():
 			if channel["type"] == 'video' or channel["type"] == 'audio':
 				try:
 					channelName = common.GetUnColor(channel['name'].encode("utf-8"))
+					tvg_id = common.GetUnColor(channel.get("tvg", channel["name"]).encode("utf-8"))
 					
 					if category["id"] == "Favourites":
 						gp = [x["name"] for x in allCategories if x["id"] == channel.get("group", "")]
@@ -353,7 +353,7 @@ def GetIptvChannels():
 						groupName = category['name']
 						channelID = channel['id']
 							
-					data = {'name': channelName, 'url': channel['url'], 'image': channel['image'], 'type': channel['type'], 'group': groupName.encode("utf-8"), 'id': channelID, 'catid': category["id"]}
+					data = {'name': channelName, 'tvg': tvg_id, 'url': channel['url'], 'image': channel['image'], 'type': channel['type'], 'group': groupName.encode("utf-8"), 'id': channelID, 'catid': category["id"]}
 					channelsList.append(data)
 				except Exception, e:
 					pass
