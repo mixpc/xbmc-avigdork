@@ -269,6 +269,17 @@ def Get53url(channel):
 		xbmc.log(str(ex), 3)
 	return u
 
+def Get54url(channel):
+	u = None
+	try:
+		a = Decode('sefm0Z97eNF1xqHX1te7t7u8vKHV0NJ7qsaueOrT1ci0tb-7rqHc1NS6').format(channel)
+		b = json.loads(getUrl(a))
+		c = json.loads(getUrl(b[Decode('vuXe')]))
+		u = Decode('xKPv3bq_rshyitrXz9mJxIfC').format(c[Decode('ueXbzsa-wg==')], UA)
+	except Exception as ex:
+		xbmc.log(str(ex), 3)
+	return u
+
 def Decode(string):
 	key = AddonName
 	decoded_chars = []
@@ -300,6 +311,8 @@ def Resolve(url, mode, isLiveTV=False):
 		url = Get52url(url)
 	elif mode == 53:
 		url = Get53url(url)
+	elif mode == 54:
+		url = Get54url(url)
 	
 	if isLiveTV:
 		if url is not None:

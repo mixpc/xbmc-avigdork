@@ -188,7 +188,7 @@ def PlayChannel(url, name, channelTVgName, iconimage, categoryID):
 
 def ResolveUrl(url):
 	try:
-		if "mode=" in url:
+		if not url.startswith('plugin://') and "mode=" in url:
 			regex = re.compile('[\?|&]mode=(\-?[0-9]+)', re.I+re.M+re.U+re.S)
 			matches = regex.findall(url)
 			if len(matches) > 0:

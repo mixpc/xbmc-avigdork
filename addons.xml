@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.israelive" name="GlobeTV" version="5.0.8" provider-name="Benny123, Avigdor">
+<addon id="plugin.video.israelive" name="GlobeTV" version="5.0.9" provider-name="Benny123, Avigdor">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="repository.xbmc-avigdork" />
@@ -35,20 +35,20 @@
   </extension>
 </addon>
 
-<addon id="repository.xbmc-avigdork" name="Avigdor's XBMC Repository" version="1.0.3" provider-name="avigdork">
-    <extension point="xbmc.addon.repository" name="Avigdor's XBMC Repo">
+<addon id="repository.xbmc-avigdork" name="Avigdor's Kodi Repository" version="1.0.4" provider-name="Avigdor">
+    <extension point="xbmc.addon.repository" name="Avigdor's Kodi Repository">
         <info compressed="false">https://github.com/avigdork/xbmc-avigdork/raw/master/addons.xml</info>
         <checksum>https://github.com/avigdork/xbmc-avigdork/raw/master/addons.xml.md5</checksum>
         <datadir zip="true">https://github.com/avigdork/xbmc-avigdork/raw/master/repo</datadir>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>Avigdor's XBMC Repository</summary>
-        <description>Download and install addons for XBMC by Avigdor</description>
+        <summary>Avigdor's Kodi Repository</summary>
+        <description>Download and install addons for Kodi by Avigdor</description>
         <platform>all</platform>
     </extension>
 </addon>
 
-<addon id="script.module.israeliveresolver" name="GlobeTVresolver" version="0.3.4" provider-name="Avigdor">
+<addon id="script.module.israeliveresolver" name="GlobeTVresolver" version="0.3.5" provider-name="Avigdor">
   <requires>
     <import addon="xbmc.python" version="2.1.0" />
 	<import addon="repository.xbmc-avigdork" />

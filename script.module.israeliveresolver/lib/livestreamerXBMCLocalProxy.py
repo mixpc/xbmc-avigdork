@@ -65,7 +65,7 @@ class MyHandler(BaseHTTPRequestHandler):
                 self.wfile.write("Proxy: Running\r\n")
                 self.wfile.write("Version: 0.1")
             elif request_path.startswith("?url="):
-                if KodiPlayer and sendData:
+                if (KodiPlayer or request_path.startswith('?url=plugin')) and sendData:
                     self.send_response(200)
                     url = unquote(request_path[5:]).replace('&', '?', 1)
                     listitem = xbmcgui.ListItem(path=url)
