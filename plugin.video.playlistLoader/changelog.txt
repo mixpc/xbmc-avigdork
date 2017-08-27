@@ -1,3 +1,6 @@
+1.1.8
+- Added the possibility to add lists from SMB.
+- Bugfix for playing only last item in some lists.
 1.1.7
 - Addon moved back to my repo.
 1.1.6

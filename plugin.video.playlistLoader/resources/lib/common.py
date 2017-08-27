@@ -1,4 +1,4 @@
-import urllib, urllib2, os, io, xbmc, xbmcaddon, xbmcgui, json, re, chardet, shutil, time, hashlib, gzip
+import urllib, urllib2, os, io, xbmc, xbmcaddon, xbmcgui, json, re, chardet, shutil, time, hashlib, gzip, xbmcvfs
 from StringIO import StringIO
 
 AddonID = 'plugin.video.playlistLoader'
@@ -66,16 +66,19 @@ def OpenURL(url, headers={}, user_data={}, cookieJar=None, justCookie=False):
 
 def ReadFile(fileName):
 	try:
-		with open(fileName, 'r') as handle:
-			content = handle.read().replace("\n\n", "\n")
-	except:
+		f = xbmcvfs.File(fileName)
+		content = f.read().replace("\n\n", "\n")
+		f.close()
+	except Exception as ex:
+		xbmc.log(str(ex), 3)
 		content = ""
 	return content
 
 def SaveFile(fileName, text):
 	try:
-		with open(fileName, 'w') as handle:
-			content = handle.write(text)
+		f = xbmcvfs.File(fileName, 'w')
+		result = f.write(text)
+		f.close()
 	except:
 		return False
 	return True
@@ -99,7 +102,7 @@ def SaveList(filname, list):
 			handle.write(unicode(json.dumps(list, indent=4, ensure_ascii=False)))
 		success = True
 	except Exception as ex:
-		xbmc.log(str(ex), 5)
+		xbmc.log(str(ex), 3)
 		success = False
 	return success
 
@@ -146,7 +149,7 @@ def m3u2list(url, cache):
 	matches=re.compile('^#EXTINF:-?[0-9]*(.*?),(.*?)\n(.*?)$',re.I+re.M+re.U+re.S).findall(response)
 	li = []
 	for params, display_name, url in matches:
-		item_data = {"params": params, "display_name": display_name, "url": url}
+		item_data = {"params": params.strip(), "display_name": display_name.strip(), "url": url.strip()}
 		li.append(item_data)
 
 	list = []
@@ -173,4 +176,4 @@ def DelFile(filname):
 		if os.path.isfile(filname):
 			os.unlink(filname)
 	except Exception as ex:
-		xbmc.log(str(ex), 5)
+		xbmc.log(str(ex), 3)
