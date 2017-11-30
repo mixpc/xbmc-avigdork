@@ -1,3 +1,5 @@
+[B]v5.1.0[/B]
+- Added support for Kodi 18.
 [B]v5.0.9[/B]
 - Better support of playing plugins links.
 [B]v5.0.8[/B]

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.israelive" name="GlobeTV" version="5.0.9" provider-name="Benny123, Avigdor">
+<addon id="plugin.video.israelive" name="GlobeTV" version="5.1.0" provider-name="Benny123, Avigdor">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="repository.xbmc-avigdork" />
@@ -17,6 +17,9 @@
     <description lang="en">Watch free Live TV channels from over the world.</description>
     <description lang="he">צפיה בשידורי טלויזיה חיים מהעולם.</description>
     <platform>all</platform>
+	<news>[B]v5.1.0[/B]
+- Added support for Kodi 18.
+	</news>
   </extension>
 </addon>
 

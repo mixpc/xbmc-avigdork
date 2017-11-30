@@ -380,8 +380,8 @@ def MakeCatGuide(categoryID, epg):
 				ch = [x for x in epg if x["channel"].encode('utf-8') == tvg_id]
 				if not any(d.get('channel', '').encode('utf-8') == tvg_id for d in categoryEpg):
 					categoryEpg.append(ch[0])
-			except Exception, e:
-				pass
+			except Exception as ex:
+				xbmc.log("{0}".format(ex), 3)
 	WriteList(filename, categoryEpg, indent=False)
 	
 def MakeFavouritesGuide(fullGuideFile, epg=None):
@@ -397,7 +397,8 @@ def GetGuide(categoryID):
 
 def InstallAddon(addonID):
 	try:
-		req = urllib2.Request('https://github.com/cubicle-vdo/xbmc-israel/raw/master/addons.xml')
+		repo = 'https://github.com/avigdork/xbmc-avigdork/raw/master'
+		req = urllib2.Request('{0}/addons.xml'.format(repo))
 		response = urllib2.urlopen(req)
 		data = response.read()
 		response.close()
@@ -407,8 +408,8 @@ def InstallAddon(addonID):
 				addonVer = data[i][1]
 				break
 		addonsDir = xbmc.translatePath(os.path.join('special://home', 'addons')).decode("utf-8")
-		url = 'https://github.com/cubicle-vdo/xbmc-israel/raw/master/repo/{0}/{0}-{1}.zip'.format(addonID, addonVer)
-		packageFile = os.path.join(addonsDir, 'packages', 'isr.zip')
+		url = '{0}/repo/{1}/{1}-{2}.zip'.format(repo, addonID, addonVer)
+		packageFile = os.path.join(addonsDir, 'packages', 'tmp.zip')
 		req = urllib2.Request(url)
 		response = urllib2.urlopen(req)
 		if response.info().get('Content-Encoding') == 'gzip':
@@ -521,3 +522,8 @@ def getAutoIPTV():
 def GetUnColor(name):
 	regex = re.compile("(\[/?(?:COLOR|B).*?\])", re.IGNORECASE)
 	return regex.sub('', name).strip()
+	
+def GetKodiVer():
+	return float(re.split(' |\-',xbmc.getInfoLabel('System.BuildVersion'))[0])
+
+	

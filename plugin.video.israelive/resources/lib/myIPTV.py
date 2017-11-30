@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import urllib, re, os, shutil, threading, urllib2, gzip, json, time, datetime
 from StringIO import StringIO
-import xml.etree.ElementTree as ET
 import xbmc, xbmcaddon
 import common, UA
 try:
@@ -98,8 +97,8 @@ def GetTZtime(timestamp):
 	
 def MakeChannelsGuide(fullGuideFile, iptvGuideFile):
 	FullGuideList = GetIptvGuide()
-	if len(FullGuideList) == 0:
-		return
+	#if len(FullGuideList) == 0:
+	#	return
 
 	channelsList = ""
 	programmeList = ""
@@ -199,11 +198,8 @@ def GetIptvAddon():
 
 	if iptvAddon is None:
 		import platform
-		osType = platform.system()
-		osVer = platform.release()
-		xbmcVer = xbmc.getInfoLabel( "System.BuildVersion" )[:2]
 		xbmc.log("---- {0} ----\nIPTVSimple addon is disable.".format(AddonName), 2)
-		xbmc.log("---- {0} ----\nosType: {1}\nosVer: {2}\nxbmcVer: {3}".format(AddonName, osType, osVer, xbmcVer), 2)
+		xbmc.log("---- {0} ----\nosType: {1}\nosVer: {2}\nxbmcVer: {3}".format(AddonName, platform.system(), platform.release(), xbmc.getInfoLabel( "System.BuildVersion" )), 2)
 	return iptvAddon
 
 def GetIptvType():
@@ -224,94 +220,72 @@ def GetIptvType():
 
 def UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath):
 	iptvSettingsFile = os.path.join(xbmc.translatePath("special://profile").decode("utf-8"), "addon_data", "pvr.iptvsimple", "settings.xml")
+	iptvAddon = GetIptvAddon()
+	
 	if not os.path.isfile(iptvSettingsFile):
-		iptvAddon = GetIptvAddon()
 		if iptvAddon is None:
 			return False
 		iptvAddon.setSetting("epgPathType", "0") # make 'settings.xml' in 'userdata/addon_data/pvr.iptvsimple' folder
 	
 	oldIptv = GetIptvType() < 2
-	# get settings.xml into dictionary
-	dict = ReadSettings(iptvSettingsFile, fromFile=True)
-	if dict is None:
-		msg1 = "Oops."
-		msg2 = "Can't update IPTVSimple settings."
-		common.OKmsg(AddonName, msg1, msg2)
-		return False
+
+	dict = {
+		"m3uPathType": "0",
+		"m3uPath": m3uPath,
+		"epgPathType": "0",
+		"epgPath": epgPath
+	}
+	if oldIptv:
+		dict["logoPathType"] = "0"
+		dict["logoPath"] = logoPath
+	else:
+		dict["logoPathType"] = "1"
+		dict["logoBaseUrl"] = ""
+	
+	with open(iptvSettingsFile, 'r') as f:
+		xml = f.read()
 		
 	isSettingsChanged = False
 	# make changes
-	if dict.has_key("m3uPathType") and dict["m3uPathType"] != "0":
-		dict["m3uPathType"] = "0"
-		isSettingsChanged = True
-	if dict.has_key("m3uPath") and dict["m3uPath"] != m3uPath:
-		dict["m3uPath"] = m3uPath
-		isSettingsChanged = True
-	if dict.has_key("epgPathType") and dict["epgPathType"] != "0":
-		dict["epgPathType"] = "0"
-		isSettingsChanged = True
-	if dict.has_key("epgPath") and dict["epgPath"] != epgPath:
-		dict["epgPath"] = epgPath
-		isSettingsChanged = True
-	if oldIptv:
-		if dict.has_key("logoPathType") and dict["logoPathType"] != "0":
-			dict["logoPathType"] = "0"
-			isSettingsChanged = True
-		if dict.has_key("logoPath") and dict["logoPath"] != logoPath:
-			dict["logoPath"] = logoPath
-			isSettingsChanged = True
-	else:
-		if dict.has_key("logoPathType") and dict["logoPathType"] != "1":
-			dict["logoPathType"] = "1"
-			isSettingsChanged = True
-		if dict.has_key("logoBaseUrl") and dict["logoBaseUrl"] != "":
-			dict["logoBaseUrl"] = ""
-			isSettingsChanged = True
+	for k, v in dict.iteritems():
+		if common.GetKodiVer() >= 18:
+			matches = re.compile('<(.*?)>(.*?)</{0}>'.format(k)).findall(xml)
+			if len(matches) > 0 and matches[0][1] != v:
+				xml = xml.replace('<{0}>{1}</{2}>'.format(matches[0][0], matches[0][1], k), '<{0}>{1}</{2}>'.format(matches[0][0], v, k))
+				isSettingsChanged = True
+		else:
+			matches = re.compile('<setting\s*id="{0}"\s*value="(.*?)"\s*?/>'.format(k)).findall(xml)
+			if len(matches) > 0 and matches[0] != v:
+				xml = xml.replace('<setting id="{0}" value="{1}" />'.format(k, matches[0]), '<setting id="{0}" value="{1}" />'.format(k, v))
+				isSettingsChanged = True
 	if not isSettingsChanged:
 		return True
-		
-	#make new settings.xml (string)
-	xml = "<settings>\n"
-	for k, v in dict.iteritems():
-		xml += '\t<setting id="{0}" value="{1}" />\n'.format(k, v)
-	xml += "</settings>\n"
-	
+
 	# write updates back to settings.xml
 	with open(iptvSettingsFile, 'w') as f:
 		f.write(xml)
 	return True
-	
-def ReadSettings(source, fromFile=False):
-	try:
-		tree = ET.parse(source) if fromFile else ET.fromstring(source)
-		elements = tree.findall('*')
 
-		dict = {}
-		for elem in elements:
-			dict[elem.get('id')] = elem.get('value')
-	except Exception as ex:
-		xbmc.log("{0}".format(ex), 3)
-		dict = None
-
-	return dict
-		
 def RefreshPVR(m3uPath, epgPath, logoPath, forceUpdate=False, forceUpdateIPTV=False):
 	if forceUpdateIPTV or common.getAutoIPTV():
 		UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath)
-	xbmcVer = xbmcaddon.Addon('xbmc.addon').getAddonInfo('version').split('.')
-	kodi17 = True if int(xbmcVer[0]) > 16 else False
+	kodi16 = True if common.GetKodiVer() < 17 else False
 	if Addon.getSetting("autoPVR") == "true":
-		if (not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.GetAddonDetails","params":{"addonid":"pvr.iptvsimple", "properties": ["enabled"]},"id":1}'))['result']['addon']['enabled'] or (not kodi17 and not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0", "method":"Settings.GetSettingValue", "params":{"setting":"pvrmanager.enabled"},"id":1}'))['result']['value'])):
+		if (not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.GetAddonDetails","params":{"addonid":"pvr.iptvsimple", "properties": ["enabled"]},"id":1}'))['result']['addon']['enabled'] or (kodi16 and not json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0", "method":"Settings.GetSettingValue", "params":{"setting":"pvrmanager.enabled"},"id":1}'))['result']['value'])):
 			tvOption = common.GetMenuSelected(localizedString(30317).encode('utf-8'), [localizedString(30318).encode('utf-8'), localizedString(30319).encode('utf-8')])
 			if tvOption != 0:
 				if tvOption == 1:
 					Addon.setSetting("useIPTV", "False")
 				return False
-		isIPTVnotRestarted = not EnableIptvClient() and kodi17
-		isPVRnotRestarted = not kodi17 and not EnablePVR()
+		isIPTVnotRestarted = not EnableIptvClient() and not kodi16
+		isPVRnotRestarted = kodi16 and not EnablePVR()
 		if isIPTVnotRestarted and forceUpdate:
 			xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":false},"id":1}')
 			xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.SetAddonEnabled","params":{"addonid":"pvr.iptvsimple","enabled":true},"id":1}')
+			#iptvAddon = GetIptvAddon()
+			#if iptvAddon is None:
+			#	return False
+			#iptvAddon.setSetting("m3uPathType", iptvAddon.getSetting("m3uPathType"))
 		if isPVRnotRestarted:
 			xbmc.executebuiltin('StopPVRManager')
 			xbmc.executebuiltin('StartPVRManager')

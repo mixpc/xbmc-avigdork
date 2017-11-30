@@ -3,13 +3,6 @@ import xbmc, xbmcaddon, xbmcplugin, xbmcgui
 import sys, os, time, datetime, re, json
 import urllib, urlparse
 
-xbmcVer = xbmcaddon.Addon('xbmc.addon').getAddonInfo('version').split('.')
-if int(xbmcVer[0]) > 16:
-	
-	res = json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.GetAddons","params":{"type":"kodi.inputstream","content":"unknown","enabled":false,"installed":true},"id":1}')).get('result', []).get('addons', [])
-	for item in res:
-		xbmc.executeJSONRPC('{{"jsonrpc": "2.0", "method":"Addons.SetAddonEnabled","params":{{"addonid":"{0}","enabled":true}}, "id": 1}}'.format(item['addonid']))
-
 resolverID = 'script.module.israeliveresolver'
 AddonID = "plugin.video.israelive"
 Addon = xbmcaddon.Addon(AddonID)
@@ -23,6 +16,11 @@ addonPath = xbmc.translatePath(Addon.getAddonInfo("path")).decode("utf-8")
 libDir = os.path.join(addonPath, 'resources', 'lib')
 sys.path.insert(0, libDir)
 import common, myIPTV, checkUpdates, updateM3U
+
+if common.GetKodiVer() >= 17:
+	res = json.loads(xbmc.executeJSONRPC('{"jsonrpc":"2.0","method":"Addons.GetAddons","params":{"type":"kodi.inputstream","content":"unknown","enabled":false,"installed":true},"id":1}')).get('result', []).get('addons', [])
+	for item in res:
+		xbmc.executeJSONRPC('{{"jsonrpc": "2.0", "method":"Addons.SetAddonEnabled","params":{{"addonid":"{0}","enabled":true}}, "id": 1}}'.format(item['addonid']))
 
 localizedString = Addon.getLocalizedString
 AddonName = Addon.getAddonInfo("name")

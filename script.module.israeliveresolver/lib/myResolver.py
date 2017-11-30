@@ -207,8 +207,11 @@ def Get17url(channel):
 	
 def Get18url(channel):
 	a = getUrl(channel)
-	b = re.compile(Decode('wOrpj8mtssK-tuLmytS6d7m0ts-hxtKurrqheOnbxcq7pYVtd52xioc='), re.I+re.M+re.U+re.S).findall(a)
-	c = getUrl(Decode('sefm0Z97eM28wKHWws64wsO0vdzhz5OvuMN0ruDUxsl7v7-pruKh3JXJ').format(b[0]))
+	a1 = re.compile(Decode('qNLFtbSejqmkqJOvgYx0d4CEcpo=')).findall(a)
+	a2 = json.loads(base64.b64decode(a1[0]))
+	#b = a2.get(Decode('ldzoxru1rbu0nOfh08o='), '').get(Decode('v9zWxtQ='), '').get(Decode('ruDUxsmhu8I='), '')
+	b = Decode('sefm0Z97eM28wKHWws64wsO0vdzhz5OvuMN0ruDUxsl7v7-pruKh3JXJ').format(a2.get(Decode('ldzoxru1rbu0nOfh08o='), '').get(Decode('v9zWxtQ='), '').get(Decode('sdTlyQ=='), ''))
+	c = getUrl(b)
 	d = re.compile(Decode('a-bm08qttrWoseXhzsqvqsm5qOjkzYeGa35zc7Kbgw==')).findall(c)
 	e = getUrl(Decode('xKPvh9exrb-3rtbmnpU=').format(d[0].replace(Decode('pQ=='),'')))
 	return Decode('xKPv3bq_rshyitrXz9mJxIfC').format(e, UA)

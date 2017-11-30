@@ -21,7 +21,8 @@ def Update():
 	common.UpdateFile(remoteSettingsFile, "remoteSettingsZip", remoteSettings, zip=True, forceUpdate=forceUpdate)
 	remoteSettings = common.ReadList(remoteSettingsFile)
 	if remoteSettings == []:
-		xbmc.executebuiltin('StartPVRManager')
+		if common.GetKodiVer() < 17:
+			xbmc.executebuiltin('StartPVRManager')
 	else:
 		common.CheckNewVersion(remoteSettings)
 		# Update channels-lists files
