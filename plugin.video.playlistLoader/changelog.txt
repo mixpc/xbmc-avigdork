@@ -1,3 +1,5 @@
+1.2.0
+- (fix) support strings.xml (old Kodi versions).
 1.1.9
 - Added an option to show groups in channels lists (addon settings).
 1.1.8
