@@ -23,10 +23,10 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.playlistLoader" name="Playlist Loader" version="1.2.0" provider-name="Avigdor">
+<addon id="plugin.video.playlistLoader" name="Playlist Loader" version="1.2.0.1" provider-name="Avigdor">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="repository.xbmc-avigdork" />
+    <import addon="nux007.repository" />
   </requires>
   <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -38,6 +38,8 @@
     <description lang="he">Playlist Loader</description>
     <platform>all</platform>
 	<news>
+1.2.0.1
+- Addon moved to nux007.repository.
 1.2.0
 - (fix) support strings.xml (old Kodi versions).
 1.1.9
@@ -92,5 +94,21 @@
     <source>https://pypi.python.org/pypi/six</source>
     <website>https://pypi.python.org/pypi/six</website>
   </extension>
+</addon>
+
+<addon id="nux007.repository" name="Kodi Nux007 Repository" version="0.0.4" provider-name="Nux007">
+    <extension point="xbmc.addon.repository" name="Kodi Nux007 Repository">
+        <checksum>https://github.com/Nux007/kodi-nux007-repository/raw/master/addons.xml.md5</checksum>
+        <info compressed="false">https://github.com/Nux007/kodi-nux007-repository/raw/master/addons.xml</info>
+        <datadir zip="true">https://github.com/Nux007/kodi-nux007-repository/raw/master</datadir>
+    </extension>
+
+    <extension point="xbmc.addon.metadata">
+        <summary lang="fr">Nux007 repo</summary>
+        <description lang="fr">Installer les addons Nux007</description>
+        <summary lang="en">Nux007 repository</summary>
+        <description lang="en">Install addons created by Nux007</description>
+        <platform>all</platform>
+    </extension>
 </addon>
 </addons>
