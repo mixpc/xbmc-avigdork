@@ -1,3 +1,5 @@
+1.2.0.1
+- Addon moved to nux007.repository.
 1.2.0
 - (fix) support strings.xml (old Kodi versions).
 1.1.9
