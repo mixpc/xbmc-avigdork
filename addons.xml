@@ -23,40 +23,6 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.playlistLoader" name="Playlist Loader" version="1.2.1.1" provider-name="Avigdor and Nux007">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="nux007.repository" />
-    <import addon="script.module.requests" version="2.9.1"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Playlist Loader</summary>
-    <summary lang="he">Playlist Loader</summary>
-    <description lang="en">Playlist Loader</description>
-    <description lang="he">Playlist Loader</description>
-    <platform>all</platform>
-	<news>
-1.2.1.1
-- (fix) missing require in ver 1.2.1 (nutil nux007 will release official release.)
-1.2.1
-- Taking ownership of the addon, see : https://github.com/avigdork/xbmc-avigdork/pull/8#issuecomment-416955692
-- Fixed regex => grouping issue when tvg-logo was empty.
-- Added icon image also when items are grouped.
-- Regex fix for title containing comas.
-- Added TheTvDb scan for each lists in contextual menu ( beta ).
-
-1.2.0
-- (fix) support strings.xml (old Kodi versions).
-
-1.1.9
-- Added an option to show groups in channels lists.
-	</news>
-  </extension>
-</addon>
-
 <addon id="repository.xbmc-avigdork" name="Avigdor's Kodi Repository" version="1.0.4" provider-name="Avigdor">
     <extension point="xbmc.addon.repository" name="Avigdor's Kodi Repository">
         <info compressed="false">https://github.com/avigdork/xbmc-avigdork/raw/master/addons.xml</info>
@@ -105,19 +71,4 @@
   </extension>
 </addon>
 
-<addon id="nux007.repository" name="Kodi Nux007 Repository" version="0.0.4" provider-name="Nux007">
-    <extension point="xbmc.addon.repository" name="Kodi Nux007 Repository">
-        <checksum>https://github.com/Nux007/kodi-nux007-repository/raw/master/addons.xml.md5</checksum>
-        <info compressed="false">https://github.com/Nux007/kodi-nux007-repository/raw/master/addons.xml</info>
-        <datadir zip="true">https://github.com/Nux007/kodi-nux007-repository/raw/master</datadir>
-    </extension>
-
-    <extension point="xbmc.addon.metadata">
-        <summary lang="fr">Nux007 repo</summary>
-        <description lang="fr">Installer les addons Nux007</description>
-        <summary lang="en">Nux007 repository</summary>
-        <description lang="en">Install addons created by Nux007</description>
-        <platform>all</platform>
-    </extension>
-</addon>
 </addons>
