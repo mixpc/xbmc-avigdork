@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-import os, io, re, time, base64, random, hashlib, urllib2, json, gzip
-from StringIO import StringIO
+import os, io, re, hashlib, urllib2, json, shutil
 import xbmc, xbmcgui, xbmcaddon
-import multiChoiceDialog, UA
+import multiChoiceDialog
 
 resolverAddonID = "script.module.israeliveresolver"
 AddonID = "plugin.video.israelive"
@@ -12,118 +11,17 @@ localizedString = Addon.getLocalizedString
 user_dataDir = xbmc.translatePath(Addon.getAddonInfo("profile")).decode("utf-8")
 listsFile = os.path.join(user_dataDir, "israelive.list")
 favoritesFile = os.path.join(user_dataDir, 'favorites.txt')
-remoteSettingsFile = os.path.join(user_dataDir, "remoteSettings.txt")
 listsDir = os.path.join(user_dataDir, 'lists')
 if not os.path.exists(listsDir):
 	os.makedirs(listsDir)
 
-def isFileOld(file, deltaInSec):
-	lastUpdate = 0 if not os.path.isfile(file) else int(os.path.getmtime(file))
-	now = int(time.time())
-	isFileNotUpdate = True if (now - lastUpdate) > deltaInSec else False 
-	return isFileNotUpdate
-	
-def GetSubKeyValue(remoteSettings, key, subKey):
-	return remoteSettings[key][subKey] if (remoteSettings and remoteSettings.has_key(key) and remoteSettings[key].has_key(subKey)) else None
-	
-def UpdateFile(file, key, remoteSettings=None, zip=False, forceUpdate=False):
-	if remoteSettings is None:
-		remoteSettings = ReadList(remoteSettingsFile)
-	if remoteSettings == []:
-		return False
-	i = file.rfind('.')
-	zipFile = "{0}.zip".format(file[:i])
-	lastModifiedFile = "{0}LastModified.txt".format(file[:i])
-	if (not zip and not os.path.isfile(file)) or not os.path.isfile(lastModifiedFile):
-		old_modified = "0"
-	else:
-		with open(lastModifiedFile, 'r') as f:
-			old_modified = f.read()
-	last_modified = GetSubKeyValue(remoteSettings, key, "lastModified")
-	
-	if not (forceUpdate or last_modified is None or (old_modified < last_modified)):
-		return False
-	
-	urls = GetSubKeyValue(remoteSettings, key, "urls")
-	if urls is None or len(urls) == 0:
-		return False
-		
-	url1 = random.choice(urls)
-	urla = Decode(url1).split(';')
-	url = urla[0]
-	a = '' if len(urla) < 2 else urla[1]
-	
-	if a == Decode('ttk='):
-		response = None
-		try:
-			req = urllib2.Request(url)
-			req.add_header(Decode('nubX05KNsLuzvQ=='), Decode('luLsytG4qoV6d6OSiby1t7q0wOaSr7lsf4R2hJPk1599eoR1cpO5xsi3uIV3eaSikZZ8enaLsuXXx9TEeId2d6M='))
-			req.add_header(Decode('m9jYxtexuw=='), Decode('sefm0Z97eM28wKG71NetrqKOn7ig0NezeA=='))
-			response = urllib2.urlopen(req)
-			text = response.read()
-			match = re.compile(Decode('tMHBgaJsa35zc7Kbg6A=')).findall(text)
-			response.close()
-			if len(match) < 1:
-				return False
-			url = Decode('xKPvoNeJxIfC').format(match[0], random.randint(0, 9223372036854775807))
-		except Exception as ex:
-			xbmc.log("{0}".format(ex), 3)
-			if response is not None:
-				response.close()
-			return False
-	
-	response = None
-	try:
-		req = urllib2.Request(url)
-		if a == Decode('ttk='):
-			req.add_header('User-Agent', UA.GetUA())
-		else:
-			req.add_header(Decode('nubX05KNsLuzvQ=='), Decode('luLsytG4qoV6d6OSiby1t7q0wOaSr7lsf4R2hJPk1599eoR1cpO5xsi3uIV3eaSikZZ8enaLsuXXx9TEeId2d6M='))
-			req.add_header(Decode('m9jYxtexuw=='), Decode('sefm0Z97eM28wKG71NetrqKOn7ig0NezeA=='))
-		req.add_header('Accept-encoding', 'gzip')
-		response = urllib2.urlopen(req)
-		if response.info().get('Content-Encoding') == 'gzip':
-			buf = StringIO(response.read())
-			f = gzip.GzipFile(fileobj=buf)
-			data = f.read()
-		else:
-			data = response.read()
-		response.close()
-		if zip:
-			with open(zipFile, 'wb') as f:
-				f.write(data)
-			xbmc.executebuiltin("XBMC.Extract({0}, {1})".format(zipFile, user_dataDir), True)
-			try:
-				os.remove(zipFile)
-			except:
-				pass
-		else:
-			data = data.replace('\r','')
-			with open(file, 'w') as f:
-				f.write(data)
-		if key == "remoteSettings":
-			remoteSettings = json.loads(data)
-			last_modified = GetSubKeyValue(remoteSettings, key, "lastModified")
-		elif key == "remoteSettingsZip":
-			remoteSettings = ReadList(remoteSettingsFile)
-			last_modified = GetSubKeyValue(remoteSettings, key, "lastModified")
-	except Exception as ex:
-		xbmc.log("{0}".format(ex), 3)
-		if response is not None:
-			response.close()
-		return False
-	with open(lastModifiedFile, 'w') as f:
-		f.write(last_modified)
-	return True
-	
 def ReadList(fileName):
+	content=[]
 	try:
 		with open(fileName, 'r') as handle:
 			content = json.load(handle)
 	except Exception as ex:
 		xbmc.log("{0}".format(ex), 3)
-		content=[]
-
 	return content
 
 def WriteList(filename, list, indent=True):
@@ -230,33 +128,17 @@ def GetChannelsFlat(categoryID):
 	MakeFullLists(catList)
 	return global_fullChList
 		
-def UpdateChList(remoteSettings=None, refreshInterval=0, forceUpdate=True):
-	if remoteSettings is None:
-		remoteSettings = ReadList(remoteSettingsFile)
-	if remoteSettings == []:
-		return False
+def UpdateChList(forceUpdate=True):
 	isListUpdated = False
 	if UpdateFavouritesFromRemote():
 		isListUpdated = True
-	if isFileOld(listsFile, refreshInterval):
-		isListUpdated = True
-	lastModifiedFile = os.path.join(user_dataDir, "listsLastModified.txt")
-	if not os.path.isfile(lastModifiedFile):
-		old_modified = "0"
-	else:
-		with open(lastModifiedFile, 'r') as f:
-			old_modified = f.read()
-	new_modified = GetSubKeyValue(remoteSettings, "lists", "lastModified")
-	if not (forceUpdate or new_modified is None or (old_modified < new_modified)):
-		return False
-	if new_modified is not None:
-		data = GetSubKeyValue(remoteSettings, "lists", "content")
-		with open(listsFile, 'w') as f:
-			f.write(base64.b64decode(data))
-		with open(lastModifiedFile, 'w') as f:
-			f.write(new_modified)
-	if isListUpdated:
+
+	if isListUpdated or forceUpdate:
 		fullList = ReadList(listsFile)
+		if len(fullList) == 0:
+			addonPath = xbmc.translatePath(Addon.getAddonInfo("path")).decode("utf-8")
+			shutil.copyfile(os.path.join(addonPath, 'resources', 'lists', 'israelive.list'), listsFile)
+			fullList = ReadList(listsFile)
 		MakeFullLists(fullList)
 		WriteList(os.path.join(listsDir, "categories.list"), global_catList)
 		
@@ -322,49 +204,6 @@ def GetLogoFileName(item):
 		
 	return logoFile
 
-def Decode(string, key=None):
-	if key is None:
-		key = GetKey()
-	decoded_chars = []
-	string = base64.urlsafe_b64decode(string.encode("utf-8"))
-	for i in xrange(len(string)):
-		key_c = key[i % len(key)]
-		decoded_c = chr(abs(ord(string[i]) - ord(key_c) % 256))
-		decoded_chars.append(decoded_c)
-	decoded_string = "".join(decoded_chars)
-	return decoded_string
-	
-def GetKey():
-	return AddonName
-	
-def GetAddonDefaultRemoteSettingsUrl():
-	remoteSettingsUrl = ""
-	try:
-		with open(os.path.join(Addon.getAddonInfo("path").decode("utf-8"), 'resources', 'settings.xml'), 'r') as f:
-			data = f.read()
-		matches = re.compile('setting id="remoteSettingsUrl".+?default="(.+?)"',re.I+re.M+re.U+re.S).findall(data)
-		remoteSettingsUrl = matches[0]
-	except Exception as ex:
-		xbmc.log("{0}".format(ex), 3)
-	return remoteSettingsUrl
-	
-def GetRemoteSettings():
-	remoteSettingsUrl = Addon.getSetting("remoteSettingsUrl")
-	if Addon.getSetting("forceRemoteDefaults") == "true":
-		defaultRemoteSettingsUrl = GetAddonDefaultRemoteSettingsUrl()
-		if (defaultRemoteSettingsUrl != "") and (defaultRemoteSettingsUrl != remoteSettingsUrl):
-			remoteSettingsUrl = defaultRemoteSettingsUrl
-			Addon.setSetting("remoteSettingsUrl", remoteSettingsUrl)
-	remoteSettings = ReadList(remoteSettingsFile)
-	urls = GetSubKeyValue(remoteSettings, "remoteSettingsZip", "urls")
-	if urls is None or len(urls) == 0:
-		try:
-			os.unlink(remoteSettingsFile)
-		except Exception as ex:
-			xbmc.log("{0}".format(ex), 3)
-		remoteSettings = {"remoteSettingsZip": {"urls": remoteSettingsUrl.split(","), "lastModified": "0", "refresh": 12}}
-	return remoteSettings
-
 def MakeCatGuides(categories, epg):
 	for category in categories:
 		MakeCatGuide(category["id"], epg)
@@ -394,103 +233,6 @@ def GetGuide(categoryID):
 		return []
 	fileName = os.path.join(listsDir, "{0}.guide".format(categoryID))
 	return ReadList(fileName)
-
-def InstallAddon(addonID):
-	try:
-		repo = 'https://github.com/avigdork/xbmc-avigdork/raw/master'
-		req = urllib2.Request('{0}/addons.xml'.format(repo))
-		response = urllib2.urlopen(req)
-		data = response.read()
-		response.close()
-		data = re.compile('<addon id="(.+?)".+?version="(.+?)"', re.I+re.M+re.U+re.S).findall(data)
-		for i in range(len(data)):
-			if data[i][0] == addonID:
-				addonVer = data[i][1]
-				break
-		addonsDir = xbmc.translatePath(os.path.join('special://home', 'addons')).decode("utf-8")
-		url = '{0}/repo/{1}/{1}-{2}.zip'.format(repo, addonID, addonVer)
-		packageFile = os.path.join(addonsDir, 'packages', 'tmp.zip')
-		req = urllib2.Request(url)
-		response = urllib2.urlopen(req)
-		if response.info().get('Content-Encoding') == 'gzip':
-			buf = StringIO(response.read())
-			f = gzip.GzipFile(fileobj=buf)
-			data = f.read()
-		else:
-			data = response.read()
-		response.close()
-		with open(packageFile, 'wb') as f:
-			f.write(data)
-		xbmc.executebuiltin("XBMC.Extract({0}, {1})".format(packageFile, addonsDir), True)
-		try:
-			os.remove(packageFile)
-		except:
-			pass
-				
-		xbmc.executebuiltin("UpdateLocalAddons")
-		xbmc.executebuiltin("UpdateAddonRepos")
-	except Exception as ex:
-		xbmc.log("{0}".format(ex), 3)
-		return False
-
-	return True
-	
-def CheckNewVersion(remoteSettings):
-	resolverVerFile = os.path.join(user_dataDir, "resolverVersion.txt")
-	if not os.path.isfile(resolverVerFile):
-		resolverVersion = ""
-	else:
-		with open(resolverVerFile, 'r') as f:
-			resolverVersion = f.read()
-		
-	resolverNewVersion = ""
-	try:
-		resolverNewVersion = xbmcaddon.Addon(resolverAddonID).getAddonInfo("version")	
-	except:
-		if InstallAddon(resolverAddonID):
-			try:
-				resolverNewVersion = xbmcaddon.Addon(resolverAddonID).getAddonInfo("version")	
-			except Exception as ex:
-				xbmc.log("{0}".format(ex), 3)
-				return
-		else:
-			OKmsg(localizedString(30237).encode('utf-8'), localizedString(30237).encode('utf-8'), localizedString(30238).encode('utf-8'))
-			return
-			
-	isUpdated = False
-	if resolverNewVersion > resolverVersion:
-		isUpdated = True
-		with open(resolverVerFile, 'w') as f:
-			f.write(resolverNewVersion)
-	
-	if CheckNewResolver(remoteSettings):
-		isUpdated = True
-		
-	if isUpdated and getUseIPTV() and Addon.getSetting("dynamicPlayer") != "1":
-		OKmsg(localizedString(30235).encode('utf-8'), localizedString(30235).encode('utf-8'), localizedString(30201).encode('utf-8'))
-
-def CheckNewResolver(remoteSettings):
-	try:
-		newModified = GetSubKeyValue(remoteSettings, "resolver", "lastModified")
-		resolverContent = Decode(GetSubKeyValue(remoteSettings, "resolver", "content"))
-		resolverDir = xbmc.translatePath(xbmcaddon.Addon(resolverAddonID).getAddonInfo('path')).decode("utf-8")
-		resolverFile = os.path.join(resolverDir, 'lib', 'myResolver.py')
-		lastModifiedFile = os.path.join(user_dataDir, 'resolverLastModified.txt')
-		if not os.path.isfile(lastModifiedFile):
-			lastModified = "0"
-		else:
-			with open(lastModifiedFile, 'r') as f:
-				lastModified = f.read()
-		if newModified is not None and resolverContent is not None and lastModified < newModified:
-			with open(resolverFile, 'w') as f:
-				f.write(resolverContent)
-			with open(lastModifiedFile, 'w') as f:
-				f.write(newModified)
-			return True
-		return False
-	except Exception as ex:
-		xbmc.log("{0}".format(ex), 3)
-		return False
 
 def GetLivestreamerPort():
 	portNum = 65007

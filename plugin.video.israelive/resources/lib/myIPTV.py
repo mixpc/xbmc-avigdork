@@ -20,6 +20,7 @@ if not KodiPlayer:
 	except:
 		myResolver = None
 user_dataDir = xbmc.translatePath(Addon.getAddonInfo("profile")).decode("utf-8")
+FAV = os.path.join(user_dataDir, 'favorites.txt')
 
 def makeIPTVlist(iptvFile):
 	iptvType = GetIptvType()
@@ -244,20 +245,34 @@ def UpdateIPTVSimpleSettings(m3uPath, epgPath, logoPath):
 	
 	with open(iptvSettingsFile, 'r') as f:
 		xml = f.read()
-		
+	
+	settingsVer = re.compile('<settings version="(\d*)">').findall(xml)
+	settingsVer = 0 if len(settingsVer) < 1 else int(settingsVer[0])
 	isSettingsChanged = False
 	# make changes
 	for k, v in dict.iteritems():
-		if common.GetKodiVer() >= 18:
-			matches = re.compile('<(.*?)>(.*?)</{0}>'.format(k)).findall(xml)
-			if len(matches) > 0 and matches[0][1] != v:
-				xml = xml.replace('<{0}>{1}</{2}>'.format(matches[0][0], matches[0][1], k), '<{0}>{1}</{2}>'.format(matches[0][0], v, k))
-				isSettingsChanged = True
-		else:
-			matches = re.compile('<setting\s*id="{0}"\s*value="(.*?)"\s*?/>'.format(k)).findall(xml)
+		i = 0
+		if settingsVer == 1:
+			matches = re.compile('>(.*?)</{0}>'.format(k)).findall(xml)
 			if len(matches) > 0 and matches[0] != v:
-				xml = xml.replace('<setting id="{0}" value="{1}" />'.format(k, matches[0]), '<setting id="{0}" value="{1}" />'.format(k, v))
-				isSettingsChanged = True
+				i = xml.find('<{0}'.format(k))
+				i = xml.find('>', i) + 1
+				j = xml.find('<', i)
+		elif settingsVer == 2:
+			matches = re.compile('id="{0}".*?>(.*?)<'.format(k)).findall(xml)
+			if len(matches) > 0 and matches[0] != v:
+				i = xml.find('id="{0}"'.format(k))
+				i = xml.find('>', i) + 1
+				j = xml.find('<', i)
+		else:
+			matches = re.compile('id="{0}"\s*value="(.*?)"'.format(k)).findall(xml)
+			if len(matches) > 0 and matches[0] != v:
+				i = xml.find('id="{0}"'.format(k))
+				i = xml.find('value="', i) + 7
+				j = xml.find('"', i)
+		if i > 0:
+			xml = '{0}{1}{2}'.format(xml[:i], v, xml[j:])
+			isSettingsChanged = True
 	if not isSettingsChanged:
 		return True
 
@@ -310,7 +325,7 @@ def GetIptvChannels():
 	for category in categories:
 		if category.get('type', '') == "ignore":
 			continue
-		channels = common.GetChannels(category["id"]) if category["id"] != "Favourites" else common.ReadList(os.path.join(user_dataDir, 'favorites.txt'))
+		channels = common.GetChannels(category["id"]) if category["id"] != "Favourites" else common.ReadList(FAV)
 		ind = -1
 		for channel in channels:
 			ind += 1

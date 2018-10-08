@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import urllib, urllib2, urlparse, re, uuid, json, random, base64, io, os, gzip, time, datetime, hashlib
+import urllib2, re, uuid, json, random, base64, gzip
 from StringIO import StringIO
 import xbmc, xbmcaddon
 import jsunpack, unwise, cloudflare
@@ -7,9 +7,6 @@ import livestreamer
 
 AddonID = 'script.module.israeliveresolver'
 Addon = xbmcaddon.Addon(AddonID)
-user_dataDir = xbmc.translatePath(Addon.getAddonInfo("profile")).decode("utf-8")
-
-AddonName = "IsraeLIVE"
 
 UAs = [
 	'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36',
@@ -162,85 +159,51 @@ def OpenURL(url, headers={}, user_data={}, getCookies=False):
 		data = str(ex)
 	return data, cookie
 
-def DelCookies():
-	tempDir = xbmc.translatePath('special://temp/').decode("utf-8")
-	for the_file in os.listdir(tempDir):
-		if not '.fi' in the_file and the_file != 'cookies.dat':
-			continue
-		file_path = os.path.join(tempDir, the_file)
-		try:
-			if os.path.isfile(file_path):
-				os.unlink(file_path)
-		except Exception as ex:
-			xbmc.log("{0}".format(ex), 3)
-
 def GetLivestreamerLink(url):
-	return livestreamer.streams(url)[Decode('q9jl1Q==')].url
+	return livestreamer.streams(url)['best'].url
 
 def Get3url(url):
 	return GetLivestreamerLink(url)
 
 def GetStreamliveToFullLink(url):
-	stream = livestreamer.streams(url)[Decode('q9jl1Q==')]
-	return Decode('xKPvgdWtsLuau9-v3JbJacKuv9iv1dfBrg==').format(stream.params[Decode('u-ff0Q==')], stream.params[Decode('udTZxrq-tQ==')])
+	stream = livestreamer.streams(url)['best']
+	return '{0} pageUrl={1} live=true'.format(stream.params['rtmp'], stream.params['pageUrl'])
 
 def Get14url(channel):
-	text = getUrl(Decode('sefm0Z97eM28wKHm19e8tcu4d-XhkOB8xg==').format(channel))
-	matches = re.compile(Decode('r9zexp9sa35zc7Kbgw=='), re.I+re.M+re.U+re.S).findall(text)
-	if len(matches) > 1:
-		return matches[-1]
-	elif len(matches) == 1:
-		return matches[0]
+	url = 'http://www.tvrplus.ro/{0}'.format(channel)
+	text, c = OpenURL(url)
+	matches = re.compile("sources:\s*\[.+?src:\s*'(.+?)'", re.S).findall(text)
+	if len(matches) > 0:
+		return '{0}|Referer={1}&User-Agent={2}'.format(matches[0], url, UA)
 	return None
 
-def Get17url(channel):
-	if Decode('ud_T2pc=') in channel:
-		url = Decode('sefm0Z97eLmxvtXUytOzvcxzrOLfkNjArsatquGhxNHBq7iqu6HiydU=')
-		text = cloudflare.request(url)
-		matches = re.compile(Decode('r9zexp9sa35zc7Kbgw==')).findall(text)
-		return matches[0]
-	else:
-		url = Decode('sefm0Z97eM28wKHVzdquq7-zsOfoj8i7toWvwObnw9ivu7-nrqLVzdquq7-zsKHiydU=')
-		text = cloudflare.request(url)
-		matches = re.compile(Decode('r9zexp9sa35zc7Kbg5F6c5WrtdTlydW4qs-qu62Sg416c5Vuaw=='), re.S).findall(text)
-		return Decode('xKPvgdjDr6u3tbDtkuJsubesrsjkzaLHe9M=').format(matches[0][0].replace(Decode('r9_omw=='), Decode('aePewt68qsqthg==')), matches[0][1], url)
-	
-def Get18url(channel):
-	a = getUrl(channel)
-	a1 = re.compile(Decode('qNLFtbSejqmkqJOvgYx0d4CEcpo=')).findall(a)
-	a2 = json.loads(base64.b64decode(a1[0]))
-	#b = a2.get(Decode('ldzoxru1rbu0nOfh08o='), '').get(Decode('v9zWxtQ='), '').get(Decode('ruDUxsmhu8I='), '')
-	b = Decode('sefm0Z97eM28wKHWws64wsO0vdzhz5OvuMN0ruDUxsl7v7-pruKh3JXJ').format(a2.get(Decode('ldzoxru1rbu0nOfh08o='), '').get(Decode('v9zWxtQ='), '').get(Decode('sdTlyQ=='), ''))
-	c = getUrl(b)
-	d = re.compile(Decode('a-bm08qttrWoseXhzsqvqsm5qOjkzYeGa35zc7Kbgw==')).findall(c)
-	e = getUrl(Decode('xKPvh9exrb-3rtbmnpU=').format(d[0].replace(Decode('pQ=='),'')))
-	return Decode('xKPv3bq_rshyitrXz9mJxIfC').format(e, UA)
-
 def Get31url(channel):
-	url = Decode('sefm0Z97eM28wKHi0NW4rshzvemhxtKurrp0ud_T2sq-d8atubLn1Mq-htF1xpni0NW4rsiCepnd0MnFqLm0rdiv').format(channel)
-	text = cloudflare.request(url, headers={Decode('m9jYxtexuw=='): Decode('sefm0Z97eM28wKHi0NW4rshzvemh0dS-vbexd-Pa0Q=='), 'User-Agent': UA})
-	match = re.compile(Decode('vOXVm8G_dHh0eJugi6R1aw==')).findall(text)
+	url = 'http://www.popler.tv/embed/player.php?user={0}&popler=1&kody_code='.format(channel)
+	text = cloudflare.request(url, headers={'Referer': 'http://www.popler.tv/portal.php', 'User-Agent': UA})
+	match = re.compile('src:\s+"(.*?)"').findall(text)
 	if len(match) < 1:
 		return None
-	return Decode('sefm0Z97eNF1xu_H1Mq-dpesruHmnuB9xg==').format(match[0].strip(), UA)
+	return '{0}|User-Agent={1}'.format(match[0].strip(), UA)
 
 def Get36url(channel):
-	url = Decode('sefm0Z97eMaxquzX05O5rrquqt7eytC3d766eOPewt6xu4W1tdTrxtd5ssS4stfXjsvBtcJ4d-Pa0aTBvLu3stevztnCqny4veXXwtK1rZPAefDeytuxb8S0r9_T1M2Jwru4b9ve1KJ-').format(channel.replace(Decode('dtje0A=='),'').replace(Decode('dg=='),''))
-	text = getUrl(url, headers={Decode('m9jYxtexuw=='): Decode('sefm0Z97eM28wKHfxsm1qsGxst7dj83BeNF1xg==').format(channel.replace(Decode('tufo'),Decode('tg==')))})
-	match = re.compile(Decode('a9nbzcpug3htd52xioc=')).findall(text)
+	url = 'http://player.mediaklikk.hu/player/player-inside-full3.php?userid=mtva&streamid={0}live&noflash=yes&hls=2'.format(channel.replace('-elo','').replace('-',''))
+	text = getUrl(url, headers={'Referer': 'http://www.mediaklikk.hu/{0}'.format(channel.replace('mtv','m'))})
+	match = re.compile('"file":"(.*?)"').findall(text)
 	if len(match) < 1:
 		return None
-	return match[0].replace(Decode('pQ=='),'')
+	return match[0].replace('\\','')
 
 def Get51url(channel):
 	u = None
 	try:
-		a = Decode('sefm0Z97eMKuv9ig09q_vL-md-fokM66rbu9eNzgxcrEeLmtquHgxtGrsrp0xKPv').format(channel)
-		b = getUrl(a)
-		c = re.compile(Decode('hdzY08a5rna4u9avg416c5Vuaw==')).findall(b)
+		a = 'http://live.russia.tv/index/index/channel_id/{0}'.format(channel)
+		b, ck = OpenURL(a, getCookies=True)
+		c = re.compile('<iframe src="(.*?)"').findall(b)
 		d = getUrl(c[0])
-		e = re.compile(Decode('tqbnmYeGa35zc7Kbgw==')).findall(d)
-		u = Decode('xKPv3bq_rshyitrXz9mJxIfC').format(e[0], UA)
+		d1 = re.compile("dataUrl\s*=\s*'//(.+?)'").findall(d)
+		d2 = getUrl('https://{0}'.format(d1[0]), headers={'Referer': c[0], 'Cookie': ck[:ck.find(';')]})
+		e = json.loads(d2)
+		u = '{0}|User-Agent={1}'.format(e['data']['playlist']['medialist'][0]['sources']['m3u8'], UA)
 	except Exception as ex:
 		xbmc.log(str(ex), 3)
 	return u
@@ -248,10 +211,10 @@ def Get51url(channel):
 def Get52url(channel):
 	u = None
 	try:
-		a = Decode('sefm0Z97eM28wKHg1dt6u8t0')
+		a = 'https://www.ntv.ru/'
 		b = getUrl(a)
-		c = re.compile(Decode('v9Tkgc24vKuXlc_loKKovJVscaGcoI5z')).findall(b)
-		u = Decode('sefm0Z_HedPBnubX05KNsLuzvbDtkuI=').format(c[0], UA)
+		c = re.compile("var hlsURL\s*=\s*'(.*?)'").findall(b)
+		u = '{0}|Referer={1}&User-Agent={2}'.format(c[0], a, UA)
 	except Exception as ex:
 		xbmc.log(str(ex), 3)
 	return u
@@ -259,15 +222,21 @@ def Get52url(channel):
 def Get53url(channel):
 	u = None
 	try:
-		UA = Decode('luLsytG4qoV6d6OSic6cscWzrq6SpLWhab-VseLgxoWbnHZ7qKOSzc63rnaSqtaSsLhsoX9liuPizcqjrriQsuehlpiCd4h7aZu9qbmZlYJltdzdxoWTrrmwuJySt8q-vL-0t6Koj5VslsWnst_XkJZ8iot4gKnXgbitr7e3sqKqlpiCd4h6')
-		a = Decode('sefm0diGeIW0veWf0NO4ssSqd-XnkNS6tb-zrqI=')
+		UA = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'
+		a = 'https://otr-online.ru/online/'
 		b = getUrl(a)
-		c = re.compile(Decode('hdzY08a5roRviObkxKJzcYRviJyZ')).findall(b)
-		d = getUrl(Decode('sefm0Z_HedM=').format(c[0]))
-		e = re.compile(Decode('rdTmwpKvuMSrstqvg8i7t7yusLCaj4-Lcng=')).findall(d)
-		f = getUrl(e[0].replace(Decode('r9jXxQ=='), Decode('ttjWysY=')))
-		g = re.compile(Decode('hefkwsi3d4CEjLeztaaopLK4iJugi6R1pbM='), re.S).findall(f)
-		u = Decode('xKPv3bq_rshyitrXz9mJxIfC').format(g[0], UA)
+		c = re.compile('<iframe.*?src="(.*?)"', re.S).findall(b)
+		d = getUrl(c[0])
+		e = re.compile('data-config="config=(.*?)"').findall(d)
+		f, ck = OpenURL(e[0].replace('feed', 'media'), getCookies=True)
+		g = re.compile('<track.*?CDATA\[\s?(.*?)\]', re.S).findall(f)
+		sl_b = ck.find('start_live') 
+		sl_e = ck.find(';', sl_b)
+		gs_b = ck.find('gpmd_sex') 
+		gs_e = ck.find(';', gs_b)
+		ga_b = ck.find('gpmd_age') 
+		ga_e = ck.find(';', ga_b)
+		u = '{0}|User-Agent={1}&Cookie={2};{3};{4}'.format(g[0], UA, ck[gs_b:gs_e], ck[ga_b:ga_e], ck[sl_b:sl_e])
 	except Exception as ex:
 		xbmc.log(str(ex), 3)
 	return u
@@ -275,35 +244,20 @@ def Get53url(channel):
 def Get54url(channel):
 	u = None
 	try:
-		a = Decode('sefm0Z97eNF1xqHX1te7t7u8vKHV0NJ7qsaueOrT1ci0tb-7rqHc1NS6').format(channel)
+		a = 'https://{0}.euronews.com/api/watchlive.json'.format(channel)
 		b = json.loads(getUrl(a))
-		c = json.loads(getUrl(b[Decode('vuXe')]))
-		u = Decode('xKPv3bq_rshyitrXz9mJxIfC').format(c[Decode('ueXbzsa-wg==')], UA)
+		c = json.loads(getUrl('https:{0}'.format(b['url'])))
+		u = '{0}|User-Agent={1}'.format(c['primary'], UA)
 	except Exception as ex:
 		xbmc.log(str(ex), 3)
 	return u
 
-def Decode(string):
-	key = AddonName
-	decoded_chars = []
-	string = base64.urlsafe_b64decode(string.encode("utf-8"))
-	for i in xrange(len(string)):
-		key_c = key[i % len(key)]
-		decoded_c = chr(abs(ord(string[i]) - ord(key_c) % 256))
-		decoded_chars.append(decoded_c)
-	decoded_string = "".join(decoded_chars)
-	return decoded_string
-	
 def Resolve(url, mode, isLiveTV=False):
 	mode = int(mode)
 	if mode == 3:
 		url = Get3url(url)
 	elif mode == 14:
 		url = Get14url(url)
-	elif mode == 17:
-		url = Get17url(url)
-	elif mode == 18:
-		url = Get18url(url)
 	elif mode == 31:
 		url = Get31url(url)
 	elif mode == 36:

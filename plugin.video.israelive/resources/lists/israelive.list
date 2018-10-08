@@ -1,0 +1,3270 @@
+[
+	{
+		"group": "9999",
+		"name": "Radio",
+		"url": "",
+		"image": "http://cluster013.ovh.net/~ldbkofwj/wp-content/uploads/2009/06/3403781036_b3c63d60a1_o.jpg",
+		"list": [],
+		"type": "playlist",
+		"id": "10000"
+	},
+	{
+		"group": "9999",
+		"name": "Entertainment - בידור",
+		"url": "",
+		"image": "http://digitalmediafilms.webs.com/Variety%20of%20Your%20Favortie%20Channels.jpg",
+		"list": [
+		{
+				"group": "10087",
+				"name": "London Live",
+				"url": "http://bcoveliveios-i.akamaihd.net/hls/live/217434-b/3083279840001/master.m3u8",
+				"image": "http://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/618/?sURL=http://offlinehbpl.hbpl.co.uk/News/OMC/LondonLiveWeb-20131023010320820.jpg",
+				"tvg": "London Live",
+				"type": "video",
+				"id": "10136"
+			},
+			{
+				"group": "10087",
+				"name": "Dubai One",
+				"url": "http://dmithrvll.cdn.mangomolo.com/dubaione/smil:dubaione.smil/master.m3u8",
+				"image": "http://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Onetv_Logo_UAE.png/150px-Onetv_Logo_UAE.png",
+				"tvg": "Dubai One",
+				"type": "video",
+				"id": "11531"
+			},
+			{
+				"group": "10087",
+				"name": "BYUtv",
+				"url": "https://byubhls-i.akamaihd.net/hls/live/267187/byutvhls/master_4064.m3u8",
+				"image": "",
+				"tvg": "BYUtv",
+				"type": "video",
+				"id": "11488"
+			},
+			{
+				"group": "10087",
+				"name": "Insight HD",
+				"url": "http://ooyalahd2-f.akamaihd.net/i/intv02_delivery@346464/index_5128_av-p.m3u8?sd=10&rebase=on",
+				"image": "http://informitv.com/wordpress/wp-content/uploads/2015/10/Insight-TV.jpg",
+				"tvg": "Insight HD",
+				"type": "video",
+				"id": "12050"
+			},
+			{
+				"group": "10087",
+				"name": "AMGTV",
+				"url": "rtmp://cp212391.live.edgefcs.net/live/T02027-amgtv@120244 swfUrl=http://vp.telvue.com/extra/jwplayer.swf swfVfy=1 live=1 pageUrl=http://vp.telvue.com/player?id=T02027&video=57269&mini=1&autoplay=true timeout=15",
+				"image": "https://en.wikipedia.org/wiki/AMGTV#/media/File:Amgtv.PNG",
+				"tvg": "AMGTV",
+				"type": "video",
+				"id": "10169"
+			},
+			{
+				"group": "10087",
+				"name": "ALL THE KPOP",
+				"url": "https://www.youtube.com/watch?v=qGNyfwrjV0c?mode=3",
+				"image": "https://yt3.ggpht.com/-QjhqvLdYqrk/AAAAAAAAAAI/AAAAAAAAAAA/2wsx5GKklCc/s88-c-k-no-mo-rj-c0xffffff/photo.jpg",
+				"tvg": "ALL THE KPOP",
+				"type": "video",
+				"id": "10170"
+			},
+			{
+				"group": "10087",
+				"name": "Fashion TV",
+				"url": "https://www.youtube.com/watch?v=5FcHZ5Dj7WE?mode=3",
+				"image": "http://static.filmon.com/couch/channels/21/extra_big_logo.png",
+				"tvg": "Fashion TV",
+				"type": "ignore",
+				"id": "12023"
+			},
+			{
+				"group": "10087",
+				"name": "ME TV",
+				"url": "http://video.metv.com/metv/index.m3u8",
+				"image": "",
+				"tvg": "ME TV",
+				"type": "ignore",
+				"id": "12631"
+			},
+			{
+				"group": "10087",
+				"name": "DAYSTAR",
+				"url": "https://bcsecurelivehls-i.akamaihd.net/hls/live/261547/1539097700001/master_720p.m3u8",
+				"image": "http://static.filmon.com/couch/channels/833/extra_big_logo.png",
+				"tvg": "DAYSTAR",
+				"type": "video",
+				"id": "12395"
+			},
+			{
+				"group": "10087",
+				"name": "TBN",
+				"url": "http://acaooyalahd2-lh.akamaihd.net/i/TBN01_delivery@186239/index_2528_av-p.m3u8?sd=10&rebase=on",
+				"image": "http://static.filmon.com/couch/channels/398/extra_big_logo.png",
+				"tvg": "TBN",
+				"type": "video",
+				"id": "10194"
+			},
+			{
+				"group": "10087",
+				"name": "CBN",
+				"url": "http://bcliveuniv-lh.akamaihd.net/i/iptv1_1@194050/master.m3u8?playerId=2196082720001&lineupId=&affiliateId=&pubId=734546207001&videoId=3575741462001",
+				"image": "http://cbn.pd.ak.o.brightcove.com/734546207001/734546207001_1413899386001_GENERIC-CBN-Large.jpg",
+				"tvg": "CBN",
+				"type": "video",
+				"id": "11617"
+			},
+			{
+				"group": "10087",
+				"name": "Angel TV",
+				"url": "http://angeltvnetworkchannel.live-s.cdn.bitgravity.com/cdn-live/_definst_/angeltvnetworkchannel/live/AngelTV_India_3/master.m3u8",
+				"image": "http://www.revivaltvonline.com/images/Logo/angels-tv.jpg",
+				"tvg": "Angel TV",
+				"type": "video",
+				"id": "10196"
+			},
+			{
+				"group": "10087",
+				"name": "KBS World",
+				"url": "https://www.youtube.com/watch?v=NCLQN16Lyb4&mode=3",
+				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/1235552102_KBS_World_-_Logotype_%28JPG%29.jpg/260px-1235552102_KBS_World_-_Logotype_%28JPG%29.jpg",
+				"tvg": "KBS World",
+				"type": "video",
+				"id": "10208"
+			},
+			{
+				"group": "10087",
+				"name": "JLTV",
+				"url": "http://52.40.109.131:1935/rtplive/smil:jltv.smil/playlist.m3u8",
+				"image": "http://www.jltv.tv/images/jltvLogoHor.png",
+				"tvg": "JLTV",
+				"type": "video",
+				"id": "11618"
+			},
+			{
+				"group": "10087",
+				"name": "CCTV4",
+				"url": "https://www.youtube.com/watch?v=vCDDYb_M2B4?mode=3",
+				"image": "",
+				"tvg": "CCTV4",
+				"type": "video",
+				"id": "12484"
+			},
+			{
+				"group": "10087",
+				"name": "Channel 5 SINGAPORE",
+				"url": "http://tglch5h-i.akamaihd.net/hls/live/566515/ctv/01.m3u8",
+				"image": "",
+				"tvg": "Channel 5 SINGAPORE",
+				"type": "video",
+				"id": "12621"
+			},
+			{
+				"group": "10087",
+				"name": "Channel 8 SINGAPORE",
+				"url": "http://tglch8h-i.akamaihd.net/hls/live/566549/ctv/prog_index.m3u8",
+				"image": "",
+				"tvg": "Channel 8 SINGAPORE",
+				"type": "video",
+				"id": "12492"
+			},
+			{
+				"group": "10087",
+				"name": "Channel U SINGAPORE",
+				"url": "http://tglchuh-i.akamaihd.net/hls/live/566554/ctv/prog_index.m3u8",
+				"image": "",
+				"tvg": "Channel U SINGAPORE",
+				"type": "video",
+				"id": "12493"
+			},
+			{
+				"group": "10087",
+				"name": "Suria SINGAPORE",
+				"url": "http://tglsuriah-i.akamaihd.net/hls/live/566540/ctv/prog_index.m3u8",
+				"image": "",
+				"tvg": "Suria SINGAPORE",
+				"type": "video",
+				"id": "12622"
+			},
+			{
+				"group": "10087",
+				"name": "Vasantham SINGAPORE",
+				"url": "http://tglvsnthmh-i.akamaihd.net/hls/live/566544/ctv/prog_index.m3u8",
+				"image": "",
+				"tvg": "Vasantham SINGAPORE",
+				"type": "video",
+				"id": "12494"
+			},
+			{
+				"group": "10087",
+				"name": "Mello TV",
+				"url": "http://mellotvnew.tulix.tv/live/smil:mellotv.smil/chunklist_w1800524040_b2328000_sleng.m3u8",
+				"image": "http://www.mellotv.com/uc/Mello%20icon.png",
+				"tvg": "Mello TV",
+				"type": "ignore",
+				"id": "10240"
+			},
+			{
+				"group": "10087",
+				"name": "Lotus Macau",
+				"url": "rtmp://3xhtut.live1.z1.pili.qiniucdn.com/lotustv/5562e9e4d409d24c9600075c",
+				"image": "http://upload.wikimedia.org/wikipedia/en/9/99/Lotus_TV_Macau_logo.jpg",
+				"tvg": "Lotus Macau",
+				"type": "video",
+				"id": "11424"
+			}
+		],
+		"type": "playlist",
+		"id": "10087"
+	},
+	{
+		"group": "9999",
+		"name": "Music - מוזיקה",
+		"url": "",
+		"image": "http://www.hdwallpapers.in/wallpapers/dance_with_me_hd_wide-1920x1200.jpg",
+		"list": [{
+				"group": "10277",
+				"name": "Retro music TV",
+				"url": "rtmp://stream.mediawork.cz/retrotv/ playpath=retrotvHQ1 swfUrl=http://vjs.zencdn.net/4.10/video-js.swf pageUrl=http://www.retromusic.cz/index.php?language=en",
+				"image": "http://files.dvb-s.webnode.com/200000463-82105830a6/retro_music_tv.jpg",
+				"tvg": "Retro music TV",
+				"type": "video",
+				"id": "12105"
+			},
+			{
+				"group": "10277",
+				"name": "Ocko Gold",
+				"url": "https://ocko-live-dash.ssl.cdn.cra.cz/cra_live2/ocko_gold.stream.1.smil/manifest.m3u8",
+				"image": "http://www.ktct.cz/files/images/loga/ocko-gold.jpg",
+				"tvg": "Ocko Gold",
+				"type": "video",
+				"id": "12120"
+			},
+			{
+				"group": "10277",
+				"name": "Ocko Expres",
+				"url": "https://ocko-live-dash.ssl.cdn.cra.cz/cra_live2/ocko_expres.stream.1.smil/manifest.m3u8",
+				"image": "http://ocko.tv/content/www/annotations/logoockoexpres-web-jak-nas-naladite-1375816278.jpg",
+				"tvg": "Ocko Expres",
+				"type": "video",
+				"id": "12121"
+			},
+			{
+				"group": "10277",
+				"name": "ONE By SD",
+				"url": "rtmp://rtmp.one.by/SD/ playpath=1muz swfUrl=http://stream.one.by/jw/jwplayer.flash.swf pageUrl=http://stream.one.by/",
+				"image": "",
+				"tvg": "ONE By SD",
+				"type": "video",
+				"id": "12092"
+			},
+			{
+				"group": "10277",
+				"name": "ONE By HD 1080P",
+				"url": "http://rtmp.one.by:1300/",
+				"image": "",
+				"tvg": "ONE By HD 1080P",
+				"type": "video",
+				"id": "12090"
+			},
+			{
+				"group": "10277",
+				"name": "ONE By UHD 2160P 4K",
+				"url": "http://rtmp.one.by:1400/",
+				"image": "",
+				"tvg": "ONE By UHD 2160P 4K",
+				"type": "video",
+				"id": "12091"
+			},
+			{
+				"group": "10277",
+				"name": "One By RUSSIA HD 720P",
+				"url": "http://rtmp.one.by:2300/",
+				"image": "",
+				"tvg": "One By RUSSIA HD 720P",
+				"type": "video",
+				"id": "12093"
+			},
+			{
+				"group": "10277",
+				"name": "cityTV",
+				"url": "http://nodeb.gocaster.net:1935/CGL/_definst_/mp4:TODAYFM_TEST2/live.m3u8",
+				"image": "",
+				"tvg": "cityTV",
+				"type": "video",
+				"id": "12099"
+			},
+			{
+				"group": "10277",
+				"name": "CMC TV country",
+				"url": "rtmp://cmctv.flash.internapcdn.net/cmctv_vitalstream_com/live_1/CMC-TV live=1 pageUrl=http://www.cmc-tv.com/",
+				"image": "",
+				"tvg": "CMC TV country",
+				"type": "video",
+				"id": "10278"
+			},
+			{
+				"group": "10277",
+				"name": "gotv music",
+				"url": "rtmp://nstream17.gotv.at:1938/live/gotvlive_576p",
+				"image": "https://www.wownet.ro/logo/0126.png",
+				"tvg": "gotv music",
+				"type": "video",
+				"id": "11958"
+			},
+			{
+				"group": "10277",
+				"name": "CAPITAL TV",
+				"url": "http://ooyalahd2-f.akamaihd.net/i/globalradio01_delivery@156521/master.m3u8",
+				"image": "http://www.thisisglobal.com/wp-content/uploads/2012/10/Capital-TV-430x160.png",
+				"tvg": "CAPITAL TV",
+				"type": "video",
+				"id": "10306"
+			},
+			{
+				"group": "10277",
+				"name": "Heart TV",
+				"url": "http://ooyalahd2-f.akamaihd.net/i/globalradio02_delivery@156522/master.m3u8",
+				"image": "http://4.bp.blogspot.com/-uB91vxe1PS8/UbTZ5Ada0rI/AAAAAAAAAsI/VWRa6har84E/w200/1.png",
+				"tvg": "Heart TV",
+				"type": "video",
+				"id": "10307"
+			},
+			{
+				"group": "10277",
+				"name": "1music.ro",
+				"url": "http://www.livestream.com/1_music_channel/?mode=3",
+				"image": "http://upload.wikimedia.org/wikipedia/ro/e/e4/1music.jpg",
+				"tvg": "1music.ro",
+				"type": "video",
+				"id": "10314"
+			},
+			{
+				"group": "10277",
+				"name": "Stars TV",
+				"url": "http://starstv.live.e55-po.insyscd.net/starstvhd.smil/index.m3u8",
+				"image": "http://media2.pl/g/0/31809.jpg",
+				"tvg": "Stars TV",
+				"type": "video",
+				"id": "10316"
+			},
+			{
+				"group": "10277",
+				"name": "4fun.tv",
+				"url": "4funtv?mode=31",
+				"image": "http://www.4funmedia.pl/pub/uploadimages/gtx/3_2014-11-25_4fun.tv2014.jpg",
+				"tvg": "4fun.tv",
+				"type": "video",
+				"id": "10339"
+			},
+			{
+				"group": "10277",
+				"name": "Vibee.tv",
+				"url": "http://46.101.21.42:8081/live/live2/playlist.m3u8",
+				"image": "https://s5.postimg.org/44kt9h6fb/vibeelogotvtv.png",
+				"tvg": "Vibee.tv",
+				"type": "video",
+				"id": "11481"
+			},
+			{
+				"group": "10277",
+				"name": "Vox olds cool TV",
+				"url": "rtmp://stream.smcdn.pl/vox-t/vox_720p",
+				"image": "http://www.mediagroupinfo.pl/uploads/Hiphop-wraca-do-muzycznych-TV.-Od-teraz-w-Eska-TV-300x169.jpg",
+				"tvg": "Vox olds cool TV",
+				"type": "video",
+				"id": "10318"
+			},
+			{
+				"group": "10277",
+				"name": "music Vox TV",
+				"url": "rtmp://stream.smcdn.pl/vox2-p/stream1",
+				"image": "http://www.mediagroupinfo.pl/uploads/Hiphop-wraca-do-muzycznych-TV.-Od-teraz-w-Eska-TV-300x169.jpg",
+				"tvg": "music Vox TV",
+				"type": "video",
+				"id": "10319"
+			},
+			{
+				"group": "10277",
+				"name": "eska rock",
+				"url": "rtmp://stream.smcdn.pl/eska_rock-t/eska_rock_720p",
+				"image": "http://www.mediagroupinfo.pl/uploads/Hiphop-wraca-do-muzycznych-TV.-Od-teraz-w-Eska-TV-300x169.jpg",
+				"tvg": "eska rock",
+				"type": "ignore",
+				"id": "10320"
+			},
+			{
+				"group": "10277",
+				"name": "eska party",
+				"url": "rtmp://stream.smcdn.pl/eska_party-t/eska_party_720p",
+				"image": "http://www.mediagroupinfo.pl/uploads/Hiphop-wraca-do-muzycznych-TV.-Od-teraz-w-Eska-TV-300x169.jpg",
+				"tvg": "eska party",
+				"type": "video",
+				"id": "10322"
+			},
+			{
+				"group": "10277",
+				"name": "eska best Music",
+				"url": "rtmp://stream.smcdn.pl/best-t/best_720p",
+				"image": "http://www.mediagroupinfo.pl/uploads/Hiphop-wraca-do-muzycznych-TV.-Od-teraz-w-Eska-TV-300x169.jpg",
+				"tvg": "eska best Music",
+				"type": "video",
+				"id": "10323"
+			},
+			{
+				"group": "10277",
+				"name": "Eska Wawa TV Polska",
+				"url": "rtmp://stream.smcdn.pl/wawa-t/wawa_720p",
+				"image": "http://www.mediagroupinfo.pl/uploads/Hiphop-wraca-do-muzycznych-TV.-Od-teraz-w-Eska-TV-300x169.jpg",
+				"tvg": "Eska Wawa TV Polska",
+				"type": "video",
+				"id": "10325"
+			},
+			{
+				"group": "10277",
+				"name": "Polo Party TV",
+				"url": "rtmp://stream.smcdn.pl/polo_party-t/polo_party_720p",
+				"image": "",
+				"tvg": "Polo Party TV",
+				"type": "video",
+				"id": "11325"
+			},
+			{
+				"group": "10277",
+				"name": "Zougla HD",
+				"url": "http://zglive1.mdc.akamaized.net/hls/live/570950/z1/master.m3u8",
+				"image": "",
+				"tvg": "Zougla HD",
+				"type": "video",
+				"id": "10328"
+			},
+			{
+				"group": "10277",
+				"name": "Virgin TV",
+				"url": "http://wow01.105.net/live/virgin1/playlist.m3u8",
+				"image": "http://www.lyngsat-logo.com/hires/vv/virgin_1_plus1.png",
+				"tvg": "Virgin TV",
+				"type": "video",
+				"id": "10329"
+			},
+			{
+				"group": "10277",
+				"name": "Virgin TV",
+				"url": "rtmp://fms.105.net:1935/live/ playpath=virgin1 swfUrl=http://www.widih.org/player.swf pageUrl=http://www.widih.org/watch-tv/357/virgin-1 live=1 timeout=10",
+				"image": "http://www.lyngsat-logo.com/hires/vv/virgin_1_plus1.png",
+				"tvg": "Virgin TV",
+				"type": "video",
+				"id": "12108"
+			},
+			{
+				"group": "10277",
+				"name": "m2o TV",
+				"url": "http://m2otv-lh.akamaihd.net/i/m2oTv_1@186074/index_600_av-b.m3u8",
+				"image": "http://upload.wikimedia.org/wikipedia/it/thumb/2/2d/Logo_m2o_%282012%29.png/200px-Logo_m2o_%282012%29.png",
+				"tvg": "m2o TV",
+				"type": "video",
+				"id": "10330"
+			},
+			{
+				"group": "10277",
+				"name": "Radio 105 TV",
+				"url": "rtmp://fms.105.net:1935/live/105Test1 swfVfy=http://video.105.net/com/universalmind/swf/videoPlayerAdsWizz01.swf live=1 timeout=10",
+				"image": "http://www.105.net/gfx/lgo/radio-105-network.png",
+				"tvg": "Radio 105 TV",
+				"type": "video",
+				"id": "10331"
+			},
+			{
+				"group": "10277",
+				"name": "Deluxe TV",
+				"url": "http://server55.livestreamingcdn.com:1935/tulixdemo/tulixdemo/playlist.m3u8",
+				"image": "http://www.dwdl.de/images/1327401031.jpg",
+				"tvg": "Deluxe TV",
+				"type": "ignore",
+				"id": "11505"
+			},
+			{
+				"group": "10277",
+				"name": "Supersonic TV",
+				"url": "rtmp://str103.setplex.net:1935/228 playpath=stv_online swfUrl=http://online.super-sonic.tv/wp-content/uploads/jw-player-plugin-for-wordpress/player/player.swf live=1 pageUrl=http://online.super-sonic.tv/tv-live/",
+				"image": "http://www.lyngsat-logo.com/hires/ss/supersonic_tv_al.png",
+				"tvg": "Supersonic TV",
+				"type": "ignore",
+				"id": "11324"
+			},
+			{
+				"group": "10277",
+				"name": "Ibiza Global TV",
+				"url": "https://www.youtube.com/watch?v=1JvDiGyi3P0?mode=3",
+				"image": "https://yt3.ggpht.com/-Mlsk9O-i790/AAAAAAAAAAI/AAAAAAAAAAA/KVjW6O5KcAg/s88-c-k-no-mo-rj-c0xffffff/photo.jpg",
+				"tvg": "Ibiza Global TV",
+				"type": "video",
+				"id": "10332"
+			},
+			{
+				"group": "10277",
+				"name": "HIT TV",
+				"url": "http://kissfm-cires21-video.secure.footprint.net/hittv/master.m3u8",
+				"image": "http://upload.wikimedia.org/wikipedia/ro/7/77/KissTV_nou.jpg",
+				"tvg": "HIT TV",
+				"type": "video",
+				"id": "10334"
+			},
+			{
+				"group": "10277",
+				"name": "Music Box Russia",
+				"url": "rtmp://musicbox.cdnvideo.ru:1935/musicbox playpath=musicbox.sdp swfUrl=http://www.aloha.cdnvideo.ru/aloha/slon/SlonPlayer_adv.swf pageUrl=http://www.russianmusicbox.tv/",
+				"image": "http://www.abload.de/img/musicv0pjo.png",
+				"tvg": "Music Box Russia",
+				"type": "video",
+				"id": "10343"
+			},
+			{
+				"group": "10277",
+				"name": "Music Box Ukraine",
+				"url": "rtmp://212.26.132.86/live/ playpath=mb_ua swfUrl=http://radio.adamant.ua/video-js/video-js.swf pageUrl=http://radio.adamant.ua/adamant_player/mb_ua/mb_ua_v.html",
+				"image": "http://www.abload.de/img/musicv0pjo.png",
+				"tvg": "Music Box Ukraine",
+				"type": "video",
+				"id": "10345"
+			}
+		],
+		"type": "playlist",
+		"id": "10277"
+	},
+	{
+		"group": "9999",
+		"name": "News - חדשות",
+		"url": "",
+		"image": "http://cdn.hercampus.com/s3fs-public/2016/12/11/News.jpg",
+		"list": [{
+				"group": "10359",
+				"name": "i24News English",
+				"url": "https://www.youtube.com/watch?v=W2hOGICeHDA&mode=3",
+				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/I24_official_logo.png/220px-I24_official_logo.png",
+				"tvg": "i24News English",
+				"type": "ignore",
+				"id": "12352"
+			},
+			{
+				"group": "10359",
+				"name": "ABC News",
+				"url": "http://abclive.abcnews.com/i/abc_live4@136330/master.m3u8",
+				"image": "http://a.abcnews.com/images/US/abc_news_default_2000x2000_update_16x9t_384.jpg",
+				"tvg": "ABC News",
+				"type": "video",
+				"id": "10365"
+			},
+			{
+				"group": "10359",
+				"name": "CBS News",
+				"url": "http://cbsnews-linear.mdialog.com/video_assets/cbsnews.m3u8?api_key=563b80c1ae4ce359830f572d2496a947",
+				"image": "http://whatsonline.tv/wp-content/uploads/2014/11/CBSN-Logo-466x310.jpg",
+				"tvg": "CBS News",
+				"type": "ignore",
+				"id": "10366"
+			},
+			{
+				"group": "10359",
+				"name": "CBS News",
+				"url": "http://cbsnewshd-lh.akamaihd.net/i/CBSNHD_7@199302/index_2200_av-p.m3u8?sd=10&rebase=on",
+				"image": "http://whatsonline.tv/wp-content/uploads/2014/11/CBSN-Logo-466x310.jpg",
+				"tvg": "CBS News",
+				"type": "video",
+				"id": "10362"
+			},
+			{
+				"group": "10359",
+				"name": "MSNBC",
+				"url": "http://tvemsnbc-lh.akamaihd.net/i/nbcmsnbc_1@122532/index_4296_av-b.m3u8?sd=10&rebase=on",
+				"image": "http://www.realtvcritics.com/wp-content/uploads/2011/07/msnbc-logo1.jpg",
+				"tvg": "MSNBC",
+				"type": "video",
+				"id": "10374"
+			},
+			{
+				"group": "10359",
+				"name": "NewsMAX",
+				"url": "https://nmxlive.akamaized.net/hls/live/529965/Live_1/index_720.m3u8",
+				"image": "http://static.filmon.com/couch/channels/3223/extra_big_logo.png",
+				"tvg": "NewsMAX",
+				"type": "video",
+				"id": "12353"
+			},
+			{
+				"group": "10359",
+				"name": "RTE News",
+				"url": "http://wmsrtsp1.rte.ie/live/android.sdp/playlist.m3u8",
+				"image": "http://static.rasset.ie/static/news/img/img_rte_contact.jpg",
+				"tvg": "RTE News",
+				"type": "video",
+				"id": "10370"
+			},
+			{
+				"group": "10359",
+				"name": "BBC News arabic",
+				"url": "http://bbcwshdlive01-lh.akamaihd.net/i/atv_1@61433/master.m3u8",
+				"image": "http://news.bbcimg.co.uk/media/images/73586000/jpg/_73586104_bbc_arabic_2_language_red.jpg",
+				"tvg": "BBC News arabic",
+				"type": "video",
+				"id": "11608"
+			},
+			{
+				"group": "10359",
+				"name": "sky news",
+				"url": "https://www.youtube.com/watch?v=y60wDzZt8yg&mode=3",
+				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Sky_News.svg/250px-Sky_News.svg.png",
+				"tvg": "sky news",
+				"type": "ignore",
+				"id": "10381"
+			},
+			{
+				"group": "10359",
+				"name": "sky news",
+				"url": "http://skydvn-nowtv-atv-prod.skydvn.com/atv/skynews/1404/live/06.m3u8",
+				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Sky_News.svg/250px-Sky_News.svg.png",
+				"tvg": "sky news",
+				"type": "video",
+				"id": "11300"
+			},
+			{
+				"group": "10359",
+				"name": "sky news arabia",
+				"url": "https://stream.skynewsarabia.com/hls/sna_720.m3u8",
+				"image": "http://upload.wikimedia.org/wikipedia/en/8/84/Sky_News_Arabia_logo.png",
+				"tvg": "sky news arabia",
+				"type": "video",
+				"id": "10382"
+			},
+			{
+				"group": "10359",
+				"name": "ABC NEWS australia",
+				"url": "http://abcnews24mha-lh.akamaihd.net/i/abcnews24nospe_1@70019/master.m3u8",
+				"image": "http://www.abc.net.au/cm/lb/5340830/data/news-logo-data.png",
+				"tvg": "ABC NEWS australia",
+				"type": "video",
+				"id": "10393"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews English",
+				"url": "www?mode=54",
+				"image": "http://static.filmon.com/couch/channels/1672/extra_big_logo.png",
+				"tvg": "Euronews English",
+				"type": "video",
+				"id": "10392"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews English",
+				"url": "rtsp://ewns-hls-b-stream.hexaglobe.net/rtpeuronewslive/en_vidan750_rtp.sdp",
+				"image": "http://static.filmon.com/couch/channels/1672/extra_big_logo.png",
+				"tvg": "Euronews English",
+				"type": "ignore",
+				"id": "11598"
+			},
+			{	
+				"group": "10359",
+				"name": "Euronews English",
+				"url": "https://www.youtube.com/watch?v=ufVf8ZCpYRs&mode=3",
+				"image": "http://static.filmon.com/couch/channels/1672/extra_big_logo.png",
+				"tvg": "Euronews English",
+				"type": "ignore",
+				"id": "11599"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews French",
+				"url": "fr?mode=54",
+				"image": "http://static.filmon.com/couch/channels/2900/extra_big_logo.png",
+				"tvg": "Euronews French",
+				"type": "video",
+				"id": "12264"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews German",
+				"url": "de?mode=54",
+				"image": "http://static.filmon.com/couch/channels/2903/extra_big_logo.png",
+				"tvg": "Euronews German",
+				"type": "video",
+				"id": "12611"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews Italian",
+				"url": "it?mode=54",
+				"image": "http://static.filmon.com/couch/channels/2912/extra_big_logo.png",
+				"tvg": "Euronews Italian",
+				"type": "video",
+				"id": "12083"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews Italian",
+				"url": "rtsp://ewns-hls-b-stream.hexaglobe.net/rtpeuronewslive/it_vidan750_rtp.sdp",
+				"image": "http://static.filmon.com/couch/channels/2912/extra_big_logo.png",
+				"tvg": "Euronews Italian",
+				"type": "ignore",
+				"id": "12612"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews Spanish",
+				"url": "es?mode=54",
+				"image": "http://static.filmon.com/couch/channels/2906/extra_big_logo.png",
+				"tvg": "Euronews Spanish",
+				"type": "video",
+				"id": "12614"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews Portuguese",
+				"url": "pt?mode=54",
+				"image": "http://static.filmon.com/couch/channels/2909/extra_big_logo.png",
+				"tvg": "Euronews Portuguese",
+				"type": "video",
+				"id": "12615"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews Greece",
+				"url": "gr?mode=54",
+				"image": "http://static.filmon.com/couch/channels/2909/extra_big_logo.png",
+				"tvg": "Euronews Greece",
+				"type": "video",
+				"id": "12616"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews Russian",
+				"url": "ru?mode=54",
+				"image": "http://static.filmon.com/couch/channels/1672/extra_big_logo.png",
+				"tvg": "Euronews Russian",
+				"type": "video",
+				"id": "10400"
+			},
+			{
+				"group": "10359",
+				"name": "Euronews Arabic",
+				"url": "arabic?mode=54",
+				"image": "http://static.filmon.com/couch/channels/1672/extra_big_logo.png",
+				"tvg": "Euronews Arabic",
+				"type": "video",
+				"id": "10401"
+			},
+			{
+				"group": "10359",
+				"name": "euronews Turkishe",
+				"url": "tr?mode=54",
+				"image": "http://static.filmon.com/couch/channels/1672/extra_big_logo.png",
+				"tvg": "euronews Turkishe",
+				"type": "video",
+				"id": "12613"
+			},
+			{
+				"group": "10359",
+				"name": "France24 English",
+				"url": "https://www.youtube.com/watch?v=2JnKgrsMZXQ&mode=3",
+				"image": "http://static.filmon.com/couch/channels/298/extra_big_logo.png",
+				"tvg": "France24 English",
+				"type": "ignore",
+				"id": "12351"
+			},
+			{
+				"group": "10359",
+				"name": "France24 English",
+				"url": "http://static.france24.com/live/F24_EN_LO_HLS/live_web.m3u8",
+				"image": "http://static.filmon.com/couch/channels/298/extra_big_logo.png",
+				"tvg": "France24 English",
+				"type": "video",
+				"id": "12403"
+			},
+			{
+				"group": "10359",
+				"name": "France24 France",
+				"url": "http://static.france24.com/live/F24_FR_LO_HLS/live_web.m3u8",
+				"image": "http://static.filmon.com/couch/channels/298/extra_big_logo.png",
+				"tvg": "France24 France",
+				"type": "video",
+				"id": "12401"
+			},
+			{
+				"group": "10359",
+				"name": "France24 Arabic",
+				"url": "http://static.france24.com/live/F24_AR_LO_HLS/live_web.m3u8",
+				"image": "http://static.filmon.com/couch/channels/298/extra_big_logo.png",
+				"tvg": "France24 Arabic",
+				"type": "video",
+				"id": "12400"
+			},
+			{
+				"group": "10359",
+				"name": "BFM TV",
+				"url": "http://csm-e.dai.bfmtv.com/csm/live/109797390.m3u8",
+				"image": "http://static.filmon.com/couch/channels/2765/extra_big_logo.png",
+				"tvg": "BFM TV",
+				"type": "video",
+				"id": "10617"
+			},
+			{
+				"group": "10359",
+				"name": "BFM PARIS",
+				"url": "http://bfmparishdslive-lh.akamaihd.net/i/DVMR_PARIS@429747/index_1024_av-p.m3u8?sd=10&rebase=on",
+				"image": "",
+				"tvg": "BFM PARIS",
+				"type": "video",
+				"id": "12254"
+			},
+			{
+				"group": "10359",
+				"name": "BFM SPORT",
+				"url": "http://rmc-i.akamaihd.net/hls/live/218333/876630703001/BFMSPORT/master-4.m3u8",
+				"image": "",
+				"tvg": "BFM SPORT",
+				"type": "ignore",
+				"id": "12028"
+			},
+			{
+				"group": "10359",
+				"name": "BFM TV BUSINESS",
+				"url": "http://bfmlive-i.akamaihd.net/hls/live/254438/876450612001/DVMR_BFMBusiness2/master-4.m3u8",
+				"image": "http://www.axelera.org/images/stories/images/actualites/Logo-BFM-Business1.jpg",
+				"tvg": "BFM TV BUSINESS",
+				"type": "video",
+				"id": "12419"
+			},
+			{
+				"group": "10359",
+				"name": "Bloomberg",
+				"url": "http://cdn3.videos.bloomberg.com/btv/us/master.m3u8",
+				"image": "http://static.filmon.com/couch/channels/81/extra_big_logo.png",
+				"tvg": "Bloomberg",
+				"type": "video",
+				"id": "10414"
+			},
+			{
+				"group": "10359",
+				"name": "Bloomberg",
+				"url": "https://www.youtube.com/watch?v=Ga3maNZ0x0w?mode=3",
+				"image": "http://static.filmon.com/couch/channels/81/extra_big_logo.png",
+				"tvg": "Bloomberg",
+				"type": "video",
+				"id": "11870"
+			},
+			{
+				"group": "10359",
+				"name": "Russia Today America",
+				"url": "https://secure-streams.akamaized.net/rt-usa/index2500.m3u8",
+				"image": "http://www.lyngsat-logo.com/hires/rr/rt_america.png",
+				"tvg": "Russia Today America",
+				"type": "video",
+				"id": "10419"
+			},
+			{
+				"group": "10359",
+				"name": "Russia Today",
+				"url": "https://secure-streams.akamaized.net/rt/index2500.m3u8",
+				"image": "http://www.lyngsat-logo.com/hires/rr/rt_america.png",
+				"tvg": "Russia Today",
+				"type": "video",
+				"id": "10425"
+			},
+			{
+				"group": "10359",
+				"name": "Russia Today Spanish",
+				"url": "https://www.youtube.com/watch?v=OALyNX4IbBI&mode=3",
+				"image": "http://www.lyngsat-logo.com/hires/rr/rt_america.png",
+				"tvg": "Russia Today Spanish",
+				"type": "ignore",
+				"id": "12073"
+			},
+			{
+				"group": "10359",
+				"name": "Russia Today Spanish",
+				"url": "https://secure-streams.akamaized.net/rt-esp/index2500.m3u8",
+				"image": "http://www.lyngsat-logo.com/hires/rr/rt_america.png",
+				"tvg": "Russia Today Spanish",
+				"type": "video",
+				"id": "10426"
+			},
+			{
+				"group": "10359",
+				"name": "Russia Today Arabic",
+				"url": "https://secure-streams.akamaized.net/rt-arab/index2500.m3u8",
+				"image": "http://www.lyngsat-logo.com/hires/rr/rt_america.png",
+				"tvg": "Russia Today Arabic",
+				"type": "video",
+				"id": "10427"
+			},
+			{
+				"group": "10359",
+				"name": "Russia Today Arabic",
+				"url": "https://www.youtube.com/watch?v=mFQA6sCQOU4&mode=3",
+				"image": "http://www.lyngsat-logo.com/hires/rr/rt_america.png",
+				"tvg": "Russia Today Arabic",
+				"type": "ignore",
+				"id": "12354"
+			},
+			{
+				"group": "10359",
+				"name": "CGTN",
+				"url": "https://www.youtube.com/watch?v=nQ3iylp5NRk&mode=3",
+				"image": "http://static.filmon.com/couch/channels/1675/extra_big_logo.png",
+				"tvg": "CGTN",
+				"type": "ignore",
+				"id": "10429"
+			},
+			{
+				"group": "10359",
+				"name": "CGTN",
+				"url": "http://live.cgtn.com/1000/prog_index.m3u8",
+				"image": "http://static.filmon.com/couch/channels/1675/extra_big_logo.png",
+				"tvg": "CGTN",
+				"type": "video",
+				"id": "10430"
+			},
+			{
+				"group": "10359",
+				"name": "CGTN France",
+				"url": "http://live.cgtn.com/1000f/prog_index.m3u8",
+				"image": "http://static.filmon.com/couch/channels/1675/extra_big_logo.png",
+				"tvg": "CGTN France",
+				"type": "video",
+				"id": "12417"
+			},
+			{
+				"group": "10359",
+				"name": "CGTN Spain",
+				"url": "http://live.cgtn.com/1000e/prog_index.m3u8",
+				"image": "http://static.filmon.com/couch/channels/1675/extra_big_logo.png",
+				"tvg": "CGTNSpain",
+				"type": "video",
+				"id": "11468"
+			},
+			{
+				"group": "10359",
+				"name": "CGTN Arabic",
+				"url": "http://live.cgtn.com/1000a/prog_index.m3u8",
+				"image": "http://static.filmon.com/couch/channels/1675/extra_big_logo.png",
+				"tvg": "CGTN Arabic",
+				"type": "video",
+				"id": "11469"
+			},
+			{
+				"group": "10359",
+				"name": "CGTN Russia",
+				"url": "http://live.cgtn.com/1000r/prog_index.m3u8",
+				"image": "http://static.filmon.com/couch/channels/1675/extra_big_logo.png",
+				"tvg": "CGTN Russia",
+				"type": "video",
+				"id": "11470"
+			},
+			{
+				"group": "10359",
+				"name": "Arirang TV",
+				"url": "http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
+				"image": "http://static.filmon.com/couch/channels/932/extra_big_logo.png",
+				"tvg": "Arirang TV",
+				"type": "video",
+				"id": "10433"
+			},
+			{
+				"group": "10359",
+				"name": "Arirang TV",
+				"url": "https://www.youtube.com/watch?v=JVr6yiZ9IMY&mode=3",
+				"image": "http://static.filmon.com/couch/channels/932/extra_big_logo.png",
+				"tvg": "Arirang TV",
+				"type": "ignore",
+				"id": "12355"
+			},
+			{
+				"group": "10359",
+				"name": "NHK World HD",
+				"url": "https://nhkwtvglobal-i.akamaihd.net/hls/live/263941/nhkwtvglobal/index_2100.m3u8",
+				"image": "http://static-cdn1.ustream.tv/i/channel/picture/7/4/9/7/7497266/7497266_nhk_world_logo2_1299927691,640x360,r:1.jpg",
+				"tvg": "NHK World HD",
+				"type": "video",
+				"id": "10435"
+			},
+			{
+				"group": "10359",
+				"name": "Africa News Network ANN7",
+				"url": "rtmp://46.4.25.213/live-ann7/ann7-hi.stream",
+				"image": "",
+				"tvg": "Africa News Network ANN7",
+				"type": "video",
+				"id": "10734"
+			},
+			{
+				"group": "10359",
+				"name": "Jakarta Globe News",
+				"url": "http://edge.linknetott.swiftserve.com/live/BsNew/amlst:bsenglish/playlist.m3u8",
+				"image": "http://jakartaglobe.id/assets/desktop/images/logo.png",
+				"tvg": "Jakarta Globe News",
+				"type": "video",
+				"id": "10436"
+			},
+			{
+				"group": "10359",
+				"name": "Channel NewsAsia",
+				"url": "http://tglcnash-i.akamaihd.net/hls/live/566558/ctv/prog_index.m3u8",
+				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Channel_NewsAsia_logo_(shape_only).svg/2000px-Channel_NewsAsia_logo_(shape_only).svg.png",
+				"tvg": "Channel NewsAsia",
+				"type": "video",
+				"id": "10437"
+			},
+			{
+				"group": "10359",
+				"name": "Channel NewsAsia",
+				"url": "http://imtcnai-lh.akamaihd.net/i/cnai_main@334572/master.m3u8",
+				"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Channel_NewsAsia_logo_(shape_only).svg/2000px-Channel_NewsAsia_logo_(shape_only).svg.png",
+				"tvg": "Channel NewsAsia",
+				"type": "video",
+				"id": "11782"
+			},
+			{
+				"group": "10359",
+				"name": "DW English",
+				"url": "http://www.metafilegenerator.de/DWelle/tv-asia/ios/master.m3u8",
+				"image": "http://static.filmon.com/couch/channels/2641/extra_big_logo.png",
+				"tvg": "DW English",
+				"type": "video",
+				"id": "11425"
+			},
+			{
+				"group": "10359",
+				"name": "DW English",
+				"url": "https://www.youtube.com/watch?v=gNosnzCaS4I?mode=3",
+				"image": "http://static.filmon.com/couch/channels/2641/extra_big_logo.png",
+				"tvg": "DW English",
+				"type": "ignore",
+				"id": "12055"
+			},
+			{
+				"group": "10359",
+				"name": "DW Arabic",
+				"url": "http://www.metafilegenerator.de/DWelle/tv-arabia/ios/master.m3u8",
+				"image": "http://static.filmon.com/couch/channels/2641/extra_big_logo.png",
+				"tvg": "DW Arabic",
+				"type": "video",
+				"id": "11427"
+			},
+			{
+				"group": "10359",
+				"name": "DW Latino",
+				"url": "http://www.metafilegenerator.de/DWelle/tv-latinoamerica/ios/master.m3u8",
+				"image": "http://static.filmon.com/couch/channels/2641/extra_big_logo.png",
+				"tvg": "DW Latino",
+				"type": "video",
+				"id": "11428"
+			},
+			{
+				"group": "10359",
+				"name": "Al Jazeera",
+				"url": "rtmp://aljazeeraflashlivefs.fplive.net/aljazeeraflashlive-live/ playpath=aljazeera_eng_high swfUrl=http://static.ls-cdn.com/player/5.10/livestation-player.swf swfVfy=true live=true",
+				"image": "http://static.filmon.com/couch/channels/4/extra_big_logo.png",
+				"tvg": "Al Jazeera",
+				"type": "ignore",
+				"id": "10443"
+			},
+			{
+				"group": "10359",
+				"name": "Al Jazeera",
+				"url": "https://www.youtube.com/watch?v=1YnlX4CkPDY&mode=3",
+				"image": "http://static.filmon.com/couch/channels/4/extra_big_logo.png",
+				"tvg": "Al Jazeera",
+				"type": "ignore",
+				"id": "11631"
+			},
+			{
+				"group": "10359",
+				"name": "Al Jazeera",
+				"url": "http://aljazeera-eng-hd-live.hls.adaptive.level3.net/aljazeera/english2/index4147.m3u8",
+				"image": "http://static.filmon.com/couch/channels/4/extra_big_logo.png",
+				"tvg": "Al Jazeera",
+				"type": "video",
+				"id": "12404"
+			},
+			{
+				"group": "10359",
+				"name": "Al Jazeera Arabic",
+				"url": "http://aljazeera-ara-apple-live.adaptive.level3.net/apple/aljazeera/arabic/800.m3u8",
+				"image": "http://static.filmon.com/couch/channels/3035/extra_big_logo.png",
+				"tvg": "Al Jazeera Arabic",
+				"type": "video",
+				"id": "10445"
+			},
+			{
+				"group": "10359",
+				"name": "Press TV",
+				"url": "http://178.32.255.199:1935/live/ptven/playlist.m3u8",
+				"image": "http://upload.wikimedia.org/wikipedia/en/2/23/PressTV.png",
+				"tvg": "Press TV",
+				"type": "video",
+				"id": "11594"
+			},
+			{
+				"group": "10359",
+				"name": "NDTV 24x7",
+				"url": "http://ndtvstream-lh.akamaihd.net/i/ndtv_india_1@300634/master.m3u8",
+				"image": "http://www.topnews.in/files/ndtv_0.jpg",
+				"tvg": "NDTV 24x7",
+				"type": "video",
+				"id": "10449"
+			},
+			{
+				"group": "10359",
+				"name": "Sky TG24",
+				"url": "http://skyianywhere2-i.akamaihd.net/hls/live/200275/tg24/playlist.m3u8",
+				"image": "http://dippiu.it/sky_tg24_nuova_grafica.jpg",
+				"tvg": "Sky TG24",
+				"type": "video",
+				"id": "10717"
+			},
+			{
+				"group": "10359",
+				"name": "Sky TG24",
+				"url": "rtmp://cp49989.live.edgefcs.net/live/streamRM1@2564",
+				"image": "http://dippiu.it/sky_tg24_nuova_grafica.jpg",
+				"tvg": "Sky TG24",
+				"type": "ignore",
+				"id": "12085"
+			},
+			{
+				"group": "10359",
+				"name": "Rai news",
+				"url": "Http://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=489110&dem=3",
+				"image": "http://www.rainews.it/dl/rainews/images/social/homepage.png",
+				"tvg": "Rai news",
+				"type": "video",
+				"id": "10727"
+			}
+		],
+		"type": "playlist",
+		"id": "10359"
+	},
+	{
+		"group": "9999",
+		"name": "Science & nature - מדע וטבע",
+		"url": "",
+		"image": "http://wallpapers.free-review.net/wallpapers/23/Nature_-_Wallpaper_for_Windows_7.jpg",
+		"list": [{
+				"group": "10451",
+				"name": "NASA HD",
+				"url": "https://nasa-i.akamaihd.net/hls/live/253565/NASA-NTV1-Public/master_2000.m3u8",
+				"image": "http://static.filmon.com/couch/channels/330/extra_big_logo.png",
+				"tvg": "NASA HD",
+				"type": "video",
+				"id": "10483"
+			},
+			{
+				"group": "10451",
+				"name": "NASA Live - Earth From Space (HDVR) ISS LIVE FEED",
+				"url": "https://www.youtube.com/watch?v=RtU_mdL2vBM?mode=3",
+				"image": "",
+				"tvg": "NASA Live - Earth From Space (HDVR) ISS LIVE FEED",
+				"type": "video",
+				"id": "11530"
+			},
+			{
+				"group": "10451",
+				"name": "CGTN Doco",
+				"url": "http://livedoc.cgtn.com/1000d/prog_index.m3u8",
+				"image": "http://static.filmon.com/couch/channels/2786/extra_big_logo.png",
+				"tvg": "CGTN Doco",
+				"type": "video",
+				"id": "11622"
+			},
+			{
+				"group": "10451",
+				"name": "Russian Today: Documentary",
+				"url": "https://secure-streams.akamaized.net/rt-doc/index2500.m3u8",
+				"image": "http://static.filmon.com/couch/channels/1981/extra_big_logo.png",
+				"tvg": "Russian Today: Documentary",
+				"type": "video",
+				"id": "10489"
+			},
+			{
+				"group": "10451",
+				"name": "TWiT US",
+				"url": "https://www.youtube.com/watch?v=lIZpQ5KkTI4?mode=3",
+				"image": "http://lyalinwp7.files.wordpress.com/2010/12/200x200_thumb.png?w=103&h=103&h=103",
+				"tvg": "TWiT US",
+				"type": "video",
+				"id": "10490"
+			}
+		],
+		"type": "playlist",
+		"id": "10451"
+	},
+	{
+		"group": "9999",
+		"name": "Sport - ספורט",
+		"url": "",
+		"image": "http://4vector.com/i/free-vector-sport-vector-pack_098139_sportsvector%20pack.jpg",
+		"list": [{
+				"group": "10492",
+				"name": "Dubai Sports 3",
+				"url": "http://dmi.mangomolo.com:1935/dubaisports/smil:dubaisports.smil/playlist.m3u8",
+				"image": "http://www.islambox.com/images/products/channels/web/dubaisports3-web.png",
+				"tvg": "Dubai Sports 3",
+				"type": "video",
+				"id": "10539"
+			},
+			{
+				"group": "10492",
+				"name": "Dubai Racing",
+				"url": "http://dmithrvll.cdn.mangomolo.com/events/smil:events.smil/playlist.m3u8",
+				"image": "http://www.mems-cg.com/library/images/uploaded%20images/Dxb_Racing_C.jpg",
+				"tvg": "Dubai Racing",
+				"type": "video",
+				"id": "10540"
+			},
+			{
+				"group": "10492",
+				"name": "NBC Sport",
+				"url": "http://tvenbcsn-i.Akamaihd.net/hls/live/218235/nbcsnx/4296k/prog.m3u8|X-Forwarded-For=209.239.112.104",
+				"image": "",
+				"tvg": "NBC Sport",
+				"type": "ignore",
+				"id": "10438"
+			},
+			{
+				"group": "10492",
+				"name": "NBC Golf",
+				"url": "http://tvegolf-i.Akamaihd.net/hls/live/218225/golfx/1896k/prog.m3u8|X-Forwarded-For=209.239.112.104",
+				"image": "http://upload.wikimedia.org/wikipedia/en/e/e4/NBC_Golf_logo.png",
+				"tvg": "NBC Golf",
+				"type": "video",
+				"id": "10552"
+			},
+			{
+				"group": "10492",
+				"name": "NBC Golf",
+				"url": "http://tvegolf-i.Akamaihd.net/hls/live/218225/golfx/2596k/prog.m3u8|X-Forwarded-For=209.239.112.104",
+				"image": "http://upload.wikimedia.org/wikipedia/en/e/e4/NBC_Golf_logo.png",
+				"tvg": "NBC Golf",
+				"type": "video",
+				"id": "10553"
+			},
+			{
+				"group": "10492",
+				"name": "NBC Golf",
+				"url": "http://tvegolf-i.Akamaihd.net/hls/live/218225/golfx/4296k/prog.m3u8|X-Forwarded-For=209.239.112.104",
+				"image": "http://upload.wikimedia.org/wikipedia/en/e/e4/NBC_Golf_logo.png",
+				"tvg": "NBC Golf",
+				"type": "video",
+				"id": "10554"
+			}
+		],
+		"type": "playlist",
+		"id": "10492"
+	},
+	{
+		"group": "9999",
+		"name": "World - עולם",
+		"url": "",
+		"image": "http://www.icangiveyouhouse.com/audio/2010/09/world-in-black-and-white-hands-1.jpg",
+		"list": [{
+				"group": "10556",
+				"name": "France - צרפת",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "10608",
+						"name": "iTELE",
+						"url": "http://hls-live-m6-l3.canal-plus.com/live/hls/itele-clair-hd-andr7/and-hd-clair/index.m3u8",
+						"image": "",
+						"tvg": "iTELE",
+						"type": "ignore",
+						"id": "10619"
+					},
+					{
+						"group": "10608",
+						"name": "ARTE Fran",
+						"url": "http://artelive-lh.akamaihd.net/i/artelive_fr@344805/master.m3u8|X-Forwarded-For=217.70.184.38",
+						"image": "http://passion-xbmc.org/fichiers_multimedia/upploadimages/images/1264891126-arte.png",
+						"tvg": "ARTE Fran",
+						"type": "video",
+						"id": "10613"
+					},
+					{
+						"group": "10608",
+						"name": "Alsace 20",
+						"url": "http://live.alsace20.fr/live/alsace20/ngrp:alsace20_all/playlist.m3u8",
+						"image": "",
+						"tvg": "Alsace 20",
+						"type": "video",
+						"id": "11572"
+					},
+					{
+						"group": "10608",
+						"name": "Antenne Centre TV",
+						"url": "http://vm109.imust.org:1935/live/livestream/playlist.m3u8",
+						"image": "",
+						"tvg": "Antenne Centre TV",
+						"type": "video",
+						"id": "12245"
+					},
+					{
+						"group": "10608",
+						"name": "WEO",
+						"url": "rtmp://str81.creacast.com:80/weo playpath=high swfUrl=http://www.tvlizer.com/live47/player.swf pageUrl=http://www.tvlizer.com/weo-tv-fra/",
+						"image": "http://www.tv14.net/wp-content/uploads/2010/06/Weo-TV.gif",
+						"tvg": "WEO",
+						"type": "ignore",
+						"id": "11310"
+					},
+					{
+						"group": "10608",
+						"name": "matele",
+						"url": "http://37.187.27.150:1935/matelelive/matelelive_0720/playlist.m3u8",
+						"image": "",
+						"tvg": "matele",
+						"type": "video",
+						"id": "12247"
+					}
+				],
+				"type": "playlist",
+				"id": "10608"
+			},
+			{
+				"group": "10556",
+				"name": "Greece - יוון",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "12664",
+						"name": "ERT1",
+						"url": "https://www.youtube.com/watch?v=Zx98moCvkpU?mode=3",
+						"image": "",
+						"tvg": "ERT1",
+						"type": "video",
+						"id": "12665"
+					},
+					{
+						"group": "12664",
+						"name": "ERT2",
+						"url": "https://www.youtube.com/watch?v=qBxbnSwOrxE?mode=3",
+						"image": "",
+						"tvg": "ERT2",
+						"type": "video",
+						"id": "12666"
+					},
+					{
+						"group": "12664",
+						"name": "ERT3",
+						"url": "https://www.youtube.com/watch?v=5r5iftFbASw?mode=3",
+						"image": "",
+						"tvg": "ERT3",
+						"type": "ignore",
+						"id": "12667"
+					},
+					{
+						"group": "12664",
+						"name": "ERT World",
+						"url": "https://www.youtube.com/watch?v=qRY56sJJ2to?mode=3",
+						"image": "",
+						"tvg": "ERT World",
+						"type": "video",
+						"id": "12668"
+					},
+					{
+						"group": "12664",
+						"name": "Alpha",
+						"url": "http://193.92.37.235:1935/LiveEdgeTV/live@720/master.m3u8",
+						"image": "",
+						"tvg": "Alpha",
+						"type": "video",
+						"id": "12670"
+					},
+					{
+						"group": "12664",
+						"name": "EPSILON TV",
+						"url": "https://s2.streamings.gr/epsilontv/epsilontv.m3u8",
+						"image": "",
+						"tvg": "EPSILON TV",
+						"type": "video",
+						"id": "12671"
+					},
+					{
+						"group": "12664",
+						"name": "ERT Play",
+						"url": "https://www.youtube.com/watch?v=Ba4voPNmZUU?mode=3",
+						"image": "",
+						"tvg": "ERT Play",
+						"type": "video",
+						"id": "12669"
+					}
+				],
+				"type": "playlist",
+				"id": "12664"
+			},
+			{
+				"group": "10556",
+				"name": "Germany - גרמניה",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "10625",
+						"name": "KIKA",
+						"url": "https://kika-lh.akamaihd.net/i/livetvkika_ww@72295/index_1992_av-p.m3u8?sd=10&rebase=on",
+						"image": "http://static.filmon.com/couch/channels/2756/extra_big_logo.png",
+						"tvg": "KIKA",
+						"type": "video",
+						"id": "10626"
+					},
+					{
+						"group": "10625",
+						"name": "BVN",
+						"url": "https://dcunilive2-lh.akamaihd.net/i/dclive_1@103791/index_928_av-p.m3u8?sd=6&rebase=on",
+						"image": "",
+						"tvg": "BVN",
+						"type": "ignore",
+						"id": "11848"
+					},
+					{
+						"group": "10625",
+						"name": "Tagesschau 24",
+						"url": "http://tagesschau-lh.akamaihd.net/i/tagesschau_1@119231/master.m3u8",
+						"image": "http://static.filmon.com/couch/channels/415/extra_big_logo.png",
+						"tvg": "Tagesschau 24",
+						"type": "video",
+						"id": "10640"
+					},
+					{
+						"group": "10625",
+						"name": "N-TV",
+						"url": "http://p.live.fra.n-tv.de/hls-live/ntvlive/ntvlive_1500.m3u8",
+						"image": "http://static.filmon.com/couch/channels/1033/extra_big_logo.png",
+						"tvg": "N-TV",
+						"type": "video",
+						"id": "11830"
+					},
+					{
+						"group": "10625",
+						"name": "daserste",
+						"url": "http://daserste_live-lh.akamaihd.net/i/daserste_de@91204/master.m3u8",
+						"image": "http://images.live-stream.tv/picons/ard.png",
+						"tvg": "daserste",
+						"type": "video",
+						"id": "10646"
+					},
+					{
+						"group": "10625",
+						"name": "WDR",
+						"url": "http://wdr_fs-lh.akamaihd.net/i/wdrfs_weltweit@112033/master.m3u8",
+						"image": "http://images.live-stream.tv/picons/wdr.png",
+						"tvg": "WDR",
+						"type": "video",
+						"id": "10666"
+					},
+					{
+						"group": "10625",
+						"name": "ALEX",
+						"url": "https://alex-front.rosebud-media.de/live/smil:alexlivetv.smil/playlist.m3u8",
+						"image": "",
+						"tvg": "ALEX",
+						"type": "video",
+						"id": "12040"
+					},
+					{
+						"group": "10625",
+						"name": "TV Berlin",
+						"url": "http://stream.der-hauptstadt-sender.de/hls/Themeh4g.m3u8",
+						"image": "",
+						"tvg": "TV Berlin",
+						"type": "ignore",
+						"id": "10667"
+					},
+					{
+						"group": "10625",
+						"name": "BR",
+						"url": "https://br_hdslive-f.akamaihd.net/i/bfssued_worldwide@119891/index_3776_av-p.m3u8?sd=10&rebase=on",
+						"image": "http://images.live-stream.tv/picons/br.png",
+						"tvg": "BR",
+						"type": "video",
+						"id": "10669"
+					},
+					{
+						"group": "10625",
+						"name": "BR",
+						"url": "http://livestreams.br.de/i/bfssued_germany@119890/master.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "http://images.live-stream.tv/picons/br.png",
+						"tvg": "BR",
+						"type": "video",
+						"id": "11885"
+					},
+					{
+						"group": "10625",
+						"name": "DAF",
+						"url": "http://edge-h.daf.tmt.de/ios-live/daf-ios-live-livetv.stream/playlist.m3u8",
+						"image": "",
+						"tvg": "DAF",
+						"type": "video",
+						"id": "10629"
+					},
+					{
+						"group": "10625",
+						"name": "Sky Sport News HD",
+						"url": "http://event_rtmp-lh.akamaihd.net/i/ssnhd_1@433299/master.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "",
+						"tvg": "Sky Sport News HD",
+						"type": "ignore",
+						"id": "10631"
+					},
+					{
+						"group": "10625",
+						"name": "ZDF HD",
+						"url": "https://zdf1314-lh.akamaihd.net/i/de14_v1@392878/index_3096_av-b.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "http://static.filmon.com/couch/channels/2759/extra_big_logo.png",
+						"tvg": "ZDF HD",
+						"type": "video",
+						"id": "12103"
+					},
+					{
+						"group": "10625",
+						"name": "ZDFneo",
+						"url": "http://zdf1314-lh.akamaihd.net/i/de13_v1@392877/master.m3u8?sd=10&rebase=on|X-Forwarded-For=91.197.29.78",
+						"image": "http://static.filmon.com/couch/channels/360/extra_big_logo.png",
+						"tvg": "ZDFneo",
+						"type": "video",
+						"id": "10633"
+					},
+					{
+						"group": "10625",
+						"name": "zdf kultur",
+						"url": "http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "http://static.filmon.com/couch/channels/359/extra_big_logo.png",
+						"tvg": "zdf kultur",
+						"type": "video",
+						"id": "10635"
+					},
+					{
+						"group": "10625",
+						"name": "ZDF INFOKANAL",
+						"url": "http://zdf1112-lh.akamaihd.net/i/de12_v1@392882/master.m3u8?sd=10&rebase=on|X-Forwarded-For=91.197.29.78",
+						"image": "",
+						"tvg": "ZDF INFOKANAL",
+						"type": "video",
+						"id": "10636"
+					},
+					{
+						"group": "10625",
+						"name": "ZDF KiKa",
+						"url": "http://kika_geo-lh.akamaihd.net/i/livetvkika_de@75114/master.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "",
+						"tvg": "ZDF KiKa",
+						"type": "video",
+						"id": "11886"
+					},
+					{
+						"group": "10625",
+						"name": "Phoenix",
+						"url": "https://zdf0910-lh.akamaihd.net/i/de09_v1@392871/master.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "http://static.filmon.com/couch/channels/424/extra_big_logo.png",
+						"type": "video",
+						"tvg": "Phoenix",
+						"id": "11894"
+					},
+					{
+						"group": "10625",
+						"name": "3SAT",
+						"url": "http://zdf0910-lh.akamaihd.net/i/dach10_v1@392872/master.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "http://images.live-stream.tv/picons/3sat.png",
+						"type": "video",
+						"tvg": "3SAT",
+						"id": "10657"
+					},
+					{
+						"group": "10625",
+						"name": "arte",
+						"url": "http://artelive-lh.akamaihd.net/i/artelive_de@393591/master.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "http://images.live-stream.tv/picons/arte.png",
+						"type": "video",
+						"tvg": "arte",
+						"id": "10663"
+					},
+					{
+						"group": "10625",
+						"name": "MDR",
+						"url": "http://mdr_sachsen_hls-lh.akamaihd.net/i/livetvmdrsachsen_de@106902/master.m3u8?bkup=off|X-Forwarded-For=91.197.29.78",
+						"image": "http://images.live-stream.tv/picons/mdr.png",
+						"type": "video",
+						"tvg": "MDR",
+						"id": "12062"
+					},
+					{
+						"group": "10625",
+						"name": "SWR",
+						"url": "http://swrbw-lh.akamaihd.net/i/swrbw_live@196738/index_3584_av-p.m3u8?sd=10&rebase=on|X-Forwarded-For=91.197.29.78",
+						"image": "http://images.live-stream.tv/picons/swr.png",
+						"type": "video",
+						"tvg": "SWR",
+						"id": "10668"
+					},
+					{
+						"group": "10625",
+						"name": "SR",
+						"url": "http://fs.live.sr.de/i/sr_universal02@107595/index_1662_av-b.m3u8?sd=10&rebase=on|X-Forwarded-For=91.197.29.78",
+						"image": "",
+						"tvg": "SR",
+						"type": "video",
+						"id": "11882"
+					},
+					{
+						"group": "10625",
+						"name": "HR",
+						"url": "http://livestream-1.hr.de/i/hr_fernsehen@75910/index_3584_av-b.m3u8?sd=10&rebase=on",
+						"image": "http://www.tv14.net/wp-content/uploads/2013/05/HR-Fernsehen-Logo.jpg",
+						"type": "video",
+						"tvg": "HR",
+						"id": "12064"
+					},
+					{
+						"group": "10625",
+						"name": "ARD-alpha",
+						"url": "http://livestreams.br.de/i/bralpha_germany@119899/master.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "",
+						"type": "video",
+						"tvg": "ARD-alpha",
+						"id": "12063"
+					},
+					{
+						"group": "10625",
+						"name": "ServusTV",
+						"url": "http://hdiosstv-f.akamaihd.net/i/servustvhdde_1@75540/master.m3u8|X-Forwarded-For=91.197.29.78",
+						"image": "http://www.presseportal.de/bild/79385-logo-servustv.jpg",
+						"type": "video",
+						"tvg": "ServusTV",
+						"id": "10707"
+					},
+					{
+						"group": "10625",
+						"name": "one einsfestival",
+						"url": "http://wdr_einsfestival-lh.akamaihd.net/i/wdr_einsfestival@328300/index_7_av-b.m3u8?sd=10&rebase=on|X-Forwarded-For=91.197.29.78",
+						"image": "",
+						"type": "video",
+						"tvg": "one einsfestival",
+						"id": "10675"
+					},
+					{
+						"group": "10625",
+						"name": "rbb HD",
+						"url": "http://rbblive-lh.akamaihd.net/i/rbb_berlin@144674/index_7_av-b.m3u8?sd=10&rebase=on|X-Forwarded-For=91.197.29.78",
+						"image": "",
+						"type": "video",
+						"tvg": "rbb HD",
+						"id": "10686"
+					},
+					{
+						"group": "10625",
+						"name": "Sonnenklar TV HD",
+						"url": "http://euvia.cdn.ses-ps.com/HLS-Live/index.m3u8",
+						"image": "",
+						"type": "video",
+						"tvg": "Sonnenklar TV HD",
+						"id": "10685"
+					},
+					{
+						"group": "10625",
+						"name": "DW",
+						"url": "http://dwstream72-lh.akamaihd.net/i/dwstream72_live@123556/index_1_av-b.m3u8?sd=10&rebase=on",
+						"image": "",
+						"type": "video",
+						"tvg": "DW",
+						"id": "10664"
+					},
+					{
+						"group": "10625",
+						"name": "ndr hamburg.md",
+						"url": "https://ndrfs-lh.akamaihd.net/i/ndrfs_hh@430231/index.m3u8",
+						"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/08/NDR_Dachmarke.svg/2000px-NDR_Dachmarke.svg.png",
+						"tvg": "ndr hamburg.md",
+						"type": "ignore",
+						"id": "12397"
+					},
+					{
+						"group": "10625",
+						"name": "ndr meck pom.md",
+						"url": "https://ndrfs-lh.akamaihd.net/i/ndrfs_mv@430232/master.m3u8",
+						"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/08/NDR_Dachmarke.svg/2000px-NDR_Dachmarke.svg.png",
+						"tvg": "ndr meck pom.md",
+						"type": "ignore",
+						"id": "12039"
+					},
+					{
+						"group": "10625",
+						"name": "ndr schlesw.md",
+						"url": "https://ndrfs-lh.akamaihd.net/i/ndrfs_sh@430234/master.m3u8",
+						"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/08/NDR_Dachmarke.svg/2000px-NDR_Dachmarke.svg.png",
+						"tvg": "ndr schlesw.md",
+						"type": "ignore",
+						"id": "10628"
+					},
+					{
+						"group": "10625",
+						"name": "ndr niedersachsen.md",
+						"url": "https://ndrfs-lh.akamaihd.net/i/ndrfs_nds@430233/master.m3u8",
+						"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/08/NDR_Dachmarke.svg/2000px-NDR_Dachmarke.svg.png",
+						"tvg": "ndr niedersachsen.md",
+						"type": "ignore",
+						"id": "10683"
+					}
+				],
+				"type": "playlist",
+				"id": "10625"
+			},
+			{
+				"group": "10556",
+				"name": "Italy - איטליה",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "10716",
+						"name": "RAI 1",
+						"url": "http://b2.stream14.rai.it/italy/rai1_1200/chunklist.m3u8",
+						"image": "http://www.rai1.rai.it/dl/PortaliRai/images/share_Rai1.png",
+						"tvg": "RAI 1",
+						"type": "video",
+						"id": "10728"
+					},
+					{
+						"group": "10716",
+						"name": "RAI 2",
+						"url": "http://b2.stream14.rai.it/italy/rai2_1200/chunklist.m3u8",
+						"image": "http://www.rai2.rai.it/dl/PortaliRai/images/share_Rai2.png",
+						"tvg": "RAI 2",
+						"type": "video",
+						"id": "10729"
+					},
+					{
+						"group": "10716",
+						"name": "RAI 3",
+						"url": "http://b2.stream14.rai.it/italy/rai3_1200/chunklist.m3u8",
+						"image": "http://www.rai3.rai.it/dl/PortaliRai/images/share_Rai3.png",
+						"tvg": "RAI 3",
+						"type": "video",
+						"id": "10741"
+					},
+					{
+						"group": "10716",
+						"name": "RAI 4",
+						"url": "http://b2.stream14.rai.it/italy/rai4_1200/chunklist.m3u8",
+						"image": "http://tvstreamingita.altervista.org/alterpages/medium/387px-rai_4_logo_2010.svg.jpg",
+						"tvg": "RAI 4",
+						"type": "video",
+						"id": "11388"
+					},
+					{
+						"group": "10716",
+						"name": "RAI 5",
+						"url": "http://b2.stream12.rai.it/live/rai5.smil/playlist.m3u8",
+						"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Rai_5_logo.svg/260px-Rai_5_logo.svg.png",
+						"tvg": "RAI 5",
+						"type": "video",
+						"id": "12078"
+					},
+					{
+						"group": "10716",
+						"name": "RAI Movie",
+						"url": "http://b2everyrai-lh.akamaihd.net/i/raimovie_1@67348/index_1800_av-p.m3u8?sd=10&rebase=on",
+						"image": "http://www.raimovie.rai.it/dl/PortaliRai/images/share_RaiMovie.png",
+						"tvg": "RAI Movie",
+						"type": "video",
+						"id": "12079"
+					},
+					{
+						"group": "10716",
+						"name": "rai premium",
+						"url": "http://b2everyrai-lh.akamaihd.net/i/raipremium_1@181837/index_1800_av-b.m3u8?sd=10&rebase=on",
+						"image": "",
+						"tvg": "rai premium",
+						"type": "video",
+						"id": "10731"
+					},
+					{
+						"group": "10716",
+						"name": "RAI STORIA",
+						"url": "http://originstream6.rai.it/italy/smil:raistoria.smil/chunklist_b900000.m3u8",
+						"image": "",
+						"tvg": "RAI STORIA",
+						"type": "video",
+						"id": "10732"
+					},
+					{
+						"group": "10716",
+						"name": "rai yoyo itali",
+						"url": "http://b2everyrai-lh.akamaihd.net/i/raiyoyo_1@191405/index_1800_av-b.m3u8",
+						"image": "http://images4.wikia.nocookie.net/__cb20100519121157/logopedia/images/4/43/Rai_YoYo_2010.svg",
+						"tvg": "rai yoyo itali",
+						"type": "video",
+						"id": "12617"
+					},
+					{
+						"group": "10716",
+						"name": "Rai Scuola",
+						"url": "http://originstream6.rai.it/italy/smil:raiscuola.smil/chunklist_b900000.m3u8",
+						"image": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Logo_Rai_Scuola.png/260px-Logo_Rai_Scuola.png",
+						"tvg": "Rai Scuola",
+						"type": "video",
+						"id": "10733"
+					},
+					{
+						"group": "10716",
+						"name": "rai sport",
+						"url": "http://originstream12.rai.it/italy/raisport1_1200/playlist.m3u8",
+						"image": "http://sicilia.onderadio.net/Loghi/TV/RaiSport1.png",
+						"tvg": "rai sport",
+						"type": "video",
+						"id": "11387"
+					},
+					{
+						"group": "10716",
+						"name": "rai sport 2",
+						"url": "http://originstream12.rai.it/italy/raisport2_1200/master.m3u8",
+						"image": "",
+						"tvg": "rai sport 2",
+						"type": "video",
+						"id": "11584"
+					},
+					{
+						"group": "10716",
+						"name": "rai gulp",
+						"url": "http://b2everyrai-lh.akamaihd.net/i/raigulp_1@66350/index_1200_av-b.m3u8?sd=10&rebase=on",
+						"image": "",
+						"tvg": "rai gulp",
+						"type": "video",
+						"id": "11339"
+					},
+					{
+						"group": "10716",
+						"name": "LA7",
+						"url": "http://la7livehls-lh.akamaihd.net/i/livebkup_1@372883/index_2_av-p.m3u8",
+						"image": "http://en.wikipedia.org/wiki/La7#mediaviewer/File:LA7_logo.png",
+						"tvg": "LA7",
+						"type": "ignore",
+						"id": "10739"
+					},
+					{
+						"group": "10716",
+						"name": "Tv2000",
+						"url": "http://mi1.wz.tv2000.it/tv2000_alfa.m3u8",
+						"image": "",
+						"tvg": "Tv2000",
+						"type": "video",
+						"id": "11579"
+					},
+					{
+						"group": "10716",
+						"name": "Nova",
+						"url": "https://sbshdlu3-lh.akamaihd.net/i/sbshdlive_4@99403/master.m3u8",
+						"image": "",
+						"tvg": "Nova",
+						"type": "video",
+						"id": "11583"
+					},
+					{
+						"group": "10716",
+						"name": "Canale 7",
+						"url": "http://wms.shared.streamshow.it/canale7/canale7/playlist.m3u8",
+						"image": "",
+						"tvg": "Canale 7",
+						"type": "video",
+						"id": "12082"
+					}
+				],
+				"type": "playlist",
+				"id": "10716"
+			},
+			{
+				"group": "10556",
+				"name": "thailand - תאילנד",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "11472",
+						"name": "amarintv",
+						"url": "http://s2.live14.com/stream/5195e80fe1ed0/playlist.m3u8",
+						"image": "https://www.vsn-tv.com/wp-content/uploads/2014/10/amarin-tv-vsn1.png",
+						"tvg": "amarintv",
+						"type": "video",
+						"id": "11620"
+					},
+					{
+						"group": "11472",
+						"name": "24 TV",
+						"url": "http://103.22.182.99:1935/flash2837/flash2837/playlist.m3u8",
+						"image": "http://www.digitalinsider.co.th/Apps/TT/Images/tv24.png",
+						"tvg": "24 TV",
+						"type": "video",
+						"id": "12330"
+					},
+					{
+						"group": "11472",
+						"name": "CH 2",
+						"url": "http://stream.rs.co.th/ch2-hi/index.m3u8?d=web",
+						"image": "",
+						"tvg": "CH 2",
+						"type": "video",
+						"id": "11511"
+					},
+					{
+						"group": "11472",
+						"name": "CH 5",
+						"url": "http://27.254.62.62:8081/live/tv5stream/playlist.m3u8",
+						"image": "http://www.tv5.co.th/web56/command/tv5.png",
+						"tvg": "CH 5",
+						"type": "video",
+						"id": "11507"
+					},
+					{
+						"group": "11472",
+						"name": "police tv",
+						"url": "http://live.netdesignhost.com/policetvlive/policetvlive/playlist.m3u8",
+						"image": "http://www.tv5.co.th/web56/command/tv5.png",
+						"tvg": "police tv",
+						"type": "video",
+						"id": "12329"
+					},
+					{
+						"group": "11472",
+						"name": "CH 3",
+						"url": "http://ch3-33-web.cdn.byteark.com/live/playlist.m3u8",
+						"image": "",
+						"tvg": "CH 3",
+						"type": "ignore",
+						"id": "11566"
+					},
+					{
+						"group": "11472",
+						"name": "CH3 Family",
+						"url": "http://ch3-13-web.cdn.byteark.com/live/playlist.m3u8",
+						"image": "",
+						"tvg": "CH3 Family",
+						"type": "ignore",
+						"id": "11514"
+					},
+					{
+						"group": "11472",
+						"name": "CH3SD",
+						"url": "http://ch3-28-web.cdn.byteark.com/live/playlist.m3u8",
+						"image": "",
+						"tvg": "CH3SD",
+						"type": "ignore",
+						"id": "11527"
+					},
+					{
+						"group": "11472",
+						"name": "CH 8",
+						"url": "http://stream.rs.co.th/ch8-hi/index.m3u8|X-Forwarded-For=110.170.117.3",
+						"image": "",
+						"tvg": "CH 8",
+						"type": "video",
+						"id": "11508"
+					},
+					{
+						"group": "11472",
+						"name": "CH 8",
+						"url": "http://usa.login.in.th:1935/ch8/ch8/playlist.m3u8",
+						"image": "http://www.onlinethailand.net/tv_online/images/ch8.jpg",
+						"tvg": "CH 8",
+						"type": "video",
+						"id": "10738"
+					},
+					{
+						"group": "11472",
+						"name": "GMM25",
+						"url": "http://gmmservice.radical-enlighten.com/gmm/smil:gmm25.smil/playlist.m3u8",
+						"image": "",
+						"tvg": "GMM25",
+						"type": "video",
+						"id": "12327"
+					},
+					{
+						"group": "11472",
+						"name": "MCOT FAMILY",
+						"url": "http://mcotdigital-5nrixa.cdn.byteark.com/mcotfamily/smil:mcotfamily.smil/playlist.m3u8",
+						"image": "",
+						"tvg": "MCOT FAMILY",
+						"type": "video",
+						"id": "11475"
+					},
+					{
+						"group": "11472",
+						"name": "MCOT9",
+						"url": "http://mcotdigital-pnnouc.cdn.byteark.com/mcothd1080p_edge/smil:mcothd1080p.smil/playlist.m3u8",
+						"image": "",
+						"tvg": "MCOT9",
+						"type": "video",
+						"id": "12075"
+					},
+					{
+						"group": "11472",
+						"name": "pptv gold",
+						"url": "http://pr06ed012.dcs-cdn.com/ch2/en1yua.isml/manifest(format=m3u8-aapl).m3u8",
+						"image": "http://tv-live.in/wp-content/uploads/tv-online/Channel/Thailand/Top%20thailand%20tv/top%20thai%20tv_files/pptv-hd.png",
+						"tvg": "pptv gold",
+						"type": "ignore",
+						"id": "11891"
+					},
+					{
+						"group": "11472",
+						"name": "pptvhd",
+						"url": "http://pr06ed014.dcs-cdn.com/ch1/th1pba.isml/manifest(format=m3u8-aapl).m3u8",
+						"image": "http://tv-live.in/wp-content/uploads/tv-online/Channel/Thailand/Top%20thailand%20tv/top%20thai%20tv_files/pptv-hd.png",
+						"tvg": "pptvhd",
+						"type": "ignore",
+						"id": "12152"
+					},
+					{
+						"group": "11472",
+						"name": "Thairath TV",
+						"url": "http://live.thairath.co.th/trtv2/playlist.m3u8",
+						"image": "http://www.gmmz.tv/_uploads/images/LOGOThairath_.jpg",
+						"tvg": "Thairath TV",
+						"type": "video",
+						"id": "11487"
+					},
+					{
+						"group": "11472",
+						"name": "Thai PBS",
+						"url": "http://thaipbs-live.cdn.byteark.com/live/playlist.m3u8",
+						"image": "http://www.lyngsat-logo.com/hires/tt/thai_pbs.png",
+						"tvg": "Thai PBS",
+						"type": "video",
+						"id": "11474"
+					},
+					{
+						"group": "11472",
+						"name": "workpoint",
+						"url": "http://workpoint.radical-enlighten.com/workpoint/smil:workpointtv.smil/playlist.m3u8",
+						"image": "http://www.onlinethailand.net/tv_online/images/workpoint-tv.jpg",
+						"tvg": "workpoint",
+						"type": "video",
+						"id": "11519"
+					},
+					{
+						"group": "11472",
+						"name": "NBT World",
+						"url": "http://live.prd.go.th:1935/live/ch1_H.sdp/playlist.m3u8",
+						"image": "",
+						"tvg": "NBT World",
+						"type": "video",
+						"id": "11482"
+					},
+					{
+						"group": "11472",
+						"name": "spring news",
+						"url": "http://1457077260.cat-cdn.i-iptv.com/T1457077260/ngrp:livestream_all/playlist.m3u8",
+						"image": "http://www.onlinethailand.net/tv_online/images/springnews.jpg",
+						"tvg": "spring news",
+						"type": "video",
+						"id": "11523"
+					},
+					{
+						"group": "11472",
+						"name": "VOICE TV 21",
+						"url": "https://streamlocker.voicetv.co.th/live-edge/voicetv_360p/playlist.m3u8",
+						"image": "http://www.onlinethailand.net/tv_online/images/voicetv.jpg",
+						"tvg": "VOICE TV 21",
+						"type": "video",
+						"id": "11479"
+					},
+					{
+						"group": "11472",
+						"name": "sabaidee",
+						"url": "http://stream.rs.co.th/sbd-hi/index.m3u8|X-Forwarded-For=110.170.117.3",
+						"image": "http://www.sabaideetv.com/images/logo.jpg",
+						"tvg": "sabaidee",
+						"type": "video",
+						"id": "11893"
+					},
+					{
+						"group": "11472",
+						"name": "CH7",
+						"url": "http://edge160.bugaboo.tv/liveedgech7_partner/_definst_/smil:auto.smil/playlist.m3u8|X-Forwarded-For=110.170.117.3",
+						"image": "",
+						"tvg": "CH7",
+						"type": "video",
+						"id": "11526"
+					},
+					{
+						"group": "11472",
+						"name": "youchannel",
+						"url": "http://stream.rs.co.th/you-hi/index.m3u8|X-Forwarded-For=110.170.117.3",
+						"image": "http://www.onlinethailand.net/tv_online/images/you-channel.jpg",
+						"tvg": "youchannel",
+						"type": "video",
+						"id": "11518"
+					},
+					{
+						"group": "11472",
+						"name": "blue sky news",
+						"url": "http://live.blueskychannel.tv:1935/bluesky_live/myStream/playlist.m3u8",
+						"image": "http://www.lyngsat-logo.com/hires/bb/blue_sky_channel.png",
+						"tvg": "blue sky news",
+						"type": "video",
+						"id": "11567"
+					},
+					{
+						"group": "11472",
+						"name": "channel 13",
+						"url": "http://stream.13livetv.com:1935/live/13livetv/playlist.m3u8",
+						"image": "http://www.thaitvonline.tv/wp-content/uploads/2010/03/13-Siamthai.jpg",
+						"tvg": "channel 13",
+						"type": "video",
+						"id": "11525"
+					},
+					{
+						"group": "11472",
+						"name": "M channel",
+						"url": "http://210.1.61.120:1935/tdlive/tdlivest/playlist.m3u8",
+						"image": "http://www.onlinethailand.net/tv_online/images/m-channel.jpg",
+						"tvg": "M channel",
+						"type": "video",
+						"id": "11528"
+					},
+					{
+						"group": "11472",
+						"name": "fan TV",
+						"url": "rtmp://202.43.34.234/FAN/ playpath=s1 swfUrl=http://www.stat.or.th/v3/jwplayer6/jwplayer.flash.swf pageUrl=http://www.stat.or.th/v3/flash.php?ch=FAN",
+						"image": "",
+						"tvg": "fan TV",
+						"type": "ignore",
+						"id": "10546"
+					},
+					{
+						"group": "11472",
+						"name": "thaichaiyotv",
+						"url": "rtmp://live.thaichaiyotv.co.th:1935/thaichaiyotv/live",
+						"image": "http://www.onlinethailand.net/tv_online/images/thaichaiyo.jpg",
+						"tvg": "thaichaiyotv",
+						"type": "ignore",
+						"id": "11565"
+					},
+					{
+						"group": "11472",
+						"name": "Hi-Sport",
+						"url": "http://203.154.243.88:1935/live/hisport.stream/playlist.m3u8",
+						"image": "http://www.onlinethailand.net/tv_online/images/hi-sport.jpg",
+						"tvg": "Hi-Sport",
+						"type": "ignore",
+						"id": "11563"
+					},
+					{
+						"group": "11472",
+						"name": "DDTV",
+						"url": "http://203.156.63.20:1935/live/ddtv/playlist.m3u8",
+						"image": "http://www.digitalinsider.co.th/Apps/TT/Images/ddtv.png",
+						"tvg": "DDTV",
+						"type": "video",
+						"id": "12332"
+					},
+					{
+						"group": "11472",
+						"name": "JCTV",
+						"url": "rtmp://vodjctv.aitstreaming.com:1935/live/live2",
+						"image": "",
+						"tvg": "JCTV",
+						"type": "video",
+						"id": "12481"
+					},
+					{
+						"group": "11472",
+						"name": "Cable TV",
+						"url": "http://202.173.216.8:1935/live/ch8/playlist.m3u8",
+						"image": "http://www.digitalinsider.co.th/Apps/TT/Images/cabletv.png",
+						"tvg": "Cable TV",
+						"type": "video",
+						"id": "11920"
+					},
+					{
+						"group": "11472",
+						"name": "ETV",
+						"url": "http://61.19.244.112:1935/live/livestream/playlist.m3u8",
+						"image": "http://www.digitalinsider.co.th/Apps/TT/Images/etv.png",
+						"tvg": "ETV",
+						"type": "ignore",
+						"id": "11577"
+					},
+					{
+						"group": "11472",
+						"name": "SPEED",
+						"url": "https://www.youtube.com/watch?v=Rre_-hDrjX0&mode=3",
+						"image": "",
+						"tvg": "SPEED",
+						"type": "video",
+						"id": "11578"
+					}
+				],
+				"type": "playlist",
+				"id": "11472"
+			},
+			{
+				"group": "10556",
+				"name": "Romania - רומניה",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "10757",
+						"name": "REALITATEA TV",
+						"url": "http://realitatea.m247.ro/hls/live.m3u8",
+						"image": "",
+						"tvg": "REALITATEA TV",
+						"type": "video",
+						"id": "11964"
+					},
+					{
+						"group": "10757",
+						"name": "digi24",
+						"url": "http://81.196.0.126/digi24edge/smil:digi24.smil/playlist.m3u8",
+						"image": "",
+						"tvg": "digi24",
+						"type": "video",
+						"id": "11965"
+					},
+					{
+						"group": "10757",
+						"name": "banat",
+						"url": "http://81.18.66.155:1935/live/banat-tv/playlist.m3u8",
+						"image": "",
+						"tvg": "banat",
+						"type": "video",
+						"id": "11966"
+					},
+					{
+						"group": "10757",
+						"name": "iasi tv life",
+						"url": "http://webmobile.xdev.ro:81/tv24/playlist.m3u8",
+						"image": "",
+						"tvg": "iasi tv life",
+						"type": "video",
+						"id": "11967"
+					},
+					{
+						"group": "10757",
+						"name": "plus_tv_suceava",
+						"url": "http://85.186.146.34:8080",
+						"image": "",
+						"tvg": "plus_tv_suceava",
+						"type": "video",
+						"id": "11969"
+					},
+					{
+						"group": "10757",
+						"name": "telem_neamt",
+						"url": "http://telem.ambra.ro",
+						"image": "",
+						"tvg": "telem_neamt",
+						"type": "video",
+						"id": "11970"
+					},
+					{
+						"group": "10757",
+						"name": "tvm_piatra_neamt",
+						"url": "http://tvm.ambra.ro/",
+						"image": "",
+						"tvg": "tvm_piatra_neamt",
+						"type": "video",
+						"id": "11971"
+					},
+					{
+						"group": "10757",
+						"name": "utv",
+						"url": "rtmp://82.76.40.76:80/utvedge/ playpath=utvlive swfUrl=http://www.utv.ro/player/jwplayer/jwplayer.flash.swf pageUrl=http://www.utv.ro/live/",
+						"image": "",
+						"tvg": "utv",
+						"type": "video",
+						"id": "11972"
+					},
+					{
+						"group": "10757",
+						"name": "protv news",
+						"url": "http://185.133.64.237/news/stream:1.stream/chunklist_w1324413730.m3u8",
+						"image": "",
+						"tvg": "protv news",
+						"type": "video",
+						"id": "11973"
+					},
+					{
+						"group": "10757",
+						"name": "6tv",
+						"url": "rtmp://rtmp2.chrominance.ro/enescu/ playpath=encoder1 swfUrl=http://www.chrominance.ro/enescu/jwplayer/jwplayer.flash.swf pageUrl=http://www.chrominance.ro/enescu/",
+						"image": "",
+						"tvg": "6tv",
+						"type": "video",
+						"id": "11975"
+					},
+					{
+						"group": "10757",
+						"name": "dartv",
+						"url": "http://89.45.164.235:8042/stream.flv",
+						"image": "",
+						"tvg": "dartv",
+						"type": "video",
+						"id": "11976"
+					},
+					{
+						"group": "10757",
+						"name": "tvr international",
+						"url": "live-tvr-international?mode=14",
+						"image": "",
+						"tvg": "tvr international",
+						"type": "video",
+						"id": "11978"
+					},
+					{
+						"group": "10757",
+						"name": "RTV",
+						"url": "http://91.232.210.203:8020/rtv.flv?file=rtv.flv&start=0",
+						"image": "",
+						"tvg": "RTV",
+						"type": "video",
+						"id": "11990"
+					},
+					{
+						"group": "10757",
+						"name": "SPERANTA TV",
+						"url": "http://play.crestin.tv/content/channel/sperantatv/live/sperantatv.player.m3u8",
+						"image": "",
+						"tvg": "SPERANTA TV",
+						"type": "video",
+						"id": "11991"
+					},
+					{
+						"group": "10757",
+						"name": "KIT TV - BACAU",
+						"url": "http://webmobile.xdev.ro:81/tv9/playlist.m3u8",
+						"image": "",
+						"tvg": "KIT TV - BACAU",
+						"type": "video",
+						"id": "11994"
+					},
+					{
+						"group": "10757",
+						"name": "PrahovaTv",
+						"url": "http://89.45.186.26:1935/live/prahovatv/playlist.m3u8",
+						"image": "",
+						"tvg": "PrahovaTv",
+						"type": "video",
+						"id": "12603"
+					},
+					{
+						"group": "10757",
+						"name": "PloiestiTv",
+						"url": "http://nginx.arya.ro:8080/hls/ptvmobil.m3u8",
+						"image": "",
+						"tvg": "PloiestiTv",
+						"type": "video",
+						"id": "12604"
+					}
+				],
+				"type": "playlist",
+				"id": "10757"
+			},
+			{
+				"group": "10556",
+				"name": "Hungary - הונגריה",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "10709",
+						"name": "Duna World",
+						"url": "duna-world-elo?mode=36",
+						"image": "",
+						"tvg": "Duna World",
+						"type": "video",
+						"id": "12655"
+					},
+					{
+						"group": "10709",
+						"name": "Duna",
+						"url": "duna-elo?mode=36",
+						"image": "",
+						"tvg": "Duna",
+						"type": "video",
+						"id": "12656"
+					},
+					{
+						"group": "10709",
+						"name": "M1",
+						"url": "mtv1-elo?mode=36",
+						"image": "",
+						"tvg": "M1",
+						"type": "video",
+						"id": "12657"
+					},
+					{
+						"group": "10709",
+						"name": "M2",
+						"url": "mtv2-elo?mode=36",
+						"image": "",
+						"tvg": "M2",
+						"type": "video",
+						"id": "12658"
+					},
+					{
+						"group": "10709",
+						"name": "M4 Sport",
+						"url": "mtv4-elo?mode=36",
+						"image": "",
+						"tvg": "M4 Sport",
+						"type": "video",
+						"id": "12659"
+					},
+					{
+						"group": "10709",
+						"name": "M5",
+						"url": "mtv5-elo?mode=36",
+						"image": "",
+						"tvg": "M5",
+						"type": "video",
+						"id": "11999"
+					},
+					{
+						"group": "10709",
+						"name": "FixHD",
+						"url": "rtmp://video.fixhd.tv/fix/hd.stream",
+						"image": "",
+						"tvg": "FixHD",
+						"type": "video",
+						"id": "11998"
+					},
+					{
+						"group": "10709",
+						"name": "Konyha TV",
+						"url": "rtmpt://91.82.85.44:1935/live playpath=konyhatv swfUrl=http://wdsonline.gdsinfo.com/itplayer/player.swf pageUrl=http://wdsonline.gdsinfo.com/itplayer/konyhatv_inc.php",
+						"image": "",
+						"tvg": "Konyha TV",
+						"type": "video",
+						"id": "11997"
+					},
+					{
+						"group": "10709",
+						"name": "ATV",
+						"url": "rtmp://nodes.stream.atv.hu/atvliveedge/_definst_/atvstream_2_aac",
+						"image": "",
+						"tvg": "ATV",
+						"type": "video",
+						"id": "12507"
+					},
+					{
+						"group": "10709",
+						"name": "hir TV",
+						"url": "http://streamserver.mno.netrix.hu/delayed.php.m3u8",
+						"image": "",
+						"tvg": "hir TV",
+						"type": "video",
+						"id": "12508"
+					},
+					{
+						"group": "10709",
+						"name": "BPTV",
+						"url": "http://cloudfront44.lexanetwork.com:1935/relay20/bptv.sdp/playlist.m3u8",
+						"image": "",
+						"tvg": "BPTV",
+						"type": "video",
+						"id": "12509"
+					},
+					{
+						"group": "10709",
+						"name": "Fehervar TV",
+						"url": "rtmp://91.82.85.71:1935/liverelay/fehervartv.sdp",
+						"image": "",
+						"tvg": "Fehervar TV",
+						"type": "video",
+						"id": "12510"
+					}
+				],
+				"type": "playlist",
+				"id": "10709"
+			},
+			{
+				"group": "10556",
+				"name": "Turkey - טורקיה",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "11150",
+						"name": "TRT1HD",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRT1HD_1@181842/master.m3u8",
+						"image": "http://4.bp.blogspot.com/-iiA6Z09bFFw/UXj30M6nc0I/AAAAAAAAga0/lA-dDC60EW4/s1600/trt-1-izle.png",
+						"tvg": "TRT1HD",
+						"type": "video",
+						"id": "11181"
+					},
+					{
+						"group": "11150",
+						"name": "TRT WORLD",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTWORLD_1@321783/master.m3u8",
+						"image": "",
+						"tvg": "TRT WORLD",
+						"type": "video",
+						"id": "11187"
+					},
+					{
+						"group": "11150",
+						"name": "TRT Haber",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTHABERHD_1@181942/master.m3u8",
+						"image": "http://www.haberyurdum.com/images/editor/images/trt-haber.png",
+						"tvg": "TRT Haber",
+						"type": "video",
+						"id": "11640"
+					},
+					{
+						"group": "11150",
+						"name": "TRT Spor",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTSPOR1_1@182042/master.m3u8",
+						"image": "http://www.zonguldak.net/wp-content/uploads/2013/11/trtspr.png",
+						"tvg": "TRT Spor",
+						"type": "video",
+						"id": "11641"
+					},
+					{
+						"group": "11150",
+						"name": "TRT AVAZ",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTAVAZ_1@182244/master.m3u8",
+						"image": "",
+						"tvg": "TRT AVAZ",
+						"type": "video",
+						"id": "11644"
+					},
+					{
+						"group": "11150",
+						"name": "TRT Cocuk",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTCOCUK_1@181844/master.m3u8",
+						"image": "http://upload.wikimedia.org/wikipedia/en/d/de/Trt_cocuk.png",
+						"tvg": "TRT Cocuk",
+						"type": "video",
+						"id": "11642"
+					},
+					{
+						"group": "11150",
+						"name": "TRT Belgesel",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTBELGESEL_1@182145/master.m3u8",
+						"image": "",
+						"tvg": "TRT Belgesel",
+						"type": "video",
+						"id": "11647"
+					},
+					{
+						"group": "11150",
+						"name": "TRT Music",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTMUZIK_1@181845/master.m3u8",
+						"image": "http://www.etvizle.net/trt-muzik.jpg",
+						"tvg": "TRT Music",
+						"type": "video",
+						"id": "11649"
+					},
+					{
+						"group": "11150",
+						"name": "TRT ARAPCA",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTARAPCA_1@181945/master.m3u8",
+						"image": "",
+						"tvg": "TRT ARAPCA",
+						"type": "video",
+						"id": "11650"
+					},
+					{
+						"group": "11150",
+						"name": "TRT Diyanet",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTDIYANET_1@182344/master.m3u8",
+						"image": "",
+						"tvg": "TRT Diyanet",
+						"type": "video",
+						"id": "11645"
+					},
+					{
+						"group": "11150",
+						"name": "TRT Turk",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTTURK_1@182144/master.m3u8",
+						"image": "",
+						"tvg": "TRT Turk",
+						"type": "video",
+						"id": "11643"
+					},
+					{
+						"group": "11150",
+						"name": "TRT 6",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRT6_1@181944/master.m3u8",
+						"image": "",
+						"tvg": "TRT 6",
+						"type": "video",
+						"id": "11646"
+					},
+					{
+						"group": "11150",
+						"name": "TRT Okul",
+						"url": "http://trtcanlitv-lh.akamaihd.net/i/TRTOKUL_1@182245/master.m3u8",
+						"image": "",
+						"tvg": "TRT Okul",
+						"type": "video",
+						"id": "11648"
+					},
+					{
+						"group": "11150",
+						"name": "TRT3-TBMM TV",
+						"url": "http://mecliscanlitv-lh.akamaihd.net/i/MECLISTV_1@127503/master.m3u8",
+						"image": "",
+						"tvg": "TRT3-TBMM TV",
+						"type": "video",
+						"id": "11182"
+					},
+					{
+						"group": "11150",
+						"name": "FOX HD",
+						"url": "http://foxtv-i.mncdn.com/foxtv/foxtv3/chunklist_w2083793909.m3u8",
+						"image": "",
+						"tvg": "FOX HD",
+						"type": "video",
+						"id": "11185"
+					},
+					{
+						"group": "11150",
+						"name": "SKY 360",
+						"url": "http://mn-l.mncdn.com/360tv_live/smil:360tv.smil/playlist.m3u8",
+						"image": "",
+						"tvg": "SKY 360",
+						"type": "video",
+						"id": "11184"
+					},
+					{
+						"group": "11150",
+						"name": "24 TV",
+						"url": "http://mn-l.mncdn.com/kanal24/kanal243/playlist.m3u8",
+						"image": "",
+						"tvg": "24 TV",
+						"type": "video",
+						"id": "11191"
+					},
+					{
+						"group": "11150",
+						"name": "HABER TURK",
+						"url": "http://mn-l.mncdn.com/haberturk/haberturk2/playlist.m3u8",
+						"image": "",
+						"tvg": "HABER TURK",
+						"type": "video",
+						"id": "11194"
+					},
+					{
+						"group": "11150",
+						"name": "SHOW MAX",
+						"url": "http://mn-l.mncdn.com:1935/showmax/showmax2/master.m3u8",
+						"image": "",
+						"tvg": "SHOW MAX",
+						"type": "video",
+						"id": "12020"
+					},
+					{
+						"group": "11150",
+						"name": "bloomberg ht",
+						"url": "http://mn-i.mncdn.com/bloomberght_ios/smil:bloomberght.smil/chunklist_w668226506_b848000.m3u8",
+						"image": "",
+						"tvg": "bloomberg ht",
+						"type": "video",
+						"id": "11186"
+					},
+					{
+						"group": "11150",
+						"name": "TV4",
+						"url": "http://mn-l.mncdn.com:1935/r_karamel/karamel/master.m3u8",
+						"image": "",
+						"tvg": "TV4",
+						"type": "video",
+						"id": "12021"
+					},
+					{
+						"group": "11150",
+						"name": "AN TV",
+						"url": "http://broadcasttr.com:1935/birantv/bant1/playlist.m3u8",
+						"image": "",
+						"tvg": "AN TV",
+						"type": "video",
+						"id": "11651"
+					}
+				],
+				"type": "playlist",
+				"id": "11150"
+			},
+			{
+				"group": "10556",
+				"name": "Russia - רוסיה",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "10763",
+						"name": "Россия 24",
+						"url": "3?mode=51",
+						"image": "http://toplogos.ru/images/logo-rossiya-24.png",
+						"tvg": "Россия 24",
+						"type": "video",
+						"id": "10711"
+					},
+					{
+						"group": "10763",
+						"name": "Россия 24",
+						"url": "https://www.youtube.com/watch?v=K59KKnIbIaM?mode=3",
+						"image": "http://toplogos.ru/images/logo-rossiya-24.png",
+						"tvg": "Россия 24",
+						"type": "video",
+						"id": "12190"
+					},
+					{
+						"group": "10763",
+						"name": "Россия 1",
+						"url": "1?mode=51",
+						"image": "http://toplogos.ru/images/logo-rossiya-1.png",
+						"tvg": "Россия 1",
+						"type": "video",
+						"id": "12154"
+					},
+					{
+						"group": "10763",
+						"name": "Россия 1 HD",
+						"url": "86?mode=51",
+						"image": "",
+						"tvg": "Россия 1 HD",
+						"type": "video",
+						"id": "12173"
+					},
+					{
+						"group": "10763",
+						"name": "Planeta K",
+						"url": "4?mode=51",
+						"image": "",
+						"tvg": "Planeta K",
+						"type": "video",
+						"id": "10773"
+					},
+					{
+						"group": "10763",
+						"name": "Planeta RTR",
+						"url": "82?mode=51",
+						"image": "http://live.russia.tv/i/logo/ch-logo-82.png",
+						"tvg": "Planeta RTR",
+						"type": "video",
+						"id": "12122"
+					},
+					{
+						"group": "10763",
+						"name": "M24",
+						"url": "76?mode=51",
+						"image": "http://www.m24.ru/img4/logo.png",
+						"tvg": "M24",
+						"type": "video",
+						"id": "12213"
+					},
+					{
+						"group": "10763",
+						"name": "Пятый канал",
+						"url": "https://www.youtube.com/watch?v=rcfor-cloxY?mode=3",
+						"image": "",
+						"tvg": "Пятый канал",
+						"type": "video",
+						"id": "12187"
+					},
+					{
+						"group": "10763",
+						"name": "РЕН ТВ",
+						"url": "https://www.youtube.com/watch?v=jKKKZVjha74?mode=3",
+						"image": "",
+						"tvg": "РЕН ТВ",
+						"type": "video",
+						"id": "10774"
+					},
+					{
+						"group": "10763",
+						"name": "ОАО Телекомпания НТВ",
+						"url": "1?mode=52",
+						"image": "",
+						"tvg": "ОАО Телекомпания НТВ",
+						"type": "video",
+						"id": "10764"
+					},
+					{
+						"group": "10763",
+						"name": "Общественное телевидение России",
+						"url": "1?mode=53",
+						"image": "",
+						"tvg": "Общественное телевидение России",
+						"type": "video",
+						"id": "10765"
+					},
+					{
+						"group": "10763",
+						"name": "MIR",
+						"url": "http://mirtv.cdnvideo.ru/mirtv-paramlive/mirtv_mobil/playlist.m3u8",
+						"image": "",
+						"tvg": "MIR",
+						"type": "video",
+						"id": "12123"
+					},
+					{
+						"group": "10763",
+						"name": "РБК",
+						"url": "http://e4.online.video.rbc.ru/online2/rbctv_480p/index.m3u8",
+						"image": "http://toplogos.ru/images/logo-rbc.png",
+						"tvg": "РБК",
+						"type": "video",
+						"id": "10304"
+					},
+					{
+						"group": "10763",
+						"name": "ТВ Центр",
+						"url": "rtmp://tvc.cdnvideo.ru/tvc-p212 playpath=rtmp_p11_sq swfUrl=http://cdn.tvc.ru/flash/livetvc.swf?v=90 pageUrl=http://www.tvc.ru/channel/onairiframe",
+						"image": "http://thewatchtv.com/wp-content/uploads/2013/05/Watch-TVC-Moscow-Live-TV-from-Russia.jpg",
+						"tvg": "ТВ Центр",
+						"type": "video",
+						"id": "12148"
+					}
+				],
+				"type": "playlist",
+				"id": "10763"
+			},
+			{
+				"group": "10556",
+				"name": "Spain - ספרד",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "10938",
+						"name": "LA1",
+						"url": "http://rtvev4-live.hss.adaptive.level3.net/egress/ahandler/rtvegl7/la1_lv3_aosv4_gl7/la1_lv3_aosv4_gl7.isml/la1_lv3_aosv4_gl7.m3u8",
+						"image": "",
+						"tvg": "LA1",
+						"type": "video",
+						"id": "10958"
+					},
+					{
+						"group": "10938",
+						"name": "LA2",
+						"url": "http://rtvev4-live.hss.adaptive.level3.net/egress/ahandler/rtvegl0/la2_lv3_aosv4_gl0/la2_lv3_aosv4_gl0.isml/la2_lv3_aosv4_gl0.m3u8",
+						"image": "",
+						"tvg": "LA2",
+						"type": "video",
+						"id": "10959"
+					},
+					{
+						"group": "10938",
+						"name": "24h",
+						"url": "http://hlsliveamdgl8-lh.akamaihd.net/i/hlsdvrlive_1@583030/master.m3u8",
+						"image": "http://static.filmon.com/couch/channels/2777/extra_big_logo.png",
+						"tvg": "24h",
+						"type": "video",
+						"id": "10951"
+					},
+					{
+						"group": "10938",
+						"name": "Hispan TV",
+						"url": "http://178.32.255.199:1935/live/hispantv/playlist.m3u8",
+						"image": "http://static.filmon.com/couch/channels/1997/extra_big_logo.png",
+						"tvg": "Hispan TV",
+						"type": "video",
+						"id": "10948"
+					},
+					{
+						"group": "10938",
+						"name": "NEOX",
+						"url": "http://a3live-lh.akamaihd.net/i/nxhls/geoneox_1@35261/index_4_av-b.m3u8?sd=10&rebase=on||X-Forwarded-For=194.224.72.187",
+						"image": "http://www.tavo.es/studio/wp-content/uploads/vector__0004_Group-1.jpg",
+						"tvg": "NEOX",
+						"type": "video",
+						"id": "10949"
+					},
+					{
+						"group": "10938",
+						"name": "NOVA",
+						"url": "Http://a3live-lh.akamaihd.net/i/nvhds/geonova_1@379404/index_4_av-p.m3u8",
+						"image": "",
+						"tvg": "NOVA",
+						"type": "video",
+						"id": "10953"
+					},
+					{
+						"group": "10938",
+						"name": "Huesca Television",
+						"url": "rtmp://streaming2.radiohuesca.com/live swfUrl=http://www.radiohuesca.com/swf/JWPlayer/player.swf pageUrl=http://www.radiohuesca.com/directo-htv playpath=huescatv live=true",
+						"image": "",
+						"tvg": "Huesca Television",
+						"type": "video",
+						"id": "10955"
+					},
+					{
+						"group": "10938",
+						"name": "RTPA",
+						"url": "http://iphone.rtpa.stream.flumotion.com/rtpa/tv-iphone-multi/main.m3u8",
+						"image": "http://1.bp.blogspot.com/_65hJ08LWbYo/S_qxLqe2IaI/AAAAAAAAAQU/9pHTMkIgT-4/s320/tpa%5B1%5D.jpg",
+						"tvg": "RTPA",
+						"type": "video",
+						"id": "10956"
+					},
+					{
+						"group": "10938",
+						"name": "tv3",
+						"url": "http://ccma-tva-int-abertis-live.hls.adaptive.level3.net/int/ngrp:tv3_web/playlist.m3u8",
+						"image": "",
+						"tvg": "tv3",
+						"type": "video",
+						"id": "10961"
+					},
+					{
+						"group": "10938",
+						"name": "3/24",
+						"url": "http://ccma-tva-int-abertis-live.hls.adaptive.level3.net/int/ngrp:324_web/playlist.m3u8",
+						"image": "",
+						"tvg": "3/24",
+						"type": "video",
+						"id": "11032"
+					},
+					{
+						"group": "10938",
+						"name": "Esport3",
+						"url": "http://ccma-tva-int-abertis-live.hls.adaptive.level3.net/int/ngrp:es3_web/playlist.m3u8",
+						"image": "",
+						"tvg": "Esport3",
+						"type": "video",
+						"id": "11033"
+					},
+					{
+						"group": "10938",
+						"name": "TV Galicia",
+						"url": "http://media3.crtvg.es/live/tvga/chunklist.m3u8",
+						"image": "",
+						"tvg": "TV Galicia",
+						"type": "video",
+						"id": "10963"
+					},
+					{
+						"group": "10938",
+						"name": "Antena 3",
+						"url": "http://a3live-lh.akamaihd.net/i/antena3_1@35248/index_4_av-b.m3u8",
+						"image": "",
+						"tvg": "Antena 3",
+						"type": "video",
+						"id": "10966"
+					},
+					{
+						"group": "10938",
+						"name": "lasexta",
+						"url": "http://a3live-lh.akamaihd.net/i/lasexta_1@35272/index_4_av-b.m3u8",
+						"image": "",
+						"tvg": "lasexta",
+						"type": "video",
+						"id": "10970"
+					},
+					{
+						"group": "10938",
+						"name": "Real Madrid",
+						"url": "http://rmtvlive-lh.akamaihd.net/i/rmtv_1@154306/index_1000_av-b.m3u8",
+						"image": "",
+						"tvg": "Real Madrid",
+						"type": "video",
+						"id": "10974"
+					},
+					{
+						"group": "10938",
+						"name": "ATRESERIES",
+						"url": "http://a3live-lh.akamaihd.net/i/a3shds/geoa3series_1@122775/index_4_av-b.m3u8?sd=10&rebase=on||X-Forwarded-For=194.224.72.187",
+						"image": "",
+						"tvg": "ATRESERIES",
+						"type": "video",
+						"id": "10984"
+					},
+					{
+						"group": "10938",
+						"name": "La Otra",
+						"url": "http://laotrahls-live.hls.adaptive.level3.net/telemadrid/laotra1/index.m3u8",
+						"image": "",
+						"tvg": "La Otra",
+						"type": "video",
+						"id": "10993"
+					},
+					{
+						"group": "10938",
+						"name": "TV Extremadura",
+						"url": "http://hlstv.canalextremadura.es/livetv/smil:multistream.smil/chunklist_b264000_DVR.m3u8",
+						"image": "",
+						"tvg": "TV Extremadura",
+						"type": "video",
+						"id": "11021"
+					},
+					{
+						"group": "10938",
+						"name": "tvge",
+						"url": "rtmp://media3.crtvg.es:80/live playpath=tvge_2 swfUrl=http://www.crtvg.es/flow3/flowplayer.commercial.swf pageUrl=http://www.crtvg.es/tvg/tvg-en-directo",
+						"image": "",
+						"tvg": "tvge",
+						"type": "video",
+						"id": "11039"
+					},
+					{
+						"group": "10938",
+						"name": "TeleMadrid",
+						"url": "http://telemadridhls-live.hls.adaptive.level3.net/telemadrid/telemadrid1/bitrate_1.m3u8",
+						"image": "http://images.gofreedownload.net/telemadrid-85154.jpg",
+						"tvg": "TeleMadrid",
+						"type": "video",
+						"id": "11040"
+					},
+					{
+						"group": "10938",
+						"name": "MEGA",
+						"url": "http://a3live-lh.akamaihd.net/i/mega/geomega_1@328914/index_4_av-p.m3u8",
+						"image": "",
+						"tvg": "MEGA",
+						"type": "video",
+						"id": "12217"
+					},
+					{
+						"group": "10938",
+						"name": "andalucia",
+						"url": "http://iphone-andaluciatelevision.rtva.stream.flumotion.com/rtva/andaluciatelevision-iphone-multi/main.m3u8",
+						"image": "",
+						"tvg": "andalucia",
+						"type": "video",
+						"id": "11498"
+					},
+					{
+						"group": "10938",
+						"name": "C7 MURCIA",
+						"url": "http://hls0.80670-live0.dna.qbrick.com/80670-live0/murciatv/playlist.m3u8",
+						"image": "",
+						"tvg": "C7 MURCIA",
+						"type": "video",
+						"id": "12169"
+					},
+					{
+						"group": "10938",
+						"name": "TDN UNIVISION",
+						"url": "http://stdephds-lh.akamaihd.net/i/ad3pst02hds_1@335205/index_1048_av-b.m3u8?sd=10&rebase=on",
+						"image": "",
+						"tvg": "TDN UNIVISION",
+						"type": "video",
+						"id": "12609"
+					}
+				],
+				"type": "playlist",
+				"id": "10938"
+			},
+			{
+				"group": "10556",
+				"name": "Argentina - ארגנטינה",
+				"url": "",
+				"image": "",
+				"list": [{
+						"group": "10557",
+						"name": "TV Pública",
+						"url": "http://prepublish.f.qaotic.net/a06/ngrp:c7live02Internacional-20034_all/Playlist.m3u8|Referer=http://vmf.edge-apps.net&amp;User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:49.0) Gecko/20100101 Firefox/49.0&amp;origin=http://vmf.edge-apps.net&amp;Connection=keep-alive&amp;X-Forwarded-For=200.42.143.60",
+						"image": "http://static-cdn2.ustream.tv/i/channel/picture/2/0/8/0/2080123/2080123_275_logomedio_12599415,192x192,r:1.jpg",
+						"tvg": "TV Pública",
+						"type": "video",
+						"id": "12660"
+					},
+					{
+						"group": "10557",
+						"name": "Paka Paka",
+						"url": "http://lsdencuentrohls-lh.akamaihd.net/i/PKPKHLS_1@198010/master.m3u8",
+						"image": "",
+						"tvg": "Paka Paka",
+						"type": "video",
+						"id": "10551"
+					},
+					{
+						"group": "10557",
+						"name": "One TV",
+						"url": "http://server5.stweb.tv/radioone/live/playlist.m3u8",
+						"image": "",
+						"tvg": "One TV",
+						"type": "video",
+						"id": "12189"
+					},
+					{
+						"group": "10557",
+						"name": "Canal Rural",
+						"url": "rtsp://streamrural.cmd.com.ar:554/liverural/crural/rural1",
+						"image": "",
+						"tvg": "Canal Rural",
+						"type": "video",
+						"id": "10558"
+					},
+					{
+						"group": "10557",
+						"name": "DxTV",
+						"url": "http://186.33.227.199/DXTV/smil:DXTV.smil/chunklist_w788509661_b800000_slesp.m3u8",
+						"image": "",
+						"tvg": "DxTV",
+						"type": "video",
+						"id": "12089"
+					},
+					{
+						"group": "10557",
+						"name": "C5N",
+						"url": "https://www.youtube.com/watch?v=fJUi-0L_8ZY?mode=3",
+						"image": "http://www.buenosaires54.com/images/c5n1.jpg",
+						"tvg": "C5N",
+						"type": "video",
+						"id": "10562"
+					},
+					{
+						"group": "10557",
+						"name": "Canal 4 (Misiones)",
+						"url": "rtmp://184.154.28.210:1935/canal4/canal4",
+						"image": "",
+						"tvg": "Canal 4 (Misiones)",
+						"type": "video",
+						"id": "10565"
+					},
+					{
+						"group": "10557",
+						"name": "DTV Diputados",
+						"url": "http://lsdhcdnhls-lh.akamaihd.net/i/hcdnarsatHLS_2@301805/master.m3u8",
+						"image": "",
+						"tvg": "DTV Diputados",
+						"type": "video",
+						"id": "10567"
+					},
+					{
+						"group": "10557",
+						"name": "TVP",
+						"url": "http://prepublish.f.qaotic.net/a02/ngrp:c7live01-20034_all/Playlist.m3u8|Referer=http://vmf.edge-apps.net&amp;User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:49.0) Gecko/20100101 Firefox/49.0&amp;origin=http://vmf.edge-apps.net&amp;Connection=keep-alive&amp;X-Forwarded-For=200.42.143.60",
+						"image": "",
+						"tvg": "TVP",
+						"type": "video",
+						"id": "10568"
+					},
+					{
+						"group": "10557",
+						"name": "el 13",
+						"url": "http://prepublish.f.qaotic.net/a03/ngrp:el13_live01-100083_all/Playlist.m3u8|Referer=http://vmf.edge-apps.net&amp;User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:49.0) Gecko/20100101 Firefox/49.0&amp;origin=http://vmf.edge-apps.net&amp;Connection=keep-alive&amp;X-Forwarded-For=200.42.143.60",
+						"image": "",
+						"tvg": "el 13",
+						"type": "video",
+						"id": "10570"
+					},
+					{
+						"group": "10557",
+						"name": "AMERICA 24",
+						"url": "http://prepublish.f.qaotic.net/epa/ngrp:americatvlive-100056_all/Playlist.m3u8|Referer=http://vmf.edge-apps.net&amp;User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:49.0) Gecko/20100101 Firefox/49.0&amp;origin=http://vmf.edge-apps.net&amp;Connection=keep-alive&amp;X-Forwarded-For=200.42.143.60",
+						"image": "http://3.bp.blogspot.com/-NesnOUZT0zY/Umg0HN_TZWI/AAAAAAAAaks/cDTGVN7fbM0/s76/a24-america-24.PNG",
+						"tvg": "AMERICA 24",
+						"type": "video",
+						"id": "12607"
+					},
+					{
+						"group": "10557",
+						"name": "Canal 26",
+						"url": "http://live-edge01.telecentro.net.ar/live/smil:c26.smil/chunklist_w312671014_b1264000_sleng.m3u8",
+						"image": "",
+						"tvg": "Canal 26",
+						"type": "video",
+						"id": "10571"
+					},
+					{
+						"group": "10557",
+						"name": "TODO NOTICIAS",
+						"url": "https://www.youtube.com/watch?v=0tek2aa8hAQ?mode=3",
+						"image": "http://laalameda.files.wordpress.com/2012/02/tn.jpg",
+						"tvg": "TODO NOTICIAS",
+						"type": "video",
+						"id": "10573"
+					},
+					{
+						"group": "10557",
+						"name": "A24",
+						"url": "https://www.youtube.com/watch?v=URAMVgoXyec?mode=3",
+						"image": "",
+						"tvg": "A24",
+						"type": "video",
+						"id": "10578"
+					},
+					{
+						"group": "10557",
+						"name": "Canal 6 San Rafael",
+						"url": "https://www.youtube.com/watch?v=axnhmU97Ktg?mode=3",
+						"image": "",
+						"tvg": "Canal 6 San Rafael",
+						"type": "video",
+						"id": "11333"
+					},
+					{
+						"group": "10557",
+						"name": "Canal 7 Mendoza",
+						"url": "https://www.youtube.com/watch?v=Ck6wohdxivM?mode=3",
+						"image": "",
+						"tvg": "Canal 7 Mendoza",
+						"type": "video",
+						"id": "10584"
+					},
+					{
+						"group": "10557",
+						"name": "CANAL 13 SAN JUAN",
+						"url": "https://www.youtube.com/watch?v=0PXhBhkCKzk?mode=3",
+						"image": "",
+						"tvg": "CANAL 13 SAN JUAN",
+						"type": "video",
+						"id": "10579"
+					},
+					{
+						"group": "10557",
+						"name": "Magazine",
+						"url": "http://prepublish.f.qaotic.net/a01/ngrp:magazine_live01-100083_all/Playlist.m3u8|Referer=http://vmf.edge-apps.net&amp;User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:49.0) Gecko/20100101 Firefox/49.0&amp;origin=http://vmf.edge-apps.net&amp;Connection=keep-alive&amp;X-Forwarded-For=200.42.143.60",
+						"image": "",
+						"tvg": "Magazine",
+						"type": "video",
+						"id": "11334"
+					},
+					{
+						"group": "10557",
+						"name": "ORBE 21",
+						"url": "http://urtmpkal-f.akamaihd.net/i/1b6mj17sk_1@308700/master.m3u8",
+						"image": "",
+						"tvg": "ORBE 21",
+						"type": "video",
+						"id": "11541"
+					},
+					{
+						"group": "10557",
+						"name": "Tecnopolis",
+						"url": "http://tectvhls-lh.akamaihd.net/i/tectvHLS_1@334993/master.m3u8",
+						"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Tec.png/250px-Tec.png",
+						"tvg": "Tecnopolis",
+						"type": "video",
+						"id": "11543"
+					},
+					{
+						"group": "10557",
+						"name": "TELEMAX",
+						"url": "http://live-edge01.telecentro.net.ar/live/smil:tlx.smil/playlist.m3u8",
+						"image": "",
+						"tvg": "TELEMAX",
+						"type": "video",
+						"id": "11545"
+					},
+					{
+						"group": "10557",
+						"name": "Quiero Musica",
+						"url": "mms://200.42.92.6:1755/qmusica",
+						"image": "",
+						"tvg": "Quiero Musica",
+						"type": "video",
+						"id": "10986"
+					},
+					{
+						"group": "10557",
+						"name": "Senal Provincial",
+						"url": "http://www.trimi.com.ar/provincial/streaming/mystream.m3u8",
+						"image": "",
+						"tvg": "Senal Provincial",
+						"type": "video",
+						"id": "12608"
+					}
+				],
+				"type": "playlist",
+				"id": "10557"
+			}
+		],
+		"type": "playlist",
+		"id": "10556"
+	}
+]

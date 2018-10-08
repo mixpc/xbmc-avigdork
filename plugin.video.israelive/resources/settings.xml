@@ -2,14 +2,9 @@
 <settings>
 	<category label="30100">
 		<setting id="actCleanUpdateLists" type="action" label="30243" action="RunPlugin(plugin://plugin.video.israelive/default.py?mode=23&url=settings)" option="close"/>
-		<setting type="sep"/>
-		<setting id="israeliveAdvanced" type="bool" label="30020" default="false" />
-		<setting id="actUpdateChannels" type="action" label="30111" action="RunPlugin(plugin://plugin.video.israelive/default.py?mode=22&url=settings)" option="close" visible="eq(-1,true)"/>
-		<setting id="useEPG" type="bool" label="30106" default="true" visible="eq(-2,true)"/>
-		<setting id="actUpdateEPG" type="action" label="30107" action="RunPlugin(plugin://plugin.video.israelive/default.py?mode=20&url=settings)" option="close" visible="eq(-1,true) + eq(-3,true)"/>
-		<setting id="unverifySSL" type="bool" label="30102" default="false"  visible="eq(-4,true)"/>
-		<setting id="remoteSettingsUrl" type="text" label="30101" default="sefm0Z97eLiuvaHe2pR-sJq5r6vG,sefm0Z97eLiuvaHe2pR-sMKzoNq_,sefm0Z97eLiuvaHe2pR-sY2nkePh,sefm0Z97eLiuvaHe2pR-sLl6j6TI,sefm0Z97eLiuvaHe2pR-scGNleCl,sefm0Z97eLiuvaHe2pR-sKycveC5,sefm0Z97eLiuvaHe2pR-sY1-kNTb,sefm0Z97eLiuvaHe2pR-sb6IlOy2,sefm0Z97eLiuvaHe2pR-sLiUeerp,sefm0Z97eLiuvaHe2pR-sLl4n-O4,sefm0Z97eLiuvaHe2pR-scGResLZ,sefm0Z97eLiuvaHe2pR-sKyTkr2r,sefm0Z97eLiuvaHe2pR-sJq6rKPH,sefm0Z97eLiuvaHe2pR-sb6Toqmq,sefm0Z97eLiuvaHe2pR-scGSl9zh,sefm0Z97eLiuvaHe2pR-sYuMn765,sefm0Z97eLiuvaHe2pR-sLqwuqe7,sefm0Z97eLiuvaHe2pR-sY6se-PJ,sefm0Z97eLiuvaHe2pR-sLq9feOq,sefm0Z97eLiuvaHe2pR-sY6wsN2-,sefm0Z97eLiuvaHe2pR-sK6eeeak,sefm0Z97eLiuvaHe2pR-sLqwv764,sefm0Z97eLiuvaHe2pR-sLqxksDM,sefm0Z97eLiuvaHe2pR-sY6zfOS7,sefm0Z97eLiuvaHe2pR-sLqvgeTl,sefm0Z97eLiuvaHe2pR-sLqnv7TW,sefm0Z97eLiuvaHe2pR-scO4udq4,sefm0Z97eLiuvaHe2pR-sLqyfNy4,sefm0Z97eLiuvaHe2pR-sY61r7S3,sefm0Z97eLiuvaHe2pR-sMORjcm-,sefm0Z97eLiuvaHe2pR-sMOPgsu2,sefm0Z97eLiuvaHe2pR-sY6ulrrV,sefm0Z97eLiuvaHe2pR-sb-NvOqo,sefm0Z97eLiuvaHe2pR-sLq_squl,sefm0Z97eLiuvaHe2pR-sJu3ltzB,sefm0Z97eLiuvaHe2pR-sY60rr2q,sefm0Z97eLiuvaHe2pR-sMOWitu4,sefm0Z97eLiuvaHe2pR-sLqnvsC3,sefm0Z97eLiuvaHe2pR-sK6Ye8zi,sefm0Z97eLiuvaHe2pR-scO8r-Tc,sefm0Z97eLiuvaHe2pR-sLq2lOyl,sefm0Z97eLiuvaHe2pR-sJuvqr2l,sefm0Z97eLiuvaHe2pR-sYuRkKm-,sefm0Z97eLiuvaHe2pR-sJu1juXZ,sefm0Z97eLiuvaHe2pR-scOIetXg,sefm0Z97eLiuvaHe2pR-scO-nt29,sefm0Z97eLiuvaHe2pR-sYuKq-rE,sefm0Z97eLiuvaHe2pR-sY67vaaz,sefm0Z97eLiuvaHe2pR-sY6zs-ao,sefm0Z97eLiuvaHe2pR-sMOUgOHd,sefm0Z97eLiuvaHe2pR-scO4i8Ha,sefm0Z97eLiuvaHe2pR-scOHr9jo" visible="eq(-5,true)"/>
-		<setting id="forceRemoteDefaults" type="bool" label="30112" default="true" visible="eq(-6,true)"/>
+		<setting id="actUpdateChannels" type="action" label="30111" action="RunPlugin(plugin://plugin.video.israelive/default.py?mode=22&url=settings)" option="close" />
+		<setting id="useEPG" type="bool" label="30106" default="false" />
+		<setting id="unverifySSL" type="bool" label="30102" default="false" />
 	</category>
 	
 	<category label="30300">

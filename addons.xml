@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.israelive" name="GlobeTV" version="5.1.0" provider-name="Benny123, Avigdor">
+<addon id="plugin.video.israelive" name="GlobeTV" version="5.1.1" provider-name="Benny123, Avigdor">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="repository.xbmc-avigdork" />
 	<import addon="script.module.israeliveresolver" />
 	<import addon="script.module.six" />
   </requires>
@@ -17,9 +16,7 @@
     <description lang="en">Watch free Live TV channels from over the world.</description>
     <description lang="he">צפיה בשידורי טלויזיה חיים מהעולם.</description>
     <platform>all</platform>
-	<news>[B]v5.1.0[/B]
-- Added support for Kodi 18.
-	</news>
+	<news>[B]v5.1.1[/B][CR]- Final release. I'm quit.</news>
   </extension>
 </addon>
 
@@ -36,10 +33,9 @@
     </extension>
 </addon>
 
-<addon id="script.module.israeliveresolver" name="GlobeTVresolver" version="0.3.5" provider-name="Avigdor">
+<addon id="script.module.israeliveresolver" name="GlobeTVresolver" version="0.3.6" provider-name="Avigdor">
   <requires>
     <import addon="xbmc.python" version="2.1.0" />
-	<import addon="repository.xbmc-avigdork" />
   </requires>
   <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.python.pluginsource" library="lib/default.py" />
@@ -70,5 +66,4 @@
     <website>https://pypi.python.org/pypi/six</website>
   </extension>
 </addon>
-
 </addons>
